@@ -10,13 +10,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Independent research and advisory on AI adoption in architecture, engineering, construction and real estate. Scenario maps, tool assessments and adoption benchmarks.",
+          "Research-led AI strategy and practical implementation for architecture, engineering and construction leaders. Scenario maps, tool assessments and adoption benchmarks that hold up on real projects.",
       },
       { property: "og:title", content: "AAL Innovation — AI Adoption Research for AEC" },
       {
         property: "og:description",
         content:
-          "Scenario-based research on where AI actually works in architecture, engineering, construction and real estate.",
+          "Helping AEC leaders turn AI potential into measurable project outcomes through research-led strategy and practical implementation.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -109,17 +109,17 @@ function Index() {
         <section className="px-6 md:px-12">
           <div className="mx-auto flex max-w-4xl flex-col items-center gap-9 pt-14 pb-16 text-center md:pt-20 md:pb-24">
             <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
-              Research & advisory for the built environment
+              Research-led AI strategy for the built environment
             </p>
             <h1 className="text-[34px] leading-[1.15] font-extrabold text-primary sm:text-[44px] md:text-[56px]">
-              Evidence-led AI adoption
-              <br className="hidden sm:block" /> for the AEC industry
+              Turn AI potential into
+              <br className="hidden sm:block" /> measurable project outcomes
             </h1>
             <p className="max-w-2xl text-base leading-relaxed text-foreground md:text-lg">
-              AAL Innovation researches where artificial intelligence creates measurable value in
-              architecture, engineering, construction and real estate. Start with your role and the
-              task you need to complete, then explore the scenarios, tools and adoption evidence
-              behind each decision.
+              AAL Innovation helps architecture, engineering and construction leaders move from AI
+              experiments to confident, standards-ready adoption. We pair independent research
+              with practical implementation — scenario by scenario, tool by tool — so every
+              investment is backed by evidence that holds up on a real project.
             </p>
 
             <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4">
