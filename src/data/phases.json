@@ -1,0 +1,112 @@
+[
+  {
+    "id": "pre-design",
+    "order": 1,
+    "label": "Pre-Design & Feasibility",
+    "isDummy": true,
+    "tasks": [
+      { "id": "pre-design-placeholder", "label": "Feasibility Study Placeholder", "isDummy": true, "stakeholders": ["owner"], "scenarios": [] }
+    ]
+  },
+  {
+    "id": "schematic-design",
+    "order": 2,
+    "label": "Schematic Design",
+    "isDummy": true,
+    "tasks": [
+      { "id": "schematic-design-placeholder", "label": "Concept Design Placeholder", "isDummy": true, "stakeholders": ["architect"], "scenarios": [] }
+    ]
+  },
+  {
+    "id": "design-development",
+    "order": 3,
+    "label": "Design Development",
+    "isDummy": true,
+    "tasks": [
+      { "id": "design-development-placeholder", "label": "Design Development Placeholder", "isDummy": true, "stakeholders": ["architect", "engineer"], "scenarios": [] }
+    ]
+  },
+  {
+    "id": "construction-document",
+    "order": 4,
+    "label": "Construction Document",
+    "isDummy": false,
+    "tasks": [
+      {
+        "id": "arch-working-drawings",
+        "label": "Production of Architectural Working Drawings",
+        "stakeholders": ["architect", "draftsmen"],
+        "aiSolvability": "customized",
+        "scenarios": [
+          {
+            "id": "scenario-1",
+            "label": "Drawing Comparison & Revision Tracking",
+            "painPoint": "Data Fragmentation",
+            "stakeholders": ["architect", "draftsmen"],
+            "howAiSolves": "AI searches the firm's internal documents to instantly generate draft proposals based on past successful bids.",
+            "aiTools": ["swapp-ai"]
+          },
+          {
+            "id": "scenario-2",
+            "label": "Document Compliance Review",
+            "painPoint": "Knowledge Fragmentation",
+            "stakeholders": ["architect", "draftsmen"]
+          },
+          {
+            "id": "scenario-3",
+            "label": "Document Compliance Review",
+            "painPoint": "Knowledge Fragmentation",
+            "stakeholders": ["architect"]
+          },
+          {
+            "id": "scenario-4",
+            "label": "Drawing Comparison & Revision Tracking",
+            "painPoint": "Data Fragmentation",
+            "stakeholders": ["architect", "draftsmen"]
+          }
+        ]
+      },
+      { "id": "eng-working-drawings", "label": "Production of Engineering Working Drawings", "stakeholders": ["engineer", "structural"], "aiSolvability": "customized", "scenarios": [] },
+      { "id": "tech-specs", "label": "Drafting Technical Specifications", "stakeholders": ["architect", "engineer"], "aiSolvability": "easy", "scenarios": [] },
+      { "id": "qa-qc-check", "label": "Cross-Disciplinary QA/QC Check", "stakeholders": ["architect", "engineer", "consultant"], "aiSolvability": "not-solvable", "scenarios": [] },
+      { "id": "permit-approvals", "label": "Building Permit Submission & Approvals", "stakeholders": ["architect", "owner"], "aiSolvability": "not-solvable", "scenarios": [] },
+      { "id": "boq-prep", "label": "Preparation of the Bill of Quantities (BOQ)", "stakeholders": ["qs", "contractor"], "aiSolvability": "easy", "scenarios": [] }
+    ]
+  },
+  {
+    "id": "bidding-procurement",
+    "order": 5,
+    "label": "Bidding & Procurement",
+    "isDummy": true,
+    "tasks": [
+      { "id": "bidding-procurement-placeholder", "label": "Bid Evaluation Placeholder", "isDummy": true, "stakeholders": ["contractor", "qs"], "scenarios": [] }
+    ]
+  },
+  {
+    "id": "construction-administration",
+    "order": 6,
+    "label": "Construction & Administration",
+    "isDummy": true,
+    "tasks": [
+      { "id": "construction-administration-placeholder", "label": "Progress Monitoring Placeholder", "isDummy": true, "stakeholders": ["contractor", "pm"], "scenarios": [] }
+    ]
+  },
+  {
+    "id": "handover-commissioning",
+    "order": 7,
+    "label": "Handover & Commissioning",
+    "isDummy": true,
+    "tasks": [
+      { "id": "handover-commissioning-placeholder", "label": "Final Handover Placeholder", "isDummy": true, "stakeholders": ["owner", "pm"], "scenarios": [] }
+    ]
+  },
+  {
+    "id": "operations-maintenance",
+    "order": 8,
+    "label": "Operations & Maintenance",
+    "isDummy": true,
+    "tasks": [
+      { "id": "operations-maintenance-placeholder", "label": "Facility Management Placeholder", "isDummy": true, "stakeholders": ["facility-mgr"], "scenarios": [] }
+    ]
+  }
+]

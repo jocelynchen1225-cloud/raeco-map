@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Brand navy — from Figma spec */
+  --color-brand: #1934A0;
+  --color-ink-900: #1934A0;
+  --color-paper: #FFFFFF;
+  --color-paper-dim: #F5F5F5;
+  --color-ink: #0D0D0D;
+  --color-hairline: #D9D9D9;
+
+  /* Stakeholder color-line system, reused everywhere the map appears */
+  --color-role-owner: #7B5EEA;
+  --color-role-architect: #E8792E;
+  --color-role-engineer: #2E86E8;
+  --color-role-consultant: #2FAE6E;
+  --color-role-contractor: #E23E6B;
+  --color-role-supplier: #E8B92E;
+
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}

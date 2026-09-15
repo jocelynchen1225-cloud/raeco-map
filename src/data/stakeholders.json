@@ -1,0 +1,14 @@
+[
+  { "id": "architect",   "label": "Architect",           "category": "architect",  "icon": "ruler",     "color": "#E8792E", "tasks": 26, "painPoints": 14 },
+  { "id": "bid-manager", "label": "Bid Manager",         "category": "contractor", "icon": "hardhat",   "color": "#E23E6B", "tasks": 2,  "painPoints": 6  },
+  { "id": "draftsmen",   "label": "Draftsmen",           "category": "consultant", "icon": "pencil",    "color": "#2FAE6E", "tasks": 1,  "painPoints": 4  },
+  { "id": "facility-mgr","label": "Facility Manager",    "category": "owner",      "icon": "user",      "color": "#7B5EEA", "tasks": 9,  "painPoints": 6  },
+  { "id": "engineer",    "label": "MEP Engineer",        "category": "engineer",   "icon": "gear",      "color": "#2E86E8", "tasks": 12, "painPoints": 10 },
+  { "id": "contractor",  "label": "Main Contractor",     "category": "contractor", "icon": "hardhat",   "color": "#E23E6B", "tasks": 15, "painPoints": 12 },
+  { "id": "owner",       "label": "Owner\u00b7Developer",     "category": "owner",      "icon": "user",      "color": "#7B5EEA", "tasks": 11, "painPoints": 10 },
+  { "id": "pm",          "label": "Project Manager",     "category": "owner",      "icon": "user",      "color": "#7B5EEA", "tasks": 12, "painPoints": 10 },
+  { "id": "structural",  "label": "Structural Engineer", "category": "engineer",   "icon": "gear",      "color": "#2E86E8", "tasks": 9,  "painPoints": 8  },
+  { "id": "subcontractor","label": "Subcontractors",     "category": "contractor", "icon": "hardhat",   "color": "#E23E6B", "tasks": 4,  "painPoints": 10 },
+  { "id": "supplier",    "label": "Supplier",            "category": "supplier",   "icon": "package",   "color": "#E8B92E", "tasks": 1,  "painPoints": 2  },
+  { "id": "qs",          "label": "Quantity Surveyor",   "category": "consultant", "icon": "calculator","color": "#2FAE6E", "tasks": 10, "painPoints": 13 }
+]

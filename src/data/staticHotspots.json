@@ -1,0 +1,33 @@
+{
+  "globalMap": {
+    "image": "/metro-map-full.png",
+    "naturalWidth": 1621,
+    "naturalHeight": 970,
+    "hotspots": [
+      {
+        "id": "construction-document",
+        "shape": "circle",
+        "xPct": 73.3,
+        "yPct": 34.95,
+        "rPct": 7.4,
+        "goTo": "phaseDetail"
+      }
+    ]
+  },
+  "constructionDocumentDetail": {
+    "image": "/construction-document-detail.png",
+    "naturalWidth": 1536,
+    "naturalHeight": 1024,
+    "hotspots": [
+      {
+        "id": "arch-working-drawings",
+        "shape": "rect",
+        "xPct": 66.41,
+        "yPct": 18.07,
+        "wPct": 18.88,
+        "hPct": 9.28,
+        "goTo": "taskDetail"
+      }
+    ]
+  }
+}

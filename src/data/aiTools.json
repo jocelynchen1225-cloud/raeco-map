@@ -1,0 +1,22 @@
+[
+  {
+    "id": "swapp-ai",
+    "name": "SWAPP AI",
+    "matchScore": 3,
+    "description": "Manual comparison of drawing revisions leads to missed changes and coordination errors.",
+    "aiTechniques": ["RAG"],
+    "deploymentModel": "SaaS",
+    "keyCapability": "Multi-Version Drawing Diff",
+    "painPoints": ["Document Management"],
+    "scenarios": ["Drawing Comparison & Revision Tracking"],
+    "solutionType": "Custom Agent",
+    "task": "Drafting Technical Specifications",
+    "website": "https://swapp.ai",
+    "relatedTools": [
+      "Firmus (Acquired by Bluebeam) (2)",
+      "Firmus (Acquired by Bluebeam) (3)",
+      "Higharc",
+      "SWAPP AI (2)"
+    ]
+  }
+]
