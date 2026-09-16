@@ -153,13 +153,16 @@ function ScenarioCard({ scenario, index, onExploreScenario }) {
         </div>
       )}
 
-      <button
-        type="button"
-        onClick={() => onExploreScenario?.(scenario)}
-        className="mt-7 font-body text-[13px] font-extrabold uppercase tracking-[0.2em] text-white/95 transition hover:text-[var(--color-brand)]"
-      >
-        Explore
-      </button>
+      <div className="mt-7 flex justify-end">
+        <button
+          type="button"
+          onClick={() => onExploreScenario?.(scenario)}
+          className="group inline-flex items-center gap-2 rounded-full border border-white/80 bg-[var(--color-brand)] px-5 py-2.5 font-body text-[12px] font-extrabold uppercase tracking-[0.18em] text-white shadow-[0_14px_32px_rgba(25,52,160,0.24)] transition hover:-translate-y-0.5 hover:bg-slate-950 hover:shadow-[0_18px_38px_rgba(15,23,42,0.22)]"
+        >
+          Explore
+          <span className="text-base leading-none transition-transform group-hover:translate-x-0.5">→</span>
+        </button>
+      </div>
     </motion.article>
   );
 }

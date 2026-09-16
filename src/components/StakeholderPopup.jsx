@@ -60,18 +60,18 @@ export default function StakeholderPopup({ onSelectStakeholder, onBack }) {
       <div className="flex items-center gap-5">
         <button
           type="button"
-          onClick={() => onSelectStakeholder?.("all")}
-          className="rounded-full border border-[var(--color-brand)] bg-white/80 px-6 py-2.5 font-body text-sm font-semibold text-[var(--color-brand)] shadow-[0_10px_28px_rgba(25,52,160,0.12)] backdrop-blur-md transition hover:bg-[var(--color-brand)] hover:text-white"
-        >
-          View All
-        </button>
-
-        <button
-          type="button"
           onClick={onBack}
           className="font-body text-sm text-[var(--color-brand)] underline underline-offset-4"
         >
           ← back
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onSelectStakeholder?.("all")}
+          className="rounded-full border border-[var(--color-brand)] bg-white/80 px-6 py-2.5 font-body text-sm font-semibold text-[var(--color-brand)] shadow-[0_10px_28px_rgba(25,52,160,0.12)] backdrop-blur-md transition hover:bg-[var(--color-brand)] hover:text-white"
+        >
+          View All
         </button>
       </div>
     </div>
