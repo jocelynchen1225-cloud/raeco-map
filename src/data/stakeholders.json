@@ -1,14 +1,110 @@
 [
-  { "id": "architect",   "label": "Architect",           "category": "architect",  "icon": "ruler",     "color": "#E8792E", "tasks": 26, "painPoints": 14 },
-  { "id": "bid-manager", "label": "Bid Manager",         "category": "contractor", "icon": "hardhat",   "color": "#E23E6B", "tasks": 2,  "painPoints": 6  },
-  { "id": "draftsmen",   "label": "Draftsmen",           "category": "consultant", "icon": "pencil",    "color": "#2FAE6E", "tasks": 1,  "painPoints": 4  },
-  { "id": "facility-mgr","label": "Facility Manager",    "category": "owner",      "icon": "user",      "color": "#7B5EEA", "tasks": 9,  "painPoints": 6  },
-  { "id": "engineer",    "label": "MEP Engineer",        "category": "engineer",   "icon": "gear",      "color": "#2E86E8", "tasks": 12, "painPoints": 10 },
-  { "id": "contractor",  "label": "Main Contractor",     "category": "contractor", "icon": "hardhat",   "color": "#E23E6B", "tasks": 15, "painPoints": 12 },
-  { "id": "owner",       "label": "Owner\u00b7Developer",     "category": "owner",      "icon": "user",      "color": "#7B5EEA", "tasks": 11, "painPoints": 10 },
-  { "id": "pm",          "label": "Project Manager",     "category": "owner",      "icon": "user",      "color": "#7B5EEA", "tasks": 12, "painPoints": 10 },
-  { "id": "structural",  "label": "Structural Engineer", "category": "engineer",   "icon": "gear",      "color": "#2E86E8", "tasks": 9,  "painPoints": 8  },
-  { "id": "subcontractor","label": "Subcontractors",     "category": "contractor", "icon": "hardhat",   "color": "#E23E6B", "tasks": 4,  "painPoints": 10 },
-  { "id": "supplier",    "label": "Supplier",            "category": "supplier",   "icon": "package",   "color": "#E8B92E", "tasks": 1,  "painPoints": 2  },
-  { "id": "qs",          "label": "Quantity Surveyor",   "category": "consultant", "icon": "calculator","color": "#2FAE6E", "tasks": 10, "painPoints": 13 }
+  {
+    "id": "architect",
+    "label": "Architect",
+    "category": "architect",
+    "icon": "ruler",
+    "color": "#ff8b2c",
+    "tasks": 26,
+    "painPoints": 16
+  },
+  {
+    "id": "bid-manager",
+    "label": "Bid Manager",
+    "category": "bid-manager",
+    "icon": "hardhat",
+    "color": "#8a5adf",
+    "tasks": 2,
+    "painPoints": 7
+  },
+  {
+    "id": "draftsmen",
+    "label": "Draftsmen",
+    "category": "draftsmen",
+    "icon": "pencil",
+    "color": "#2f80ed",
+    "tasks": 1,
+    "painPoints": 5
+  },
+  {
+    "id": "facility-manager",
+    "label": "Facility Manager",
+    "category": "facility-manager",
+    "icon": "user",
+    "color": "#29c16d",
+    "tasks": 9,
+    "painPoints": 5
+  },
+  {
+    "id": "mep-engineer",
+    "label": "MEP Engineer",
+    "category": "mep-engineer",
+    "icon": "gear",
+    "color": "#2f80ed",
+    "tasks": 12,
+    "painPoints": 12
+  },
+  {
+    "id": "main-contractor",
+    "label": "Main Contractor",
+    "category": "main-contractor",
+    "icon": "hardhat",
+    "color": "#e83e7c",
+    "tasks": 15,
+    "painPoints": 12
+  },
+  {
+    "id": "owner-developer",
+    "label": "Owner / Developer",
+    "category": "owner-developer",
+    "icon": "user",
+    "color": "#8a5adf",
+    "tasks": 14,
+    "painPoints": 11
+  },
+  {
+    "id": "project-manager",
+    "label": "Project Manager",
+    "category": "project-manager",
+    "icon": "user",
+    "color": "#1f9bb4",
+    "tasks": 12,
+    "painPoints": 15
+  },
+  {
+    "id": "structural-engineer",
+    "label": "Structural Engineer",
+    "category": "structural-engineer",
+    "icon": "gear",
+    "color": "#2f80ed",
+    "tasks": 9,
+    "painPoints": 10
+  },
+  {
+    "id": "subcontractors",
+    "label": "Subcontractors",
+    "category": "subcontractors",
+    "icon": "hardhat",
+    "color": "#e83e7c",
+    "tasks": 4,
+    "painPoints": 12
+  },
+  {
+    "id": "supplier",
+    "label": "Supplier",
+    "category": "supplier",
+    "icon": "package",
+    "color": "#f2be1a",
+    "tasks": 1,
+    "painPoints": 2
+  },
+  {
+    "id": "quantity-surveyor",
+    "label": "Quantity Surveyor",
+    "category": "quantity-surveyor",
+    "icon": "calculator",
+    "color": "#f18d2b",
+    "tasks": 10,
+    "painPoints": 13
+  }
 ]

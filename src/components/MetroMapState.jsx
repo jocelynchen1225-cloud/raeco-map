@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
 import MetroMap from "./MetroMap";
 import MetroFocusView from "./MetroFocusView";
 import StakeholderPopup from "./StakeholderPopup";
@@ -22,6 +23,16 @@ export default function MetroMapState({
       className="relative flex min-h-[calc(100vh-100px)] flex-col"
     >
       <div className="relative">
+        {!locked && !focusPhase && (
+          <button
+            type="button"
+            onClick={onBack}
+            className="fixed left-6 top-28 z-20 flex items-center gap-2 rounded-full border border-white/85 bg-white/75 px-5 py-3 font-body text-sm font-semibold text-[var(--color-ink)] shadow-[0_14px_40px_rgba(25,52,160,0.13)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:text-[var(--color-brand)]"
+          >
+            <ArrowLeft size={16} /> Back
+          </button>
+        )}
+
         {/* The live, interactive metro map — blurred and non-interactive until a
             stakeholder is picked, then it unblurs in place (no page/component
             swap), so "unlocking" reads as one continuous map, not a scene change.

@@ -19,6 +19,17 @@ export default function App() {
   const [focusPhase, setFocusPhase] = useState(null); // phase currently zoomed into on the metro map
 
   const goTo = (state, patch = {}) => setCtx((prev) => ({ ...prev, ...patch, state }));
+  const backToHero = () => {
+    setFocusPhase(null);
+    setCtx((prev) => ({
+      ...prev,
+      state: APP_STATES.HERO,
+      selectedStakeholderId: null,
+      selectedPhaseId: null,
+      selectedTaskId: null,
+      selectedScenarioId: null,
+    }));
+  };
 
   const activeTask =
     ctx.selectedPhaseId && ctx.selectedTaskId ? findTask(ctx.selectedPhaseId, ctx.selectedTaskId) : null;
@@ -42,7 +53,7 @@ export default function App() {
             onSelectTask={(task, phase) =>
               goTo(APP_STATES.TASK_DETAIL_STATIC, { selectedPhaseId: phase.id, selectedTaskId: task.id })
             }
-            onBack={() => goTo(APP_STATES.HERO)}
+            onBack={backToHero}
           />
         )}
 

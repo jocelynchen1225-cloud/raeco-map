@@ -30,7 +30,7 @@ export default function HeroState({ onSelectRoleAndTask }) {
           onClick={onSelectRoleAndTask}
           className="w-full rounded-lg border border-[var(--color-ink)] py-5 font-body text-xl text-[var(--color-brand)] transition-colors hover:bg-[var(--color-brand)] hover:text-white"
         >
-          SELECT YOUR ROLE AND TASK
+          EXPLORE BY YOUR ROLE
         </button>
       </motion.div>
     </section>
