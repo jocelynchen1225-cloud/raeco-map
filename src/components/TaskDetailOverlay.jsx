@@ -1,25 +1,127 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, X } from "lucide-react";
+import { ArrowLeft, Star, X } from "lucide-react";
 import stakeholders from "../data/stakeholders.json";
+import aalScenarioInsights from "../data/aalScenarioInsights.json";
+import aalLogoDataUrl from "../../public/logo.png?inline";
+import { sortedPhases } from "../lib/taskVisuals";
 
 const stakeholderById = Object.fromEntries(stakeholders.map((s) => [s.id, s]));
 
-const painPalette = [
-  { bg: "rgba(219,234,254,.72)", border: "rgba(96,165,250,.38)", text: "#315783", accent: "#6B8FD6" },
-  { bg: "rgba(220,252,231,.64)", border: "rgba(74,222,128,.34)", text: "#2F6F4B", accent: "#66B486" },
-  { bg: "rgba(254,243,199,.68)", border: "rgba(251,191,36,.35)", text: "#805D28", accent: "#D39A48" },
-  { bg: "rgba(237,233,254,.70)", border: "rgba(167,139,250,.36)", text: "#60458B", accent: "#9877D9" },
-  { bg: "rgba(252,231,243,.64)", border: "rgba(244,114,182,.30)", text: "#83445F", accent: "#C87991" },
-  { bg: "rgba(224,242,254,.66)", border: "rgba(34,211,238,.32)", text: "#286579", accent: "#4CBAC8" },
-  { bg: "rgba(255,237,213,.66)", border: "rgba(251,146,60,.30)", text: "#84502F", accent: "#DC8A4A" },
-];
+const defaultPainStyle = {
+  bg: "rgba(241,245,249,.78)",
+  border: "rgba(203,213,225,.78)",
+  text: "#475569",
+  accent: "#94A3B8",
+};
 
-function hashText(text = "") {
-  return [...text].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
-}
+const painStyles = {
+  "Manual & Repetitive Work": {
+    bg: "#dbeafe",
+    border: "#93c5fd",
+    text: "#315783",
+    accent: "#6b8fd6",
+  },
+  "Workforce & Skills Gap": {
+    bg: "#e0e7ff",
+    border: "#a5b4fc",
+    text: "#3f4b83",
+    accent: "#7c8ce3",
+  },
+  "Productivity Tracking Gaps": {
+    bg: "#e2e8f0",
+    border: "#cbd5e1",
+    text: "#475569",
+    accent: "#94a3b8",
+  },
+  "Data Fragmentation": {
+    bg: "#eef8ee",
+    border: "#c4dec9",
+    text: "#4f7259",
+    accent: "#86b892",
+  },
+  "Document Management": {
+    bg: "#e2f3e6",
+    border: "#b7d8bf",
+    text: "#496b53",
+    accent: "#72ad80",
+  },
+  "Knowledege Fragmentation": {
+    bg: "#f5f8e8",
+    border: "#d7e4b8",
+    text: "#667646",
+    accent: "#a9bc73",
+  },
+  "Knowledge Fragmentation": {
+    bg: "#f5f8e8",
+    border: "#d7e4b8",
+    text: "#667646",
+    accent: "#a9bc73",
+  },
+  "Data and Integration Challenge": {
+    bg: "#eaf5f0",
+    border: "#bfd9cc",
+    text: "#537263",
+    accent: "#78a98f",
+  },
+  "Decision Support Deficit": {
+    bg: "#fef3c7",
+    border: "#fcd34d",
+    text: "#805d28",
+    accent: "#d39a48",
+  },
+  "Cost & Schedule Uncertainty": {
+    bg: "#ffedd5",
+    border: "#fdba74",
+    text: "#84502f",
+    accent: "#dc8a4a",
+  },
+  "ROI and Cost Uncertainty": {
+    bg: "#fee2c5",
+    border: "#f6a95f",
+    text: "#7a4c32",
+    accent: "#c98140",
+  },
+  "Procurement Inefficiency": {
+    bg: "#fff7ed",
+    border: "#fed7aa",
+    text: "#8a5a36",
+    accent: "#df9f60",
+  },
+  "Design Error & Coordination Gaps": {
+    bg: "#ede9fe",
+    border: "#c4b5fd",
+    text: "#60458b",
+    accent: "#9877d9",
+  },
+  "Safety & Risk Management": {
+    bg: "#fce7f3",
+    border: "#f9a8d4",
+    text: "#83445f",
+    accent: "#c87991",
+  },
+  "Compliance & Regulatory Burden": {
+    bg: "#fee2e2",
+    border: "#fca5a5",
+    text: "#8a3b3b",
+    accent: "#d86b6b",
+  },
+  "AI Hallucinations": {
+    bg: "#f5f3ff",
+    border: "#ddd6fe",
+    text: "#6a5585",
+    accent: "#a994d6",
+  },
+  "Internal Alignment Needed": {
+    bg: "#fdf2f8",
+    border: "#fbcfe8",
+    text: "#7b5066",
+    accent: "#d58aa9",
+  },
+};
 
 function painStyle(label = "") {
-  return painPalette[hashText(label) % painPalette.length];
+  return painStyles[label] ?? defaultPainStyle;
 }
 
 function initials(name = "AI") {
@@ -47,25 +149,196 @@ function getStakeholderLabel(id, fallback) {
   return stakeholderById[id]?.label ?? fallback ?? id;
 }
 
-function ScenarioCard({ scenario, index, onExploreScenario }) {
+function getAalInsight(scenario) {
+  return scenario?.id ? aalScenarioInsights[scenario.id] : null;
+}
+
+function savedScenarioRecords(savedScenarioIds) {
+  const ids = savedScenarioIds ?? new Set();
+  return sortedPhases.flatMap((phase) =>
+    phase.tasks.flatMap((task) =>
+      (task.scenarios ?? [])
+        .filter((scenario) => ids.has(scenario.id))
+        .map((scenario) => ({ phase, task, scenario }))
+    )
+  );
+}
+
+function escapeHtml(value = "") {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function reportPainTag(point) {
+  const style = painStyle(point);
+  return `<span style="background:${style.bg};border-color:${style.border};color:${style.text};">${escapeHtml(point)}</span>`;
+}
+
+function exportSavedReport(records) {
+  const rows = records
+    .map(({ phase, task, scenario }, index) => {
+      const painPoints = scenario.painPoints?.length ? scenario.painPoints : scenario.painPoint ? [scenario.painPoint] : [];
+      const solutions = scenario.aiTools?.length ? scenario.aiTools : scenario.solutions ?? [];
+      const aalInsight = getAalInsight(scenario);
+      return `
+        <article class="scenario">
+          <div class="scenario-index">Scenario ${index + 1}</div>
+          <h2>${escapeHtml(scenario.label || scenario.name)}</h2>
+          <div class="meta">${escapeHtml(phase.fullLabel ?? `${phase.order}. ${phase.label}`)} · ${escapeHtml(task.label)}</div>
+          <div class="tags">${painPoints.map((point) => reportPainTag(point)).join("")}</div>
+          <p>${escapeHtml(scenario.description)}</p>
+          <dl>
+            <dt>Stakeholders</dt>
+            <dd>${escapeHtml((scenario.stakeholderLabels?.length ? scenario.stakeholderLabels : scenario.stakeholders?.map((id) => getStakeholderLabel(id))).join(" | "))}</dd>
+            <dt>AI Solutions</dt>
+            <dd>${escapeHtml(solutions.join(" | ") || "To be reviewed")}</dd>
+            <dt>AI Value</dt>
+            <dd>${escapeHtml(scenario.aiValue || scenario.howAiSolves || "To be reviewed")}</dd>
+            ${
+              aalInsight?.evaluation
+                ? `<dt>AAL Evaluation</dt><dd>${escapeHtml(aalInsight.evaluation)}</dd>`
+                : ""
+            }
+            ${
+              aalInsight?.recommendedPath
+                ? `<dt>Recommended Path</dt><dd><span class="path-chip">${escapeHtml(aalInsight.recommendedPath)}</span></dd>`
+                : ""
+            }
+            ${
+              aalInsight?.aalRole
+                ? `<dt>AAL Role</dt><dd>${escapeHtml(aalInsight.aalRole)}</dd>`
+                : ""
+            }
+            ${
+              aalInsight?.suggestedSolutionDirection
+                ? `<dt>Solution Direction</dt><dd>${escapeHtml(aalInsight.suggestedSolutionDirection)}</dd>`
+                : ""
+            }
+            ${
+              aalInsight?.solution
+                ? `<dt>AAL Consultancy Solution</dt><dd><strong>${escapeHtml(aalInsight.solution.name)}</strong><br />${escapeHtml(aalInsight.solution.summary)}<br /><span class="solution-status">${escapeHtml(aalInsight.solution.status)}</span></dd>`
+                : ""
+            }
+          </dl>
+        </article>
+      `;
+    })
+    .join("");
+
+  const reportHtml = `
+    <!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <title>AAL Saved Pain Point Scenario Report</title>
+        <style>
+          body { margin: 0; font-family: Inter, Arial, sans-serif; color: #101828; background: #eef3f8; }
+          .page { max-width: 980px; margin: 28px auto; background: rgba(255,255,255,.92); border: 1px solid #fff; border-radius: 28px; padding: 36px; box-shadow: 0 24px 70px rgba(43,58,90,.14); }
+          .header { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid #e2e8f0; padding-bottom: 24px; }
+          .logo { width: 74px; height: 74px; border-radius: 16px; display: block; object-fit: cover; box-shadow: 0 14px 34px rgba(25,52,160,.18); }
+          h1 { margin: 0; color: #1934a0; font-size: 34px; line-height: 1.1; }
+          .subtitle { margin-top: 10px; color: #667085; font-size: 14px; line-height: 1.6; }
+          .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 24px 0; }
+          .summary div { border: 1px solid #dbe3ef; background: #f8fafc; border-radius: 16px; padding: 14px; font-weight: 800; color: #1934a0; }
+          .scenario { break-inside: avoid; border: 1px solid #dbe3ef; background: #fff; border-radius: 22px; padding: 24px; margin-top: 18px; }
+          .scenario-index { color: #667085; text-transform: uppercase; letter-spacing: .18em; font-size: 12px; font-weight: 900; }
+          h2 { margin: 10px 0 8px; font-size: 24px; line-height: 1.22; }
+          .meta { color: #667085; font-size: 13px; font-weight: 700; }
+          .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+          .tags span { border-radius: 999px; border: 1px solid; padding: 6px 10px; font-size: 12px; font-weight: 800; }
+          p { color: #344054; line-height: 1.65; }
+          dl { display: grid; grid-template-columns: 130px 1fr; gap: 10px 16px; margin-top: 18px; }
+          dt { color: #667085; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; }
+          dd { margin: 0; color: #101828; font-weight: 700; line-height: 1.45; }
+          .path-chip { display: inline-block; border-radius: 999px; background: #eef2ff; border: 1px solid #c7d2fe; color: #2742a6; padding: 5px 10px; font-size: 12px; font-weight: 900; }
+          .solution-status { display: inline-block; margin-top: 8px; border-radius: 999px; background: #eff6ff; border: 1px solid #bfdbfe; color: #315783; padding: 4px 9px; font-size: 11px; font-weight: 900; }
+          .actions { margin-top: 28px; display: flex; justify-content: flex-end; }
+          button { border: 0; border-radius: 999px; background: #1934a0; color: #fff; padding: 12px 18px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+          @media print { body { background: #fff; } .page { box-shadow: none; margin: 0; border: 0; } button { display: none; } }
+        </style>
+      </head>
+      <body>
+        <main class="page">
+          <header class="header">
+            <div>
+              <h1>Saved Pain Point Scenario Report</h1>
+              <div class="subtitle">AAL Innovation · RAECO AI Map<br />Generated from saved scenarios in the prototype.</div>
+            </div>
+            <img class="logo" src="${aalLogoDataUrl}" alt="AAL Innovation" />
+          </header>
+          <section class="summary">
+            <div>${records.length} saved scenarios</div>
+            <div>${new Set(records.map((record) => record.task.id)).size} tasks</div>
+            <div>${new Set(records.flatMap((record) => record.scenario.painPoints ?? [])).size} pain point types</div>
+          </section>
+          ${rows || "<p>No saved scenarios yet.</p>"}
+          <div class="actions"><button onclick="window.print()">Print / Save PDF</button></div>
+        </main>
+      </body>
+    </html>
+  `;
+  const reportBlob = new Blob([reportHtml], { type: "text/html;charset=utf-8" });
+  const reportUrl = URL.createObjectURL(reportBlob);
+  const reportWindow = window.open(reportUrl, "_blank");
+
+  if (!reportWindow) {
+    const link = document.createElement("a");
+    link.href = reportUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  window.setTimeout(() => URL.revokeObjectURL(reportUrl), 60000);
+}
+
+function FavoriteButton({ active, onClick, label = "Save scenario" }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      aria-pressed={active}
+      className={`flex h-10 w-10 items-center justify-center rounded-full border transition hover:-translate-y-0.5 ${
+        active
+          ? "border-amber-200 bg-amber-50 text-amber-500 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.75),inset_0_0_14px_rgba(245,166,35,0.18)]"
+          : "border-slate-200/80 bg-white/72 text-slate-400 shadow-[inset_0_1px_0_rgba(255,255,255,0.82)] hover:text-[var(--color-brand)]"
+      }`}
+    >
+      <Star size={18} strokeWidth={2} fill={active ? "currentColor" : "none"} />
+    </button>
+  );
+}
+
+function ScenarioCard({ scenario, index, onExploreScenario, isSaved, onToggleSavedScenario }) {
   const painPoints = scenario.painPoints?.length ? scenario.painPoints : scenario.painPoint ? [scenario.painPoint] : [];
   const primary = painStyle(painPoints[0] || scenario.label);
   const tools = scenario.aiTools?.length ? scenario.aiTools : scenario.solutions ?? [];
   const stakeholderLabels = scenario.stakeholders?.length
     ? scenario.stakeholders.map((id, i) => getStakeholderLabel(id, scenario.stakeholderLabels?.[i]))
     : scenario.stakeholderLabels ?? [];
+  const aalInsight = getAalInsight(scenario);
 
   return (
     <motion.article
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.34, delay: Math.min(index * 0.045, 0.35) }}
-      className="rounded-[28px] border border-white/80 bg-white/78 p-7 text-left shadow-[0_26px_70px_rgba(48,58,86,0.15)] backdrop-blur-2xl"
+      className="relative rounded-[28px] border border-white/80 bg-white/78 p-7 text-left shadow-[0_26px_70px_rgba(48,58,86,0.15)] backdrop-blur-2xl"
       style={{
         boxShadow:
           "inset 10px 12px 24px rgba(255,255,255,.86), inset -10px -12px 22px rgba(148,163,184,.08), 0 26px 70px rgba(48,58,86,.15)",
       }}
     >
+      <div className="absolute right-5 top-5">
+        <FavoriteButton active={isSaved} onClick={() => onToggleSavedScenario?.(scenario.id)} />
+      </div>
+
       <div className="mb-3 flex items-center gap-2">
         <span className="h-[3px] w-7 rounded-full" style={{ background: primary.accent }} />
         <p className="font-body text-[12px] font-extrabold uppercase tracking-[0.24em] text-slate-500">
@@ -73,7 +346,7 @@ function ScenarioCard({ scenario, index, onExploreScenario }) {
         </p>
       </div>
 
-      <h2 className="font-body text-[22px] font-extrabold leading-tight text-slate-950">
+      <h2 className="pr-12 font-body text-[22px] font-extrabold leading-tight text-slate-950">
         {scenario.label || scenario.name}
       </h2>
 
@@ -143,6 +416,40 @@ function ScenarioCard({ scenario, index, onExploreScenario }) {
         </p>
       )}
 
+      {aalInsight && (
+        <section className="mt-5 rounded-2xl border border-blue-100 bg-blue-50/55 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,.72)]">
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="font-body text-[12px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-brand)]">
+              AAL Evaluation
+            </p>
+            {aalInsight.recommendedPath && (
+              <span className="rounded-full border border-blue-200 bg-white/70 px-2.5 py-1 font-body text-[11px] font-extrabold text-blue-700">
+                {aalInsight.recommendedPath}
+              </span>
+            )}
+          </div>
+          <p className="mt-2 font-body text-[13px] font-semibold leading-6 text-slate-700">
+            {aalInsight.evaluation}
+          </p>
+          {aalInsight.solution && (
+            <div className="mt-4 rounded-xl border border-white/80 bg-white/70 p-3">
+              <p className="font-body text-[12px] font-extrabold uppercase tracking-[0.18em] text-slate-500">
+                AAL Consultancy Solution
+              </p>
+              <p className="mt-1 font-body text-[14px] font-extrabold text-slate-900">
+                {aalInsight.solution.name}
+              </p>
+              <p className="mt-1 font-body text-[13px] font-medium leading-5 text-slate-600">
+                {aalInsight.solution.summary}
+              </p>
+              <span className="mt-3 inline-flex rounded-full border border-blue-200 bg-blue-50 px-3 py-1 font-body text-[11px] font-extrabold text-blue-700">
+                {aalInsight.solution.status}
+              </span>
+            </div>
+          )}
+        </section>
+      )}
+
       {(scenario.solutionTypes?.length > 0 || scenario.deploymentModels?.length > 0) && (
         <div className="mt-5 flex flex-wrap gap-2">
           {[...(scenario.solutionTypes ?? []), ...(scenario.deploymentModels ?? [])].map((tag) => (
@@ -167,9 +474,11 @@ function ScenarioCard({ scenario, index, onExploreScenario }) {
   );
 }
 
-export default function TaskDetailOverlay({ task, onBack, onExploreScenario }) {
+export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSavedScenario, onBack, onExploreScenario }) {
   const scenarios = task?.scenarios ?? [];
   const columns = distributeScenarios(scenarios, 3);
+  const [showSavedPanel, setShowSavedPanel] = useState(false);
+  const savedRecords = savedScenarioRecords(savedScenarioIds);
 
   return (
     <motion.div
@@ -200,11 +509,69 @@ export default function TaskDetailOverlay({ task, onBack, onExploreScenario }) {
             <ArrowLeft size={20} /> back
           </button>
 
-          <div className="min-w-0 flex-1 rounded-[26px] border border-white/85 bg-white/72 px-7 py-5 shadow-[0_18px_60px_rgba(48,58,86,.13)] backdrop-blur-2xl">
+          <div className="min-w-0 max-w-[980px] flex-[1_1_auto] rounded-[26px] border border-white/85 bg-white/72 px-7 py-5 shadow-[0_18px_60px_rgba(48,58,86,.13)] backdrop-blur-2xl">
             <p className="font-body text-[14px] font-extrabold text-[var(--color-brand)]">Task Preview</p>
             <h1 className="mt-1 font-body text-[28px] font-extrabold leading-tight text-slate-950">
               {task?.label ?? "Task Preview"}
             </h1>
+          </div>
+
+          <div className="relative shrink-0">
+            <button
+              type="button"
+              onClick={() => setShowSavedPanel((open) => !open)}
+              className="flex h-16 items-center gap-2 rounded-2xl border border-white/85 bg-white/76 px-5 font-body text-[14px] font-extrabold text-[var(--color-brand)] shadow-[0_18px_50px_rgba(48,58,86,.13)] backdrop-blur-2xl transition hover:-translate-y-0.5"
+            >
+              <Star size={17} strokeWidth={2.1} fill={savedScenarioIds?.size ? "currentColor" : "none"} />
+              Saved Scenarios
+              <span className="rounded-full bg-[var(--color-brand)] px-2 py-0.5 text-[11px] text-white">
+                {savedScenarioIds?.size ?? 0}
+              </span>
+            </button>
+
+            {showSavedPanel && (
+              <div className="absolute right-0 top-[calc(100%+12px)] z-30 w-[340px] rounded-3xl border border-white/85 bg-white/88 p-5 shadow-[0_26px_70px_rgba(48,58,86,0.18)] backdrop-blur-2xl">
+                <p className="font-body text-[13px] font-extrabold uppercase tracking-[0.18em] text-slate-500">
+                  Saved Scenarios
+                </p>
+                {savedRecords.length === 0 ? (
+                  <p className="mt-3 font-body text-sm font-semibold leading-6 text-slate-500">
+                    No saved scenarios yet. Use the star on a scenario card to save it.
+                  </p>
+                ) : (
+                  <div className="mt-4 max-h-[360px] space-y-3 overflow-y-auto pr-1">
+                    {savedRecords.map(({ phase, task: savedTask, scenario }) => (
+                      <div key={scenario.id} className="rounded-2xl border border-slate-200/70 bg-slate-50/70 p-3">
+                        <p className="font-body text-sm font-extrabold leading-5 text-slate-900">
+                          {scenario.label || scenario.name}
+                        </p>
+                        <p className="mt-1 font-body text-[11px] font-bold leading-4 text-slate-500">
+                          {phase.order}. {phase.label} · {savedTask.label}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() => onToggleSavedScenario?.(scenario.id)}
+                          className="mt-2 font-body text-xs font-bold text-slate-500 underline underline-offset-4"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <button
+                  type="button"
+                  onClick={() => exportSavedReport(savedRecords)}
+                  disabled={savedRecords.length === 0}
+                  className="mt-5 w-full rounded-full bg-[var(--color-brand)] px-4 py-2.5 font-body text-xs font-extrabold uppercase tracking-[0.16em] text-white shadow-[0_14px_30px_rgba(25,52,160,0.20)]"
+                >
+                  Export Saved Report
+                </button>
+                <p className="mt-3 font-body text-xs font-semibold leading-5 text-slate-500">
+                  Future report export can include the AAL logo, task context, pain points, scenarios, and AI solutions.
+                </p>
+              </div>
+            )}
           </div>
 
           <button
@@ -227,7 +594,14 @@ export default function TaskDetailOverlay({ task, onBack, onExploreScenario }) {
             {columns.map((column, columnIndex) => (
               <div key={columnIndex} className="flex min-w-0 flex-col gap-8">
                 {column.map(({ scenario, index }) => (
-                  <ScenarioCard key={scenario.id} scenario={scenario} index={index} onExploreScenario={onExploreScenario} />
+                  <ScenarioCard
+                    key={scenario.id}
+                    scenario={scenario}
+                    index={index}
+                    isSaved={savedScenarioIds?.has(scenario.id)}
+                    onToggleSavedScenario={onToggleSavedScenario}
+                    onExploreScenario={onExploreScenario}
+                  />
                 ))}
               </div>
             ))}

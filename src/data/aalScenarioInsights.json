@@ -1,0 +1,142 @@
+{
+  "site-context-environmental-analysis-scenario-1": {
+    "recommendedPath": "Hybrid",
+    "evaluation": "Strong fit for AAL consultancy support because this scenario combines repetitive site-data collection, early design iteration, and quantity takeoff across multiple stakeholders. The opportunity is to improve early option testing without removing expert judgement from feasibility decisions.",
+    "whyThisPath": "An off-the-shelf planning or generative design tool can accelerate site analysis, but client-specific feasibility criteria, local constraints, and review checkpoints usually need a tailored workflow design.",
+    "aalRole": "AAL can map the current feasibility workflow, identify repetitive site-intelligence tasks, shortlist suitable AI tools, and define a pilot process for evidence-backed site analysis and early option review.",
+    "suggestedSolutionDirection": "Early site intelligence advisory combining site-data preparation, generative option review, model-based takeoff, and human validation checkpoints.",
+    "potentialAiToolFit": "Existing tools may support site feasibility modelling, early massing, generative layout exploration, and model-based quantity takeoff. AAL would help compare tool fit against the client's data, planning context, and review workflow.",
+    "dataSecurityNote": "If sensitive land, acquisition, or client feasibility information is involved, access control and data-sharing boundaries should be defined before tool trials.",
+    "solution": {
+      "name": "Early Site Intelligence Consultancy Package",
+      "summary": "AAL can help the client structure the workflow, compare suitable AI tools, and design a controlled pilot for early feasibility analysis and site-option review.",
+      "status": "Consultancy concept"
+    }
+  },
+  "drafting-technical-specifications-scenario-2": {
+    "recommendedPath": "Off-the-Shelf Vendor Match",
+    "evaluation": "This scenario is well suited for solution matchmaking because the pain point is clear: project documents are fragmented across systems, and teams need faster retrieval of context rather than a fully custom AI system at the first step.",
+    "whyThisPath": "Several existing document intelligence and project knowledge tools already address retrieval, tagging, and Q&A over project records. The key challenge is selecting the right tool and defining data preparation rules.",
+    "aalRole": "AAL can assess document sources, define retrieval use cases, compare vendor capabilities, and recommend a pilot setup for project document search and Q&A.",
+    "suggestedSolutionDirection": "Project knowledge retrieval advisory focused on document ingestion, source control, access permissions, and role-specific search workflows.",
+    "potentialAiToolFit": "Existing tools may support project document Q&A, submittal search, RFI retrieval, drawing-linked knowledge, and document auto-tagging.",
+    "dataSecurityNote": "Document access permissions and project confidentiality should be reviewed before any vendor library or cloud-based retrieval workflow is tested.",
+    "solution": {
+      "name": "Project Knowledge Retrieval Matchmaking",
+      "summary": "AAL can help the client select and test existing project-document AI tools, with attention to ingestion scope, access control, and retrieval reliability.",
+      "status": "Vendor match concept"
+    }
+  },
+  "cross-disciplinary-qa-qc-check-scenario-1": {
+    "recommendedPath": "Hybrid",
+    "evaluation": "This is a high-value AAL advisory scenario because design QA/QC has measurable downstream risk: RFIs, rework, change orders, cost overruns, and delays. AI can assist detection, but responsibility for final judgement must remain with the project team.",
+    "whyThisPath": "Off-the-shelf checking tools can detect drawing defects or scope gaps, while each client still needs customised review rules, escalation logic, and accountability boundaries.",
+    "aalRole": "AAL can define QA/QC review goals, compare drawing review tools, map issue categories, and design a pilot for AI-assisted defect detection with human approval checkpoints.",
+    "suggestedSolutionDirection": "Design QA/QC advisory combining automated drawing review, issue categorisation, risk prioritisation, and reviewer sign-off workflow.",
+    "potentialAiToolFit": "Existing tools may support drawing completeness checks, defect detection, scope gap identification, and preconstruction risk review.",
+    "dataSecurityNote": "Design files and client standards may be commercially sensitive. Tool selection should consider private workspace options and auditability of AI findings.",
+    "solution": {
+      "name": "AI-Assisted QA/QC Pilot Advisory",
+      "summary": "AAL can help design a pilot that tests automated drawing review while preserving professional accountability and review traceability.",
+      "status": "Consultancy concept"
+    }
+  },
+  "quantity-takeoff-bid-estimation-scenario-1": {
+    "recommendedPath": "Hybrid",
+    "evaluation": "High-value fit for AAL advisory when drawings are repeatable enough for assisted takeoff, but the workflow must preserve estimator control over assumptions, exclusions, and final bid logic.",
+    "whyThisPath": "Existing takeoff tools can automate parts of measurement, but bid teams still need customised validation rules, exception handling, and links to estimating assumptions.",
+    "aalRole": "AAL can assess takeoff pain points, benchmark AI tool options, define validation checkpoints, and recommend a practical adoption plan for quantity takeoff and bid-estimation workflows.",
+    "suggestedSolutionDirection": "Takeoff automation readiness review covering tool fit, drawing quality requirements, estimator validation, and evidence packaging.",
+    "potentialAiToolFit": "Existing tools may support automated drawing measurement, civil quantity takeoff, and cross-sheet extraction. AAL would help test accuracy against real tender packages.",
+    "dataSecurityNote": "Tender drawings and bid assumptions are commercially sensitive, so vendor access, retention policy, and export controls should be reviewed before pilot use.",
+    "solution": {
+      "name": "Takeoff Automation Readiness Review",
+      "summary": "AAL can evaluate whether assisted takeoff is viable for the client's drawing sets and design a pilot that keeps estimators in control of bid logic.",
+      "status": "Consultancy concept"
+    }
+  },
+  "quantity-takeoff-bid-estimation-scenario-2": {
+    "recommendedPath": "Off-the-Shelf Vendor Match",
+    "evaluation": "This scenario is a strong candidate for vendor matching because the need is focused: validating incomplete or ambiguous drawings before bid assumptions become commercial risk.",
+    "whyThisPath": "Pre-bid drawing review tools can already support completeness checks and risk flagging. AAL's value is in selecting a tool that matches the client's bid workflow and risk tolerance.",
+    "aalRole": "AAL can define pre-bid review criteria, compare available drawing completeness tools, and design a trial using historical tender packages.",
+    "suggestedSolutionDirection": "Pre-bid drawing completeness review focused on missing information, estimate risk, and assumption tracking.",
+    "potentialAiToolFit": "Existing AI review tools may support drawing completeness validation, scope gap detection, and estimate-risk flagging.",
+    "dataSecurityNote": "Bid-stage information is sensitive. Vendor trials should use controlled samples or anonymised packages where necessary.",
+    "solution": {
+      "name": "Pre-Bid Drawing Risk Tool Match",
+      "summary": "AAL can help the client compare AI review tools and set up a bid-stage pilot for drawing completeness and assumption risk.",
+      "status": "Vendor match concept"
+    }
+  },
+  "contract-assembly-award-scenario-1": {
+    "recommendedPath": "Off-the-Shelf Vendor Match",
+    "evaluation": "This scenario is suitable for vendor matching because contract risk review is a known use case for legal and construction document intelligence tools. The work still requires expert legal and commercial review.",
+    "whyThisPath": "Existing tools can extract and flag high-risk clauses, while the client needs a clear review protocol for liability, safety, payment, and indemnity risks.",
+    "aalRole": "AAL can help define risk categories, shortlist contract intelligence tools, and design a review workflow that routes flagged clauses to the right commercial or legal reviewer.",
+    "suggestedSolutionDirection": "Contract risk clause review advisory with extraction, flagging, reviewer routing, and audit trail requirements.",
+    "potentialAiToolFit": "Existing tools may support grounded clause extraction, contract Q&A, risk flagging, and contract comparison.",
+    "dataSecurityNote": "Contracts often contain confidential pricing and liability terms. Tool selection should prioritise secure data handling, audit logs, and review traceability.",
+    "solution": {
+      "name": "Contract Risk Review Vendor Match",
+      "summary": "AAL can support vendor comparison and pilot design for AI-assisted contract clause review, with clear boundaries for human legal and commercial approval.",
+      "status": "Vendor match concept"
+    }
+  },
+  "site-execution-logistics-planning-scenario-4": {
+    "recommendedPath": "Off-the-Shelf Vendor Match",
+    "evaluation": "This scenario is a strong vendor-match candidate because site progress tracking has mature visual monitoring and construction analytics tools. The critical work is matching tool capability to site conditions and reporting needs.",
+    "whyThisPath": "Off-the-shelf progress tracking platforms can provide immediate value if the project has reliable site capture and agreed progress metrics.",
+    "aalRole": "AAL can clarify progress tracking goals, assess site data capture readiness, compare vendors, and define how AI progress outputs should be reviewed and reported.",
+    "suggestedSolutionDirection": "AI progress tracking advisory covering visual capture, progress metrics, exception reporting, and team adoption.",
+    "potentialAiToolFit": "Existing tools may support site photo/video analytics, progress deviation detection, and automated progress reporting.",
+    "dataSecurityNote": "Site imagery may include people, subcontractor activity, and restricted project areas, so privacy and image governance should be included in pilot design.",
+    "solution": {
+      "name": "Site Progress Tracking Tool Match",
+      "summary": "AAL can help select and pilot a site progress analytics tool, then define the reporting and governance model for project teams.",
+      "status": "Vendor match concept"
+    }
+  },
+  "progress-monitoring-quality-inspections-scenario-1": {
+    "recommendedPath": "Hybrid",
+    "evaluation": "This scenario is a strong candidate for AI-enabled workflow improvement because the pain point is repetitive, documentation-heavy, and connected to multiple project controls activities. Full automation should be avoided at the beginning because payment validation, contract interpretation, and financial approval still require human accountability.",
+    "whyThisPath": "A pure off-the-shelf tool may help with document processing, payment tracking, or progress reporting, but it may not fully reflect each contractor's approval logic, contract structure, and internal finance workflow.",
+    "aalRole": "AAL can diagnose the current progress-payment workflow, identify repetitive manual checkpoints, map which data sources need to be connected, recommend suitable AI tools or vendors, and design a pilot process for payment application review, evidence checking, and exception reporting.",
+    "suggestedSolutionDirection": "Progress-to-payment workflow advisory combining document intelligence, payment application checking, site progress evidence review, and structured exception reporting.",
+    "potentialAiToolFit": "Existing tools may support document extraction, contract clause search, payment application review, and project data consolidation. AAL would help compare these tools against the client's actual workflow and data environment.",
+    "dataSecurityNote": "Because this scenario may involve contracts, payment data, and project financial records, data governance and permission control should be reviewed early. If confidentiality requirements are strict, an on-premise or private deployment component may be needed.",
+    "solution": {
+      "name": "Progress-to-Payment Workflow Advisory",
+      "summary": "AAL can help diagnose the current payment review workflow, shortlist suitable AI tools, and design a hybrid pilot for evidence checking, payment validation, and exception reporting.",
+      "status": "Consultancy concept"
+    }
+  },
+  "progress-monitoring-quality-inspections-scenario-3": {
+    "recommendedPath": "Hybrid",
+    "evaluation": "This scenario has strong advisory value because schedule governance affects cost, delay risk, and decision confidence. AI can support forecast and schedule update workflows, but project teams still need control over baseline assumptions and change interpretation.",
+    "whyThisPath": "Schedule analytics vendors can accelerate forecasting and benchmarking, while client-specific schedule structures, reporting cadence, and approval logic require tailored implementation design.",
+    "aalRole": "AAL can map current schedule governance, define what schedule data is reliable, compare scheduling AI tools, and design a pilot for baseline updates, delay alerts, and decision support.",
+    "suggestedSolutionDirection": "Schedule governance advisory combining schedule data review, AI forecast tool matching, and decision-support workflow design.",
+    "potentialAiToolFit": "Existing tools may support automated baseline updates, delay prediction, portfolio schedule benchmarking, and change impact analysis.",
+    "dataSecurityNote": "Project schedules may expose commercial risk and delivery strategy, so pilot data scope and user permissions should be defined before vendor testing.",
+    "solution": {
+      "name": "Schedule Governance & Forecasting Advisory",
+      "summary": "AAL can help the client evaluate AI scheduling tools and design a governance workflow for forecast review, baseline update, and change-impact decision support.",
+      "status": "Consultancy concept"
+    }
+  },
+  "change-order-management-scenario-4": {
+    "recommendedPath": "Hybrid",
+    "evaluation": "This scenario is valuable because schedule changes and change orders sit at the intersection of programme, commercial risk, and project evidence. AI can support impact analysis, but decisions require contractual and project-management review.",
+    "whyThisPath": "Existing scheduling and risk tools can help quantify schedule impact, while each client still needs tailored rules for change event evidence, entitlement review, and approval routing.",
+    "aalRole": "AAL can define the change-order evidence workflow, assess schedule and contract data readiness, compare AI scheduling tools, and design a pilot for change impact review.",
+    "suggestedSolutionDirection": "Change impact advisory combining schedule impact analysis, evidence management, and structured review of change-order risk.",
+    "potentialAiToolFit": "Existing tools may support schedule impact calculation, delay forecasting, scenario comparison, and change impact visualisation.",
+    "dataSecurityNote": "Change-order workflows involve commercial exposure and contractual claims, so governance, audit trails, and controlled access are essential.",
+    "solution": {
+      "name": "Change Impact Review Advisory",
+      "summary": "AAL can help design a hybrid workflow that uses AI for impact analysis while preserving human review of entitlement, evidence, and commercial approval.",
+      "status": "Consultancy concept"
+    }
+  }
+}

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Star } from "lucide-react";
+import aalScenarioInsights from "../data/aalScenarioInsights.json";
 import aiTools from "../data/aiTools.json";
 import StaticHotspotImage from "./StaticHotspotImage";
 
@@ -12,9 +14,30 @@ function SwappLogo({ className }) {
   );
 }
 
-export default function SolutionDetailStatic({ task, scenario, backdropConfig, onBack }) {
+function FavoriteButton({ active, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={active ? "Remove saved scenario" : "Save scenario"}
+      aria-pressed={active}
+      className={`flex items-center gap-2 rounded-full border px-4 py-2 font-body text-sm font-extrabold transition hover:-translate-y-0.5 ${
+        active
+          ? "border-amber-200 bg-amber-50 text-amber-500 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.75),inset_0_0_14px_rgba(245,166,35,0.18)]"
+          : "border-slate-200/80 bg-white/72 text-slate-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.82)] hover:text-[var(--color-brand)]"
+      }`}
+    >
+      <Star size={17} strokeWidth={2} fill={active ? "currentColor" : "none"} />
+      {active ? "Saved" : "Save Scenario"}
+    </button>
+  );
+}
+
+export default function SolutionDetailStatic({ task, scenario, backdropConfig, savedScenarioIds, onToggleSavedScenario, onBack }) {
   const tool = aiTools.find((t) => scenario?.aiTools?.includes(t.id));
   const [hovered, setHovered] = useState(false);
+  const isSaved = Boolean(scenario?.id && savedScenarioIds?.has(scenario.id));
+  const aalInsight = scenario?.id ? aalScenarioInsights[scenario.id] : null;
 
   return (
     <div className="relative min-h-[calc(100vh-100px)] overflow-hidden">
@@ -34,9 +57,17 @@ export default function SolutionDetailStatic({ task, scenario, backdropConfig, o
         ← back
       </button>
 
-      <div>
-        <p className="font-body text-sm text-[var(--color-brand)]">Task 1</p>
-        <p className="font-body text-xl font-semibold text-[var(--color-ink)]">{task?.label}</p>
+      <div className="flex items-start justify-between gap-5">
+        <div>
+          <p className="font-body text-sm text-[var(--color-brand)]">Task Preview</p>
+          <p className="font-body text-xl font-semibold text-[var(--color-ink)]">{task?.label}</p>
+        </div>
+        {scenario && (
+          <FavoriteButton
+            active={isSaved}
+            onClick={() => onToggleSavedScenario?.(scenario.id)}
+          />
+        )}
       </div>
 
       <p className="font-body text-lg font-semibold text-[var(--color-brand)]">
@@ -48,10 +79,12 @@ export default function SolutionDetailStatic({ task, scenario, backdropConfig, o
           <p className="font-body text-sm font-semibold text-[var(--color-ink)]">
             Pain Point: <span className="font-normal">● {scenario?.painPoint}</span>
           </p>
-          <p className="mt-4 font-body text-sm text-[var(--color-ink)]/40">Description</p>
-          <button type="button" className="mt-1 font-body text-sm font-semibold text-[var(--color-ink)]">
-            Add your recent pain point →
-          </button>
+          <p className="mt-4 font-body text-xs font-extrabold uppercase tracking-[0.18em] text-[var(--color-ink)]/40">
+            Pain Point Description
+          </p>
+          <p className="mt-2 font-body text-sm font-medium leading-6 text-[var(--color-ink)]/75">
+            {scenario?.description ?? "No pain point description is available for this scenario yet."}
+          </p>
         </div>
 
         <div className="rounded-2xl border border-[var(--color-hairline)] bg-white p-6">
@@ -63,6 +96,93 @@ export default function SolutionDetailStatic({ task, scenario, backdropConfig, o
           </p>
         </div>
       </div>
+
+      {aalInsight && (
+        <div className="rounded-3xl border border-blue-100 bg-white/90 p-6 shadow-[0_18px_45px_rgba(25,52,160,0.08)]">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="font-body text-xs font-extrabold uppercase tracking-[0.2em] text-[var(--color-brand)]">
+              AAL Evaluation
+            </p>
+            {aalInsight.recommendedPath && (
+              <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 font-body text-xs font-extrabold text-blue-700">
+                Recommended Path · {aalInsight.recommendedPath}
+              </span>
+            )}
+          </div>
+          <p className="mt-3 font-body text-sm font-semibold leading-6 text-[var(--color-ink)]/80">
+            {aalInsight.evaluation}
+          </p>
+
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            {aalInsight.whyThisPath && (
+              <div className="rounded-2xl border border-slate-200/70 bg-slate-50/70 p-4">
+                <p className="font-body text-xs font-extrabold uppercase tracking-[0.18em] text-slate-500">
+                  Why This Path
+                </p>
+                <p className="mt-2 font-body text-sm font-medium leading-6 text-[var(--color-ink)]/75">
+                  {aalInsight.whyThisPath}
+                </p>
+              </div>
+            )}
+
+            {aalInsight.aalRole && (
+              <div className="rounded-2xl border border-slate-200/70 bg-slate-50/70 p-4">
+                <p className="font-body text-xs font-extrabold uppercase tracking-[0.18em] text-slate-500">
+                  AAL Role
+                </p>
+                <p className="mt-2 font-body text-sm font-medium leading-6 text-[var(--color-ink)]/75">
+                  {aalInsight.aalRole}
+                </p>
+              </div>
+            )}
+
+            {aalInsight.suggestedSolutionDirection && (
+              <div className="rounded-2xl border border-slate-200/70 bg-slate-50/70 p-4">
+                <p className="font-body text-xs font-extrabold uppercase tracking-[0.18em] text-slate-500">
+                  Suggested Solution Direction
+                </p>
+                <p className="mt-2 font-body text-sm font-medium leading-6 text-[var(--color-ink)]/75">
+                  {aalInsight.suggestedSolutionDirection}
+                </p>
+              </div>
+            )}
+
+            {aalInsight.potentialAiToolFit && (
+              <div className="rounded-2xl border border-slate-200/70 bg-slate-50/70 p-4">
+                <p className="font-body text-xs font-extrabold uppercase tracking-[0.18em] text-slate-500">
+                  Potential AI Tool Fit
+                </p>
+                <p className="mt-2 font-body text-sm font-medium leading-6 text-[var(--color-ink)]/75">
+                  {aalInsight.potentialAiToolFit}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {aalInsight.solution && (
+            <div className="mt-5 rounded-2xl border border-blue-100 bg-blue-50/60 p-5">
+              <p className="font-body text-xs font-extrabold uppercase tracking-[0.2em] text-[var(--color-brand)]">
+                AAL Consultancy Solution
+              </p>
+              <p className="mt-3 font-body text-base font-extrabold text-[var(--color-ink)]">
+                {aalInsight.solution.name}
+              </p>
+              <p className="mt-2 font-body text-sm font-medium leading-6 text-[var(--color-ink)]/70">
+                {aalInsight.solution.summary}
+              </p>
+              <span className="mt-4 inline-flex rounded-full border border-blue-200 bg-blue-50 px-3 py-1 font-body text-xs font-extrabold text-blue-700">
+                {aalInsight.solution.status}
+              </span>
+            </div>
+          )}
+
+          {aalInsight.dataSecurityNote && (
+            <p className="mt-4 rounded-2xl border border-amber-100 bg-amber-50/60 p-4 font-body text-sm font-semibold leading-6 text-amber-900/80">
+              Data / Security Note: {aalInsight.dataSecurityNote}
+            </p>
+          )}
+        </div>
+      )}
 
       {tool && (
         <div className="rounded-2xl border border-[var(--color-hairline)] bg-white p-6">
