@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { X } from "lucide-react";
 import { sortedPhases, getTaskVisual } from "../lib/taskVisuals";
+import NavBar from "./NavBar";
 import StakeholderLegend from "./StakeholderLegend";
 
 const glassPanel = (extra = {}) => ({
@@ -168,17 +169,21 @@ export default function MetroFocusView({ phase, onChangeIndex, onClose, onSelect
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
       >
+        <div className="absolute left-0 right-0 top-0 z-[8] bg-white">
+          <NavBar />
+        </div>
+
         <button
           type="button"
           onClick={onClose}
-          className="absolute left-6 top-[22px] z-[6] flex items-center gap-1.5 rounded-full border border-white/85 bg-white/60 px-4 py-2 font-body text-[13px] font-semibold text-[var(--color-ink)] shadow-md backdrop-blur-md"
+          className="absolute left-8 top-[132px] z-[7] flex items-center gap-2 rounded-full border border-white/85 bg-white/82 px-5 py-3 font-body text-sm font-extrabold text-[var(--color-ink)] shadow-[0_18px_46px_rgba(25,52,160,0.12)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:text-[var(--color-brand)]"
         >
-          <X size={14} /> Back to metro map
+          <X size={16} /> Back
         </button>
 
-        <StakeholderLegend className="absolute right-6 top-[22px] z-[6]" />
+        <StakeholderLegend className="absolute right-6 top-[132px] z-[6]" />
 
-        <div ref={stageRef} className="absolute inset-0 mx-auto h-full w-full max-w-[1220px] overflow-hidden">
+        <div ref={stageRef} className="absolute inset-x-0 bottom-0 top-[100px] mx-auto w-full max-w-[1220px] overflow-hidden">
           <motion.div className="relative h-full w-full" initial={{ scale: 0.94, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.28 }}>
             <motion.div className="relative h-full w-full" animate={controls}>
               <svg width={size.w} height={size.h} viewBox={`0 0 ${size.w} ${size.h}`} className="absolute left-0 top-0 overflow-visible">
