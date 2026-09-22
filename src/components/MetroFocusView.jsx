@@ -129,6 +129,18 @@ export default function MetroFocusView({ phase, onChangeIndex, onClose, onSelect
 
   const phaseIndex = sortedPhases.findIndex((p) => p.id === phase?.id);
 
+  // Lock background scroll while this overlay is open — otherwise the tall
+  // metro map underneath still scrolls with the page, so by the time you
+  // click a task the app has silently scrolled to wherever that gesture
+  // left it, and the next screen opens partway down instead of at the top.
+  useEffect(() => {
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, []);
+
   useEffect(() => {
     if (!stageRef.current) return undefined;
     const ro = new ResizeObserver((entries) => {

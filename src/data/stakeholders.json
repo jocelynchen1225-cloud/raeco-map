@@ -4,107 +4,119 @@
     "label": "Architect",
     "category": "architect",
     "icon": "ruler",
-    "color": "#ff8b2c",
+    "color": "#E9A7FA",
     "tasks": 26,
-    "painPoints": 16
+    "painPoints": 16,
+    "industry": "architecture"
   },
   {
     "id": "bid-manager",
     "label": "Bid Manager",
     "category": "bid-manager",
-    "icon": "hardhat",
-    "color": "#8a5adf",
+    "icon": "file",
+    "color": "#99E4B3",
     "tasks": 2,
-    "painPoints": 7
+    "painPoints": 7,
+    "industry": "construction"
   },
   {
     "id": "draftsmen",
     "label": "Draftsmen",
     "category": "draftsmen",
     "icon": "pencil",
-    "color": "#2f80ed",
+    "color": "#E9A7FA",
     "tasks": 1,
-    "painPoints": 5
+    "painPoints": 5,
+    "industry": "architecture"
   },
   {
     "id": "facility-manager",
     "label": "Facility Manager",
     "category": "facility-manager",
-    "icon": "user",
-    "color": "#29c16d",
+    "icon": "building",
+    "color": "#A1ACD1",
     "tasks": 9,
-    "painPoints": 5
+    "painPoints": 5,
+    "industry": "operation"
   },
   {
     "id": "mep-engineer",
     "label": "MEP Engineer",
     "category": "mep-engineer",
     "icon": "gear",
-    "color": "#2f80ed",
+    "color": "#ACE0FD",
     "tasks": 12,
-    "painPoints": 12
+    "painPoints": 12,
+    "industry": "engineering"
   },
   {
     "id": "main-contractor",
     "label": "Main Contractor",
     "category": "main-contractor",
     "icon": "hardhat",
-    "color": "#e83e7c",
+    "color": "#99E4B3",
     "tasks": 15,
-    "painPoints": 12
+    "painPoints": 12,
+    "industry": "construction"
   },
   {
     "id": "owner-developer",
     "label": "Owner / Developer",
     "category": "owner-developer",
     "icon": "user",
-    "color": "#8a5adf",
+    "color": "#EB8588",
     "tasks": 14,
-    "painPoints": 11
+    "painPoints": 11,
+    "industry": "real-estate"
   },
   {
     "id": "project-manager",
     "label": "Project Manager",
     "category": "project-manager",
-    "icon": "user",
-    "color": "#1f9bb4",
+    "icon": "clipboard",
+    "color": "#EB8588",
     "tasks": 12,
-    "painPoints": 15
+    "painPoints": 15,
+    "industry": "real-estate"
   },
   {
     "id": "structural-engineer",
     "label": "Structural Engineer",
     "category": "structural-engineer",
-    "icon": "gear",
-    "color": "#2f80ed",
+    "icon": "layers",
+    "color": "#ACE0FD",
     "tasks": 9,
-    "painPoints": 10
+    "painPoints": 10,
+    "industry": "engineering"
   },
   {
     "id": "subcontractors",
     "label": "Subcontractors",
     "category": "subcontractors",
-    "icon": "hardhat",
-    "color": "#e83e7c",
+    "icon": "hammer",
+    "color": "#99E4B3",
     "tasks": 4,
-    "painPoints": 12
+    "painPoints": 12,
+    "industry": "construction"
   },
   {
     "id": "supplier",
     "label": "Supplier",
     "category": "supplier",
     "icon": "package",
-    "color": "#f2be1a",
+    "color": "#99E4B3",
     "tasks": 1,
-    "painPoints": 2
+    "painPoints": 2,
+    "industry": "construction"
   },
   {
     "id": "quantity-surveyor",
     "label": "Quantity Surveyor",
     "category": "quantity-surveyor",
     "icon": "calculator",
-    "color": "#f18d2b",
+    "color": "#99E4B3",
     "tasks": 10,
-    "painPoints": 13
+    "painPoints": 13,
+    "industry": "construction"
   }
 ]

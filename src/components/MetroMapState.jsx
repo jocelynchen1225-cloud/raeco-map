@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff } from "lucide-react";
 import MetroMap from "./MetroMap";
 import MetroFocusView from "./MetroFocusView";
 import StakeholderPopup from "./StakeholderPopup";
@@ -14,6 +15,7 @@ export default function MetroMapState({
   onBack,
 }) {
   const locked = !selectedStakeholderId;
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <motion.section
@@ -24,13 +26,24 @@ export default function MetroMapState({
     >
       <div className="relative">
         {!locked && !focusPhase && (
-          <button
-            type="button"
-            onClick={onBack}
-            className="fixed left-6 top-28 z-20 flex items-center gap-2 rounded-full border border-white/85 bg-white/75 px-5 py-3 font-body text-sm font-semibold text-[var(--color-ink)] shadow-[0_14px_40px_rgba(25,52,160,0.13)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:text-[var(--color-brand)]"
-          >
-            <ArrowLeft size={16} /> Back
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={onBack}
+              className="fixed left-6 top-28 z-20 flex items-center gap-2 rounded-full border border-white/85 bg-white/75 px-5 py-3 font-body text-sm font-semibold text-[var(--color-ink)] shadow-[0_14px_40px_rgba(25,52,160,0.13)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:text-[var(--color-brand)]"
+            >
+              <ArrowLeft size={16} /> Back
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setCollapsed((v) => !v)}
+              className="fixed left-6 top-[172px] z-20 flex items-center gap-2 rounded-full border border-white/85 bg-white/75 px-5 py-3 font-body text-sm font-semibold text-[var(--color-ink)] shadow-[0_14px_40px_rgba(25,52,160,0.13)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:text-[var(--color-brand)]"
+            >
+              {collapsed ? <Eye size={16} /> : <EyeOff size={16} />}
+              {collapsed ? "Expand tasks" : "Collapse"}
+            </button>
+          </>
         )}
 
         {/* The live, interactive metro map — blurred and non-interactive until a
@@ -40,23 +53,20 @@ export default function MetroMapState({
             any non-none filter value (even a 0px blur) still creates a CSS
             filter containing block, which breaks how descendant
             `backdrop-filter` elements (the glass phase/task nodes) sample the
-            page behind them. That mismatch was exactly what made the phase
-            circles look washed-out even after "unlocking". */}
+            page behind them. */}
         <div
           className={locked ? "pointer-events-none select-none" : ""}
           style={{ filter: locked ? "blur(16px)" : "none", transition: "filter 0.7s ease" }}
         >
           <div className="mx-auto w-full max-w-5xl px-4 pb-16 pt-10">
-            <MetroMap onSelectPhase={onFocusPhase} onSelectTask={onSelectTask} />
+            <MetroMap
+              onSelectPhase={onFocusPhase}
+              selectedStakeholderId={selectedStakeholderId}
+              collapsed={collapsed}
+            />
           </div>
         </div>
 
-        {/* Legend blurs in step with the map, but is kept OUT of the map's
-            filter wrapper above: a `position: fixed` element nested inside an
-            ancestor with a non-none `filter` gets re-anchored to that
-            ancestor instead of the viewport (another CSS filter gotcha), which
-            would break "stay put while scrolling". Its own independent filter
-            gets the same visual result without that side effect. */}
         <StakeholderLegend
           className="fixed right-6 top-28 z-10 hidden lg:block"
           style={{ filter: locked ? "blur(16px)" : "none", transition: "filter 0.7s ease" }}

@@ -10,13 +10,14 @@
   --color-ink: #0D0D0D;
   --color-hairline: #D9D9D9;
 
-  /* Stakeholder color-line system, reused everywhere the map appears */
-  --color-role-owner: #7B5EEA;
-  --color-role-architect: #E8792E;
-  --color-role-engineer: #2E86E8;
-  --color-role-consultant: #2FAE6E;
-  --color-role-contractor: #E23E6B;
-  --color-role-supplier: #E8B92E;
+  /* Industry color system (RAECO) — every stakeholder maps to exactly one of
+     these 5 industries, and every line/tint on the map, stakeholder grid, and
+     landing-page blocks derives its color from this table, not per-role. */
+  --color-industry-real-estate: #EB8588;
+  --color-industry-architecture: #E9A7FA;
+  --color-industry-engineering: #ACE0FD;
+  --color-industry-construction: #99E4B3;
+  --color-industry-operation: #A1ACD1;
 
   --font-display: "Poppins", sans-serif;
   --font-body: "Poppins", sans-serif;

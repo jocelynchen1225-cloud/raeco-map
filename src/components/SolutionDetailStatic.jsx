@@ -5,13 +5,11 @@ import aalScenarioInsights from "../data/aalScenarioInsights.json";
 import aiTools from "../data/aiTools.json";
 import StaticHotspotImage from "./StaticHotspotImage";
 
-function SwappLogo({ className }) {
-  return (
-    <svg viewBox="0 0 40 40" className={className} fill="none">
-      <path d="M4 26 L18 12 L26 20 L36 10" stroke="#1B4CE0" strokeWidth="7" strokeLinecap="round" />
-      <path d="M4 34 L14 24" stroke="#1B4CE0" strokeWidth="7" strokeLinecap="round" opacity="0.55" />
-    </svg>
-  );
+function initials(name = "AI") {
+  const words = name.replace(/[^a-zA-Z0-9 ]/g, " ").trim().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return "AI";
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return `${words[0][0]}${words[1][0]}`.toUpperCase();
 }
 
 function FavoriteButton({ active, onClick }) {
@@ -34,8 +32,10 @@ function FavoriteButton({ active, onClick }) {
 }
 
 export default function SolutionDetailStatic({ task, scenario, backdropConfig, savedScenarioIds, onToggleSavedScenario, onBack }) {
-  const tool = aiTools.find((t) => scenario?.aiTools?.includes(t.id));
-  const [hovered, setHovered] = useState(false);
+  const toolIds = scenario?.aiTools?.length ? scenario.aiTools : scenario?.solutions ?? [];
+  const matchedTools = toolIds.map((id) => aiTools.find((t) => t.id === id) ?? { id, name: id });
+  const tool = matchedTools[0];
+  const [hoveredToolId, setHoveredToolId] = useState(null);
   const isSaved = Boolean(scenario?.id && savedScenarioIds?.has(scenario.id));
   const aalInsight = scenario?.id ? aalScenarioInsights[scenario.id] : null;
 
@@ -184,81 +184,65 @@ export default function SolutionDetailStatic({ task, scenario, backdropConfig, s
         </div>
       )}
 
-      {tool && (
+      {matchedTools.length > 0 && (
         <div className="rounded-2xl border border-[var(--color-hairline)] bg-white p-6">
-          <p className="font-body text-sm font-semibold text-[var(--color-ink)]">AI TOOLS:</p>
-          <div className="mt-3 flex items-center gap-4">
-            <div
-              className="relative shrink-0"
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            >
-              <SwappLogo className="h-10 w-10 cursor-pointer" />
-
-              <AnimatePresence>
-                {hovered && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute left-0 top-full z-30 mt-3 w-80 rounded-2xl border border-[var(--color-hairline)] bg-white p-5 shadow-[0_16px_48px_rgba(25,52,160,0.25)]"
-                  >
-                    <div className="flex items-center gap-3">
-                      <SwappLogo className="h-8 w-8" />
-                      <p className="font-body text-lg font-bold text-[var(--color-ink)]">
-                        {tool.name} ({tool.matchScore})
-                      </p>
-                    </div>
-                    <p className="mt-3 font-body text-sm text-[var(--color-ink)]">
-                      (Description) {tool.description}
-                    </p>
-                    <div className="mt-4 space-y-2 border-t border-[var(--color-hairline)] pt-3 font-body text-xs">
-                      {[
-                        ["AI Techniques", tool.aiTechniques?.join(", ")],
-                        ["Deployment model", tool.deploymentModel],
-                        ["Key Capability", tool.keyCapability],
-                        ["PainPoints", tool.painPoints?.join(", ")],
-                        ["Scenarios", scenario?.label],
-                        ["Solution Type", tool.solutionType],
-                        ["Task", tool.task],
-                      ].map(([label, value]) => (
-                        <div key={label} className="flex justify-between gap-3">
-                          <dt className="shrink-0 text-[var(--color-ink)]/50">{label}</dt>
-                          <dd className="text-right font-medium text-[var(--color-ink)]">{value}</dd>
-                        </div>
-                      ))}
-                    </div>
-                    <a
-                      href={tool.website}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-4 block text-right font-body text-sm font-semibold text-[var(--color-ink)]"
-                    >
-                      Website →
-                    </a>
-                  </motion.div>
+          <p className="font-body text-sm font-semibold text-[var(--color-ink)]">AI Solutions:</p>
+          <div className="mt-4 flex flex-col gap-2">
+            {matchedTools.map((t) => (
+              <div
+                key={t.id}
+                className="relative flex items-center gap-3 rounded-2xl border border-[var(--color-hairline)] bg-[var(--color-paper)]/60 px-3 py-2.5"
+                onMouseEnter={() => setHoveredToolId(t.id)}
+                onMouseLeave={() => setHoveredToolId(null)}
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--color-brand)]/10 font-body text-xs font-extrabold text-[var(--color-brand)]">
+                  {initials(t.name)}
+                </span>
+                <p className="font-body text-sm font-semibold text-[var(--color-ink)]">{t.name}</p>
+                {t.keyCapability && (
+                  <p className="ml-auto font-body text-xs text-[var(--color-ink)]/50">{t.keyCapability}</p>
                 )}
-              </AnimatePresence>
-            </div>
 
-            <p className="font-body text-base font-semibold text-[var(--color-ink)]">
-              {tool.name} ({tool.matchScore})
-            </p>
-            <span className="font-body text-sm text-[var(--color-ink)]/30">......</span>
-
-            <ul className="space-y-0.5 font-body text-xs text-[var(--color-ink)]/70">
-              {tool.relatedTools?.map((rt) => (
-                <li key={rt}>{rt}</li>
-              ))}
-            </ul>
-
-            <button
-              type="button"
-              className="ml-auto shrink-0 font-body text-sm font-semibold text-[var(--color-brand)]"
-            >
-              Get a Comparison Report →
-            </button>
+                <AnimatePresence>
+                  {hoveredToolId === t.id && t.description && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.18 }}
+                      className="absolute left-0 top-full z-30 mt-2 w-80 rounded-2xl border border-[var(--color-hairline)] bg-white p-5 shadow-[0_16px_48px_rgba(25,52,160,0.25)]"
+                    >
+                      <p className="font-body text-base font-bold text-[var(--color-ink)]">{t.name}</p>
+                      <p className="mt-2 font-body text-sm text-[var(--color-ink)]">{t.description}</p>
+                      <div className="mt-3 space-y-2 border-t border-[var(--color-hairline)] pt-3 font-body text-xs">
+                        {[
+                          ["AI Techniques", t.aiTechniques?.join(", ")],
+                          ["Deployment model", t.deploymentModel],
+                          ["Solution Type", t.solutionType],
+                        ]
+                          .filter(([, value]) => value)
+                          .map(([label, value]) => (
+                            <div key={label} className="flex justify-between gap-3">
+                              <dt className="shrink-0 text-[var(--color-ink)]/50">{label}</dt>
+                              <dd className="text-right font-medium text-[var(--color-ink)]">{value}</dd>
+                            </div>
+                          ))}
+                      </div>
+                      {t.website && (
+                        <a
+                          href={t.website}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="mt-3 block text-right font-body text-sm font-semibold text-[var(--color-ink)]"
+                        >
+                          Website →
+                        </a>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </div>
         </div>
       )}

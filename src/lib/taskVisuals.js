@@ -1,7 +1,8 @@
-import { Ruler, HardHat, Pencil, User, Settings, Package, Calculator } from "lucide-react";
+import { Ruler, HardHat, Pencil, User, Settings, Package, Calculator, Layers, Hammer, Clipboard, FileText, Building2 } from "lucide-react";
 import stakeholders from "../data/stakeholders.json";
 import phases from "../data/phases.json";
 
+// 12 stakeholders, 12 distinct icons — no two roles share a glyph.
 export const STAKEHOLDER_ICONS = {
   ruler: Ruler,
   hardhat: HardHat,
@@ -10,14 +11,41 @@ export const STAKEHOLDER_ICONS = {
   gear: Settings,
   package: Package,
   calculator: Calculator,
+  layers: Layers,
+  hammer: Hammer,
+  clipboard: Clipboard,
+  file: FileText,
+  building: Building2,
 };
+
+export const INDUSTRY_COLORS = {
+  "real-estate": "#EB8588",
+  architecture: "#E9A7FA",
+  engineering: "#ACE0FD",
+  construction: "#99E4B3",
+  operation: "#A1ACD1",
+};
+
+export const INDUSTRY_LABELS = {
+  "real-estate": "Real Estate",
+  architecture: "Architecture",
+  engineering: "Engineering",
+  construction: "Construction",
+  operation: "Operation",
+};
+
+export const INDUSTRY_ORDER = ["real-estate", "architecture", "engineering", "construction", "operation"];
+
+export function getIndustryColor(industryId) {
+  return INDUSTRY_COLORS[industryId] ?? "#9CA3AF";
+}
 
 const stakeholderById = Object.fromEntries(stakeholders.map((s) => [s.id, s]));
 
 /**
- * A task's line/dot color and icon on the metro map are derived from its
- * "primary" stakeholder — the first id in `task.stakeholders` — rather than
- * a fixed lane, since real tasks can involve any mix of the 6 roles.
+ * A task's line/dot color on the metro map comes from its primary
+ * stakeholder's INDUSTRY (one of 5 RAECO colors) — not the stakeholder
+ * individually. The icon still identifies the specific stakeholder role.
  */
 export function getTaskVisual(task) {
   const primaryId = task.stakeholders?.[0];
@@ -25,7 +53,8 @@ export function getTaskVisual(task) {
   return {
     stakeholderId: primaryId ?? "unassigned",
     stakeholderLabel: s?.label ?? "Unassigned",
-    color: s?.color ?? "#9CA3AF",
+    industryId: s?.industry ?? "construction",
+    color: getIndustryColor(s?.industry),
     Icon: STAKEHOLDER_ICONS[s?.icon] ?? User,
   };
 }

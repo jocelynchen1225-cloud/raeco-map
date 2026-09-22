@@ -29,6 +29,12 @@ export default function App() {
   const [savedScenarioIds, setSavedScenarioIds] = useState(loadSavedScenarioIds);
   const [favoriteToast, setFavoriteToast] = useState(null);
 
+  // Every screen transition starts scrolled to the top, regardless of where
+  // the previous screen (or the metro map behind an overlay) was scrolled to.
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [ctx.state]);
+
   const goTo = (state, patch = {}) => setCtx((prev) => ({ ...prev, ...patch, state }));
   const backToHero = () => {
     setFocusPhase(null);

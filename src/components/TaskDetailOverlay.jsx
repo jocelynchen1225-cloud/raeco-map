@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Star, X } from "lucide-react";
 import stakeholders from "../data/stakeholders.json";
 import aalScenarioInsights from "../data/aalScenarioInsights.json";
@@ -177,7 +177,7 @@ function reportPainTag(point) {
   return `<span style="background:${style.bg};border-color:${style.border};color:${style.text};">${escapeHtml(point)}</span>`;
 }
 
-function exportSavedReport(records) {
+function exportSavedReport(records, contact = {}) {
   const rows = records
     .map(({ phase, task, scenario }, index) => {
       const painPoints = scenario.painPoints?.length ? scenario.painPoints : scenario.painPoint ? [scenario.painPoint] : [];
@@ -228,6 +228,14 @@ function exportSavedReport(records) {
     })
     .join("");
 
+  const preparedName = [contact.firstName, contact.surname].filter(Boolean).join(" ");
+  const preparedLines = [
+    preparedName && `<b>Prepared for:</b> ${escapeHtml(preparedName)}`,
+    contact.company && `<b>Company:</b> ${escapeHtml(contact.company)}`,
+    contact.position && `<b>Position:</b> ${escapeHtml(contact.position)}`,
+    `<b>Generated:</b> ${new Date().toLocaleDateString()}`,
+  ].filter(Boolean);
+
   const reportHtml = `
     <!doctype html>
     <html>
@@ -256,6 +264,8 @@ function exportSavedReport(records) {
           dd { margin: 0; color: #101828; font-size: 12px; font-weight: 700; line-height: 1.42; }
           .path-chip { display: inline-block; border-radius: 999px; background: #eef2ff; border: 1px solid #c7d2fe; color: #2742a6; padding: 4px 8px; font-size: 10px; font-weight: 900; }
           .solution-status { display: inline-block; margin-top: 6px; border-radius: 999px; background: #eff6ff; border: 1px solid #bfdbfe; color: #315783; padding: 3px 7px; font-size: 10px; font-weight: 900; }
+          .prepared-for { margin-top: 12px; font-size: 12px; line-height: 1.7; color: #475569; }
+          .prepared-for b { color: #101828; }
           .actions { position: sticky; bottom: 18px; margin-top: 22px; display: flex; justify-content: flex-end; pointer-events: none; }
           button { pointer-events: auto; border: 0; border-radius: 999px; background: #1934a0; color: #fff; padding: 10px 15px; font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; box-shadow: 0 12px 28px rgba(25,52,160,.18); }
           @media print { body { background: #fff; font-size: 11px; } .page { box-shadow: none; margin: 0; max-width: none; border: 0; border-radius: 0; padding: 0; } .scenario { padding: 14px; margin-top: 10px; } .actions { display: none; } }
@@ -275,6 +285,7 @@ function exportSavedReport(records) {
             <div>
               <h1>Saved Pain Point Scenario Report</h1>
               <div class="subtitle">AAL Innovation · RAECO AI Map<br />Generated from saved scenarios in the prototype.</div>
+              <div class="prepared-for">${preparedLines.map((line) => `<div>${line}</div>`).join("")}</div>
             </div>
             <img class="logo" src="${aalLogoDataUrl}" alt="AAL Innovation" />
           </header>
@@ -481,10 +492,84 @@ function ScenarioCard({ scenario, index, onExploreScenario, isSaved, onToggleSav
   );
 }
 
+function ContactField({ label, value, onChange, type = "text", className = "" }) {
+  return (
+    <label className={`flex flex-col gap-1 font-body text-xs text-slate-600 ${className}`}>
+      {label}
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="rounded-lg border border-slate-200 p-2 text-sm text-slate-900 outline-none focus:border-[var(--color-brand)]"
+      />
+    </label>
+  );
+}
+
+// Gate in front of the existing export flow — collects lead info, then calls
+// the SAME exportSavedReport(records) as before. Doesn't touch the report's
+// HTML/PDF output at all.
+function ContactGateModal({ onSubmit, onClose }) {
+  const [contact, setContact] = useState({ firstName: "", surname: "", email: "", company: "", position: "" });
+  return (
+    <div
+      className="fixed inset-0 z-[130] flex items-center justify-center bg-[rgba(20,24,38,0.45)] p-6 backdrop-blur-sm"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 16, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 16, scale: 0.97 }}
+        className="relative w-full max-w-[480px] rounded-3xl bg-white p-9 shadow-[0_30px_80px_rgba(25,52,160,0.35)]"
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute right-5 top-5 text-slate-400 hover:text-slate-700"
+        >
+          <X size={18} />
+        </button>
+        <p className="font-body text-sm font-extrabold text-slate-900">A couple of details before your report</p>
+        <form
+          className="mt-4 flex flex-col gap-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+            onSubmit(contact);
+          }}
+        >
+          <div className="grid grid-cols-2 gap-3">
+            <ContactField label="First Name" value={contact.firstName} onChange={(v) => setContact((c) => ({ ...c, firstName: v }))} />
+            <ContactField label="Surname" value={contact.surname} onChange={(v) => setContact((c) => ({ ...c, surname: v }))} />
+            <ContactField
+              label="Email"
+              type="email"
+              className="col-span-2"
+              value={contact.email}
+              onChange={(v) => setContact((c) => ({ ...c, email: v }))}
+            />
+            <ContactField label="Company" value={contact.company} onChange={(v) => setContact((c) => ({ ...c, company: v }))} />
+            <ContactField label="Position" value={contact.position} onChange={(v) => setContact((c) => ({ ...c, position: v }))} />
+          </div>
+          <button
+            type="submit"
+            className="mt-1 self-end rounded-lg bg-[var(--color-brand)] px-8 py-2.5 font-body text-sm font-semibold text-white"
+          >
+            Export your report
+          </button>
+        </form>
+      </motion.div>
+    </div>
+  );
+}
+
 export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSavedScenario, onBack, onExploreScenario }) {
   const scenarios = task?.scenarios ?? [];
   const columns = distributeScenarios(scenarios, 3);
   const [showSavedPanel, setShowSavedPanel] = useState(false);
+  const [showContactGate, setShowContactGate] = useState(false);
   const savedRecords = savedScenarioRecords(savedScenarioIds);
 
   return (
@@ -493,19 +578,8 @@ export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSave
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.28 }}
-      className="relative min-h-[calc(100vh-100px)] overflow-y-auto overflow-x-hidden bg-[#e9eef5]"
+      className="relative min-h-[calc(100vh-100px)] overflow-y-auto overflow-x-hidden bg-[var(--color-paper)]"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none fixed inset-0 opacity-70"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(84,104,135,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(84,104,135,.12) 1px, transparent 1px), radial-gradient(circle at 70% 35%, rgba(91,169,235,.18), transparent 32%), radial-gradient(circle at 20% 75%, rgba(139,92,246,.11), transparent 30%)",
-          backgroundSize: "72px 72px, 72px 72px, 100% 100%, 100% 100%",
-        }}
-      />
-      <div aria-hidden className="pointer-events-none fixed inset-x-0 top-0 h-36 bg-gradient-to-b from-white/80 to-transparent" />
-
       <div className="relative z-10 px-6 pb-16 pt-9 md:px-10">
         <div className="flex items-start gap-5">
           <button
@@ -537,10 +611,29 @@ export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSave
             </button>
 
             {showSavedPanel && (
-              <div className="absolute right-0 top-[calc(100%+12px)] z-30 w-[340px] rounded-3xl border border-white/85 bg-white/88 p-5 shadow-[0_26px_70px_rgba(48,58,86,0.18)] backdrop-blur-2xl">
-                <p className="font-body text-[13px] font-extrabold uppercase tracking-[0.18em] text-slate-500">
-                  Saved Scenarios
-                </p>
+              <>
+                {/* Click-outside-to-close backdrop — sits below the panel, above
+                    everything else, so it never intercepts the panel's own clicks. */}
+                <button
+                  type="button"
+                  aria-label="Dismiss saved scenarios"
+                  onClick={() => setShowSavedPanel(false)}
+                  className="fixed inset-0 z-20 cursor-default"
+                />
+                <div className="absolute right-0 top-[calc(100%+12px)] z-30 w-[340px] rounded-3xl border border-white/85 bg-white/88 p-5 shadow-[0_26px_70px_rgba(48,58,86,0.18)] backdrop-blur-2xl">
+                  <div className="flex items-center justify-between">
+                    <p className="font-body text-[13px] font-extrabold uppercase tracking-[0.18em] text-slate-500">
+                      Saved Scenarios
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setShowSavedPanel(false)}
+                      aria-label="Close saved scenarios panel"
+                      className="text-slate-400 hover:text-slate-700"
+                    >
+                      <X size={16} />
+                    </button>
+                  </div>
                 {savedRecords.length === 0 ? (
                   <p className="mt-3 font-body text-sm font-semibold leading-6 text-slate-500">
                     No saved scenarios yet. Use the star on a scenario card to save it.
@@ -568,7 +661,7 @@ export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSave
                 )}
                 <button
                   type="button"
-                  onClick={() => exportSavedReport(savedRecords)}
+                  onClick={() => setShowContactGate(true)}
                   disabled={savedRecords.length === 0}
                   className="mt-5 w-full rounded-full bg-[var(--color-brand)] px-4 py-2.5 font-body text-xs font-extrabold uppercase tracking-[0.16em] text-white shadow-[0_14px_30px_rgba(25,52,160,0.20)]"
                 >
@@ -577,18 +670,10 @@ export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSave
                 <p className="mt-3 font-body text-xs font-semibold leading-5 text-slate-500">
                   Future report export can include the AAL logo, task context, pain points, scenarios, and AI solutions.
                 </p>
-              </div>
+                </div>
+              </>
             )}
           </div>
-
-          <button
-            type="button"
-            onClick={onBack}
-            aria-label="Close task preview"
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/85 bg-white/76 text-slate-950 shadow-[0_18px_50px_rgba(48,58,86,.13)] backdrop-blur-2xl transition hover:-translate-y-0.5"
-          >
-            <X size={22} />
-          </button>
         </div>
 
         {scenarios.length === 0 ? (
@@ -615,6 +700,20 @@ export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSave
           </div>
         )}
       </div>
+
+      <AnimatePresence>
+        {showContactGate && (
+          <ContactGateModal
+            onClose={() => setShowContactGate(false)}
+            onSubmit={(contact) => {
+              // TODO: send `contact` to a CRM/email endpoint once one exists.
+              console.info("Report requested by:", contact);
+              exportSavedReport(savedRecords, contact);
+              setShowContactGate(false);
+            }}
+          />
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
