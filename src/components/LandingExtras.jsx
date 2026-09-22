@@ -26,9 +26,10 @@ const CELLS = {
 
 const COLS = 8;
 const ROWS = 5;
-const GAP = 5;
-const FRAME_PAD = 9;
-const LABEL_H = 20;
+const REGION_GAP = 5;
+const FRAME_PAD = 10;
+const LABEL_H = 18;
+const TILE_GAP = 9;
 const BOARD_SCALE = 0.75; // image1 is 25% smaller than the previous version
 
 // Build one outline for a polyomino from its occupied grid cells.  This is the
@@ -79,7 +80,7 @@ function TetrisBoard() {
 
   const width = hostWidth * BOARD_SCALE;
   const slot = width / COLS;
-  const cell = slot - GAP;
+  const tile = slot - FRAME_PAD * 2 - LABEL_H - TILE_GAP;
   const boardH = ROWS * slot;
   const step = slot;
   const allTiles = INDUSTRY_ORDER.flatMap((id) =>
@@ -93,14 +94,25 @@ function TetrisBoard() {
           {INDUSTRY_ORDER.map((id) => {
             const color = getIndustryColor(id);
             return (
-              <path
-                key={`${id}-frame`}
-                d={regionPath(CELLS[id], slot)}
-                fill={`${color}30`}
-                stroke={`${color}80`}
-                strokeWidth="1.5"
-                strokeLinejoin="round"
-              />
+              <g key={`${id}-frame`}>
+                {/* White under-stroke creates a small, consistent gap between puzzle pieces. */}
+                <path
+                  d={regionPath(CELLS[id], slot)}
+                  fill={`${color}30`}
+                  stroke="#fff"
+                  strokeWidth={REGION_GAP * 2}
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                />
+                <path
+                  d={regionPath(CELLS[id], slot)}
+                  fill={`${color}30`}
+                  stroke={`${color}80`}
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                />
+              </g>
             );
           })}
         </svg>
@@ -125,23 +137,29 @@ function TetrisBoard() {
           const color = getIndustryColor(id);
           const Icon = PLACEHOLDER_ICONS[iconIndex % PLACEHOLDER_ICONS.length];
           const isTopRow = r === Math.min(...CELLS[id].map(([rr]) => rr));
-          const topInset = FRAME_PAD + (isTopRow ? LABEL_H : 0);
+          // Every tile is an identical square. Top-row labels float in the frame
+          // margin rather than changing tile height, so no tile can stretch.
+          const square = tile;
+          const tileTop = isTopRow
+            ? r * step + FRAME_PAD + LABEL_H
+            : r * step + (slot - square) / 2;
+          const radius = Math.max(7, square * 0.09);
           return (
             <div
               key={`${id}-${r}-${c}`}
               className="absolute z-10 flex items-center justify-center"
               style={{
-                left: c * step + FRAME_PAD,
-                top: r * step + topInset,
-                width: cell - FRAME_PAD * 2,
-                height: cell - FRAME_PAD - topInset,
-                minWidth: 0,
-                minHeight: 0,
-                borderRadius: Math.max(7, cell * 0.075),
+                left: c * step + (slot - square) / 2,
+                top: tileTop,
+                width: square,
+                height: square,
+                minWidth: square,
+                minHeight: square,
+                borderRadius: radius,
                 background: color,
               }}
             >
-              <Icon size={Math.max(13, cell * 0.28)} strokeWidth={1.8} color="#fff" />
+              <Icon size={Math.max(13, square * 0.28)} strokeWidth={1.8} color="#fff" />
             </div>
           );
         })}
