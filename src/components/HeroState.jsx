@@ -23,8 +23,6 @@ export default function HeroState({ onSelectRoleAndTask }) {
           to the job you need to finish and the stage of the project lifecycle.
         </p>
 
-        <StatsGrid />
-
         <button
           type="button"
           onClick={onSelectRoleAndTask}
@@ -34,6 +32,9 @@ export default function HeroState({ onSelectRoleAndTask }) {
           <br />
           Explore
         </button>
+
+        <StatsGrid />
+
       </motion.div>
 
       <LandingExtras />
