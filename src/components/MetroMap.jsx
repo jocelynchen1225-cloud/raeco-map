@@ -1,12 +1,13 @@
 import { useRef, useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { sortedPhases, getTaskVisual } from "../lib/taskVisuals";
+import { sortedPhases, getTaskVisual, filterPhasesForStakeholder } from "../lib/taskVisuals";
 
 const CURVE_LEN = 62;
 const TASK_GAP = 78;
 const SEG_BUFFER = 56;
 const TOP_MARGIN = 90;
 const EDGE_MARGIN = 100; // widened for pill-shaped nodes (item 12) vs the old circular ones
+const TASK_CARD_EDGE_INSET = 28;
 const BUCKET_KEYS = ["a", "b", "c"];
 
 function bucketizeTasks(tasks) {
@@ -53,14 +54,49 @@ function buildLayout(CW, phases, collapsed) {
 
   const nodes = [];
   const segments = [];
-  let prevPhaseY = TOP_MARGIN;
+  let prevPhaseY = TOP_MARGIN + 250;
 
   phases.forEach((phase, phaseIdx) => {
     const isLastPhase = phaseIdx === phases.length - 1;
     const buckets = bucketizeTasks(phase.tasks);
     const maxTasks = Math.max(...BUCKET_KEYS.map((k) => buckets[k].length), 1);
 
-    if (!isLastPhase) {
+    if (phaseIdx === 0 && !isLastPhase) {
+      const phaseY = prevPhaseY;
+      nodes.push({ type: "phase", id: phase.id, x: 0, y: phaseY, phase });
+
+      const branchH = CURVE_LEN + (maxTasks - 1) * TASK_GAP + SEG_BUFFER * 0.6;
+      const branchTopY = Math.max(36, phaseY - branchH);
+
+      BUCKET_KEYS.forEach((key) => {
+        const tasks = buckets[key];
+        if (tasks.length === 0) return;
+        const n = tasks.length;
+        const spanStart = branchTopY;
+        const spanEnd = phaseY - CURVE_LEN;
+        const span = spanEnd - spanStart;
+        const taskYs = tasks.map((t, i) => (n === 1 ? (spanStart + spanEnd) / 2 : spanStart + (span * i) / (n - 1)));
+        const lineNearPhase = taskYs[n - 1] + TASK_CARD_EDGE_INSET;
+        const lineFarFromPhase = taskYs[0] - TASK_CARD_EDGE_INSET;
+        tasks.forEach((task, i) => {
+          const visual = getTaskVisual(task);
+          nodes.push({ type: "task", id: task.id, x: BUCKET_X[key], y: taskYs[i], task, phase, visual });
+        });
+        segments.push({
+          id: `${phase.id}-${key}-start`,
+          x1: BUCKET_X[key],
+          y0: phaseY,
+          y1Top: lineNearPhase,
+          y1Bottom: lineFarFromPhase,
+          y2: phaseY,
+          open: true,
+          reverse: true,
+          color: getTaskVisual(tasks[0]).color,
+        });
+      });
+
+      prevPhaseY = phaseY;
+    } else if (!isLastPhase) {
       // Every phase but the last: its own tasks sit in the segment LEADING
       // INTO it (between the previous circle and this one), converging
       // closed as normal.
@@ -185,11 +221,9 @@ export default function MetroMap({ onSelectPhase, selectedStakeholderId, collaps
   }, []);
 
   const visiblePhases = useMemo(() => {
-    const mapped = sortedPhases.map((phase) => {
-      if (collapsed) return { ...phase, tasks: [] };
-      if (!selectedStakeholderId || selectedStakeholderId === "all") return phase;
-      return { ...phase, tasks: phase.tasks.filter((t) => t.stakeholders?.includes(selectedStakeholderId)) };
-    });
+    const mapped = collapsed
+      ? sortedPhases.map((phase) => ({ ...phase, tasks: [] }))
+      : filterPhasesForStakeholder(sortedPhases, selectedStakeholderId, { keepEmpty: true });
     // Filtering to one stakeholder (item 6): phases with nothing left for
     // them drop out entirely, not just their tasks — "View All" and the
     // collapsed grid both keep every phase.
@@ -212,15 +246,23 @@ export default function MetroMap({ onSelectPhase, selectedStakeholderId, collaps
       >
         <AnimatePresence>
           {layout.segments.map((seg) => {
+            const sx = cx + (seg.x0 ?? 0);
             const lx = cx + seg.x1;
-            const d = seg.open
-              ? `M ${cx} ${seg.y0}
+            let d;
+            if (seg.open && seg.reverse) {
+              d = `M ${sx} ${seg.y0}
+                 C ${sx} ${seg.y0 - CURVE_LEN * 0.6}, ${lx} ${seg.y1Top + CURVE_LEN * 0.6}, ${lx} ${seg.y1Top}
+                 L ${lx} ${seg.y1Bottom}`;
+            } else if (seg.open) {
+              d = `M ${cx} ${seg.y0}
                  C ${cx} ${seg.y0 + CURVE_LEN * 0.6}, ${lx} ${seg.y1Top - CURVE_LEN * 0.6}, ${lx} ${seg.y1Top}
-                 L ${lx} ${seg.y1Bottom}`
-              : `M ${cx} ${seg.y0}
+                 L ${lx} ${seg.y1Bottom}`;
+            } else {
+              d = `M ${cx} ${seg.y0}
                  C ${cx} ${seg.y0 + CURVE_LEN * 0.6}, ${lx} ${seg.y1Top - CURVE_LEN * 0.6}, ${lx} ${seg.y1Top}
                  L ${lx} ${seg.y1Bottom}
                  C ${lx} ${seg.y1Bottom + CURVE_LEN * 0.6}, ${cx} ${seg.y2 - CURVE_LEN * 0.6}, ${cx} ${seg.y2}`;
+            }
             return (
               <motion.path
                 key={seg.id}

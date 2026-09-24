@@ -4,7 +4,7 @@ import { ArrowLeft, Star, X } from "lucide-react";
 import stakeholders from "../data/stakeholders.json";
 import aalScenarioInsights from "../data/aalScenarioInsights.json";
 import aalLogoDataUrl from "../../public/logo.png?inline";
-import { sortedPhases } from "../lib/taskVisuals";
+import { sortedPhases, filterTaskForStakeholder } from "../lib/taskVisuals";
 
 const stakeholderById = Object.fromEntries(stakeholders.map((s) => [s.id, s]));
 
@@ -565,8 +565,16 @@ function ContactGateModal({ onSubmit, onClose }) {
   );
 }
 
-export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSavedScenario, onBack, onExploreScenario }) {
-  const scenarios = task?.scenarios ?? [];
+export default function TaskDetailOverlay({
+  task,
+  selectedStakeholderId,
+  savedScenarioIds,
+  onToggleSavedScenario,
+  onBack,
+  onExploreScenario,
+}) {
+  const visibleTask = filterTaskForStakeholder(task, selectedStakeholderId);
+  const scenarios = visibleTask?.scenarios ?? [];
   const columns = distributeScenarios(scenarios, 3);
   const [showSavedPanel, setShowSavedPanel] = useState(false);
   const [showContactGate, setShowContactGate] = useState(false);
@@ -593,7 +601,7 @@ export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSave
           <div className="min-w-0 max-w-[980px] flex-[1_1_auto] rounded-[26px] border border-white/85 bg-white/72 px-7 py-5 shadow-[0_18px_60px_rgba(48,58,86,.13)] backdrop-blur-2xl">
             <p className="font-body text-[14px] font-extrabold text-[var(--color-brand)]">Task Preview</p>
             <h1 className="mt-1 font-body text-[28px] font-extrabold leading-tight text-slate-950">
-              {task?.label ?? "Task Preview"}
+              {visibleTask?.label ?? "Task Preview"}
             </h1>
           </div>
 
@@ -679,7 +687,9 @@ export default function TaskDetailOverlay({ task, savedScenarioIds, onToggleSave
         {scenarios.length === 0 ? (
           <div className="mt-10 rounded-[28px] border border-dashed border-slate-300 bg-white/68 p-10 text-center shadow-[0_22px_60px_rgba(48,58,86,.12)] backdrop-blur-2xl">
             <p className="font-body text-lg font-extrabold text-slate-800">No scenario content yet for this task</p>
-            <p className="mt-2 font-body text-sm font-medium text-slate-500">This task exists in the real phase/task dataset, but the current AI solution dataset has no matched scenario rows for it yet.</p>
+            <p className="mt-2 font-body text-sm font-medium text-slate-500">
+              This task exists in the real phase/task dataset, but the current AI solution dataset has no matched scenario rows for it yet.
+            </p>
           </div>
         ) : (
           <div className="mt-10 grid items-start gap-8 xl:grid-cols-3 lg:grid-cols-2">

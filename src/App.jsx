@@ -47,6 +47,18 @@ export default function App() {
       selectedScenarioId: null,
     }));
   };
+  const backToStakeholderSelection = () => {
+    setFocusPhase(null);
+    setCtx((prev) => ({
+      ...prev,
+      state: APP_STATES.METRO_MAP,
+      selectedStakeholderId: null,
+      selectedPhaseId: null,
+      selectedTaskId: null,
+      selectedScenarioId: null,
+    }));
+    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+  };
 
   const activeTask =
     ctx.selectedPhaseId && ctx.selectedTaskId ? findTask(ctx.selectedPhaseId, ctx.selectedTaskId) : null;
@@ -92,6 +104,7 @@ export default function App() {
               goTo(APP_STATES.TASK_DETAIL_STATIC, { selectedPhaseId: phase.id, selectedTaskId: task.id })
             }
             onBack={backToHero}
+            onBackToStakeholderSelection={backToStakeholderSelection}
           />
         )}
 
@@ -99,6 +112,7 @@ export default function App() {
           <TaskDetailOverlay
             key="task-detail-static"
             task={activeTask}
+            selectedStakeholderId={ctx.selectedStakeholderId}
             savedScenarioIds={savedScenarioIds}
             onToggleSavedScenario={toggleSavedScenario}
             onBack={() => goTo(APP_STATES.METRO_MAP)}

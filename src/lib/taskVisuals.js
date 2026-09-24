@@ -72,4 +72,36 @@ export function findTask(phaseId, taskId) {
   return phase?.tasks.find((t) => t.id === taskId);
 }
 
+export function scenarioInvolvesStakeholder(scenario, stakeholderId) {
+  if (!stakeholderId || stakeholderId === "all") return true;
+  return scenario?.stakeholders?.includes(stakeholderId);
+}
+
+export function taskInvolvesStakeholder(task, stakeholderId) {
+  if (!stakeholderId || stakeholderId === "all") return true;
+  return task?.stakeholders?.includes(stakeholderId);
+}
+
+export function filterTaskForStakeholder(task, stakeholderId) {
+  if (!task || !stakeholderId || stakeholderId === "all") return task;
+  return task;
+}
+
+export function filterPhaseForStakeholder(phase, stakeholderId) {
+  if (!phase || !stakeholderId || stakeholderId === "all") return phase;
+
+  return {
+    ...phase,
+    tasks: (phase.tasks ?? [])
+      .filter((task) => taskInvolvesStakeholder(task, stakeholderId))
+      .map((task) => filterTaskForStakeholder(task, stakeholderId)),
+  };
+}
+
+export function filterPhasesForStakeholder(phasesList, stakeholderId, { keepEmpty = false } = {}) {
+  const filtered = phasesList.map((phase) => filterPhaseForStakeholder(phase, stakeholderId));
+  if (!stakeholderId || stakeholderId === "all" || keepEmpty) return filtered;
+  return filtered.filter((phase) => phase.tasks.length > 0);
+}
+
 export const sortedPhases = [...phases].sort((a, b) => a.order - b.order);

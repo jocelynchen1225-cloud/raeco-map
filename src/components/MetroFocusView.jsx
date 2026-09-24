@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { X } from "lucide-react";
-import { sortedPhases, getTaskVisual } from "../lib/taskVisuals";
+import { sortedPhases, getTaskVisual, filterPhasesForStakeholder } from "../lib/taskVisuals";
 import NavBar from "./NavBar";
 import StakeholderLegend from "./StakeholderLegend";
 
@@ -121,13 +121,21 @@ function TaskCard({ x, y, task, visual, onSelect }) {
  * fleshed-out phase shows six). Prev/next glass circles navigate with a
  * continuous scroll-style slide.
  */
-export default function MetroFocusView({ phase, onChangeIndex, onClose, onSelectTask }) {
+export default function MetroFocusView({ phase, selectedStakeholderId, onChangeIndex, onClose, onSelectTask }) {
   const stageRef = useRef(null);
   const [size, setSize] = useState({ w: 1100, h: 760 });
   const controls = useAnimation();
   const slideDist = useRef(260);
 
-  const phaseIndex = sortedPhases.findIndex((p) => p.id === phase?.id);
+  const focusPhases = useMemo(
+    () => filterPhasesForStakeholder(sortedPhases, selectedStakeholderId),
+    [selectedStakeholderId]
+  );
+  const activePhase = useMemo(
+    () => focusPhases.find((p) => p.id === phase?.id) ?? phase,
+    [focusPhases, phase]
+  );
+  const phaseIndex = focusPhases.findIndex((p) => p.id === activePhase?.id);
 
   // Lock background scroll while this overlay is open — otherwise the tall
   // metro map underneath still scrolls with the page, so by the time you
@@ -151,7 +159,7 @@ export default function MetroFocusView({ phase, onChangeIndex, onClose, onSelect
     return () => ro.disconnect();
   }, []);
 
-  const layout = useMemo(() => (phase ? buildFocusLayout(size.w, size.h, phase) : null), [phase, size.w, size.h]);
+  const layout = useMemo(() => (activePhase ? buildFocusLayout(size.w, size.h, activePhase) : null), [activePhase, size.w, size.h]);
 
   useEffect(() => {
     if (layout) slideDist.current = layout.hubR + layout.gap;
@@ -161,16 +169,18 @@ export default function MetroFocusView({ phase, onChangeIndex, onClose, onSelect
     async (newIndex, dir) => {
       const dist = slideDist.current;
       await controls.start({ y: dir === "down" ? -dist : dist, transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } });
-      onChangeIndex(sortedPhases[newIndex]);
+      onChangeIndex(focusPhases[newIndex]);
       controls.set({ y: dir === "down" ? dist : -dist });
       await controls.start({ y: 0, transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } });
     },
-    [controls, onChangeIndex]
+    [controls, focusPhases, onChangeIndex]
   );
 
-  if (!phase || !layout) return null;
+  if (!activePhase || !layout) return null;
 
   const { hubR, hubCX, hubCY, ghostR, gap, leftX, cardX, cards, stakeholderY, distinctStakeholders } = layout;
+  const hasPreviousPhase = phaseIndex > 0 && Boolean(focusPhases[phaseIndex - 1]);
+  const hasNextPhase = phaseIndex >= 0 && phaseIndex < focusPhases.length - 1 && Boolean(focusPhases[phaseIndex + 1]);
 
   return (
     <AnimatePresence>
@@ -199,15 +209,15 @@ export default function MetroFocusView({ phase, onChangeIndex, onClose, onSelect
           <motion.div className="relative h-full w-full" initial={{ scale: 0.94, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.28 }}>
             <motion.div className="relative h-full w-full" animate={controls}>
               <svg width={size.w} height={size.h} viewBox={`0 0 ${size.w} ${size.h}`} className="absolute left-0 top-0 overflow-visible">
-                {phaseIndex > 0 && (
+                {hasPreviousPhase && (
                   <line x1={hubCX} y1={hubCY - hubR} x2={hubCX} y2={hubCY - hubR - gap + ghostR} stroke="rgba(150,160,190,.5)" strokeWidth={2} strokeDasharray="5 6" />
                 )}
-                {phaseIndex < sortedPhases.length - 1 && (
+                {hasNextPhase && (
                   <line x1={hubCX} y1={hubCY + hubR} x2={hubCX} y2={hubCY + hubR + gap - ghostR} stroke="rgba(150,160,190,.5)" strokeWidth={2} strokeDasharray="5 6" />
                 )}
                 {cards.map(({ task, visual, cy, hubPassY }, i) => (
                   <FlowPath
-                    key={`${phase.id}-${task.id}`}
+                    key={`${activePhase.id}-${task.id}`}
                     x1={leftX}
                     y1={stakeholderY[visual.stakeholderId]}
                     hcx={hubCX}
@@ -220,11 +230,11 @@ export default function MetroFocusView({ phase, onChangeIndex, onClose, onSelect
                 ))}
               </svg>
 
-              {phaseIndex > 0 && (
-                <GhostCircle phase={sortedPhases[phaseIndex - 1]} cx={hubCX} cy={hubCY - hubR - gap} r={ghostR} onClick={() => navigate(phaseIndex - 1, "up")} />
+              {hasPreviousPhase && (
+                <GhostCircle phase={focusPhases[phaseIndex - 1]} cx={hubCX} cy={hubCY - hubR - gap} r={ghostR} onClick={() => navigate(phaseIndex - 1, "up")} />
               )}
-              {phaseIndex < sortedPhases.length - 1 && (
-                <GhostCircle phase={sortedPhases[phaseIndex + 1]} cx={hubCX} cy={hubCY + hubR + gap} r={ghostR} onClick={() => navigate(phaseIndex + 1, "down")} />
+              {hasNextPhase && (
+                <GhostCircle phase={focusPhases[phaseIndex + 1]} cx={hubCX} cy={hubCY + hubR + gap} r={ghostR} onClick={() => navigate(phaseIndex + 1, "down")} />
               )}
 
               {/* hub */}
@@ -243,9 +253,9 @@ export default function MetroFocusView({ phase, onChangeIndex, onClose, onSelect
                   className="pointer-events-none absolute -z-10 rounded-full blur-[4px]"
                   style={{ inset: -30, background: "radial-gradient(circle, rgba(25,52,160,0.18) 0%, rgba(25,52,160,0) 70%)" }}
                 />
-                <div className="font-body text-[30px] font-bold text-[var(--color-brand)]">{phase.order}</div>
-                <div className="mt-1 px-6 text-center font-body text-sm font-bold tracking-wide text-[var(--color-ink)]">{phase.label}</div>
-                {phase.isDummy && <div className="mt-1 font-body text-[10.5px] text-[var(--color-ink)]/40">content pending — connect the database</div>}
+                <div className="font-body text-[30px] font-bold text-[var(--color-brand)]">{activePhase.order}</div>
+                <div className="mt-1 px-6 text-center font-body text-sm font-bold tracking-wide text-[var(--color-ink)]">{activePhase.label}</div>
+                {activePhase.isDummy && <div className="mt-1 font-body text-[10.5px] text-[var(--color-ink)]/40">content pending — connect the database</div>}
               </div>
 
               {/* stakeholder markers + labels */}
@@ -269,7 +279,7 @@ export default function MetroFocusView({ phase, onChangeIndex, onClose, onSelect
               })}
 
               {cards.map(({ task, visual, cy }, i) => (
-                <TaskCard key={i} x={cardX} y={cy} task={task} visual={visual} onSelect={() => onSelectTask?.(task, phase)} />
+                <TaskCard key={i} x={cardX} y={cy} task={task} visual={visual} onSelect={() => onSelectTask?.(task, activePhase)} />
               ))}
             </motion.div>
           </motion.div>
