@@ -1,11 +1,59 @@
 import { useRef, useState, useEffect } from "react";
-import { Sparkles, Bot, Cpu, Wand2, ScanEye, BrainCircuit, Workflow, Boxes, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { INDUSTRY_ORDER, INDUSTRY_LABELS, getIndustryColor } from "../lib/taskVisuals";
 
-// Placeholder icon set — swap for real AI-tool logos once available. Reused
-// across industries on purpose (this block is a "coming preview", not a
-// literal tool directory).
-const PLACEHOLDER_ICONS = [Sparkles, Bot, Cpu, Wand2, ScanEye, BrainCircuit, Workflow, Boxes];
+const TOOL_LOGOS = {
+  "real-estate": [
+    { name: "Autodesk Forma", logo: "/tool-logos/autodesk-forma.png" },
+    { name: "Maket", logo: "/tool-logos/maket.png" },
+    { name: "Finch", logo: "/tool-logos/finch.png" },
+    { name: "Higharc", logo: "/tool-logos/higharc.svg" },
+    { name: "qbiq", logo: "/tool-logos/qbiq.png" },
+    { name: "PermitFlow", logo: "/tool-logos/permitflow.png" },
+  ],
+  construction: [
+    { name: "OpenSpace", logo: "/tool-logos/openspace.png" },
+    { name: "Buildots", logo: "/tool-logos/buildots.webp" },
+    { name: "Doxel", logo: "/tool-logos/doxel.png" },
+    { name: "Dusty Robotics", logo: "/tool-logos/dusty-robotics.png" },
+    { name: "Alice Technologies", logo: "/tool-logos/alice-technologies.png" },
+    { name: "nPlan", logo: "/tool-logos/nplan.png" },
+    { name: "Outbuild", logo: "/tool-logos/outbuild.png" },
+    { name: "Constructable", logo: "/tool-logos/constructable.ico" },
+  ],
+  architecture: [
+    { name: "Snaptrude", logo: "/tool-logos/snaptrude.png" },
+    { name: "SWAPP", logo: "/tool-logos/swapp-ai.png" },
+    { name: "Veras", logo: "/tool-logos/veras.jpg" },
+    { name: "Drawer AI", logo: "/tool-logos/drawer-ai.svg" },
+    { name: "Homestyler", logo: "/tool-logos/homestyler.ico" },
+    { name: "Planner 5D", logo: "/tool-logos/planner5d.ico" },
+    { name: "Kujiale", logo: "/tool-logos/kujiale.png" },
+    { name: "Artificial Studio", logo: "/tool-logos/artificial-studio.ico" },
+  ],
+  engineering: [
+    { name: "Augmenta", logo: "/tool-logos/augmenta.png" },
+    { name: "Allplan", logo: "/tool-logos/allplan.png" },
+    { name: "One Click LCA", logo: "/tool-logos/one-click-lca.png" },
+    { name: "Parspec", logo: "/tool-logos/parspec.png" },
+    { name: "Beam AI", logo: "/tool-logos/beam-ai.png" },
+    { name: "Firmus", logo: "/tool-logos/firmus.png" },
+    { name: "Tekla", logo: "/tool-logos/tekla.ico" },
+    { name: "Civils AI", logo: "/tool-logos/civils-ai.ico" },
+    { name: "Kreo", logo: "/tool-logos/kreo.png" },
+    { name: "Clearstory", logo: "/tool-logos/clearstory.png" },
+  ],
+  operation: [
+    { name: "Empoli AI", logo: "/tool-logos/empoli-ai.png" },
+    { name: "Adaptis", logo: "/tool-logos/adaptis.png" },
+    { name: "Endra", logo: "/tool-logos/endra.png" },
+    { name: "Enlaye", logo: "/tool-logos/enlaye.png" },
+    { name: "Document Crunch", logo: "/tool-logos/document-crunch.png" },
+    { name: "Briq", logo: "/tool-logos/briq.png" },
+    { name: "Pixelcut", logo: "/tool-logos/pixelcut.ico" },
+    { name: "Helonic Articulate", logo: "/tool-logos/helonic-articulate.png" },
+  ],
+};
 
 // image1 preview board — deliberately kept self-contained so no other page
 // styling/behaviour is affected.  The denser 8×5 layout keeps every tile the
@@ -84,7 +132,7 @@ function TetrisBoard() {
   const boardH = ROWS * slot;
   const step = slot;
   const allTiles = INDUSTRY_ORDER.flatMap((id) =>
-    CELLS[id].map(([r,c], i) => ({ id, r, c, iconIndex: i + INDUSTRY_ORDER.indexOf(id) * 3 }))
+    CELLS[id].map(([r,c], i) => ({ id, r, c, tool: TOOL_LOGOS[id][i % TOOL_LOGOS[id].length] }))
   );
 
   return (
@@ -133,9 +181,8 @@ function TetrisBoard() {
           );
         })}
 
-        {allTiles.map(({ id, r, c, iconIndex }) => {
+        {allTiles.map(({ id, r, c, tool }) => {
           const color = getIndustryColor(id);
-          const Icon = PLACEHOLDER_ICONS[iconIndex % PLACEHOLDER_ICONS.length];
           const isTopRow = r === Math.min(...CELLS[id].map(([rr]) => rr));
           // Every tile is an identical square. Top-row labels float in the frame
           // margin rather than changing tile height, so no tile can stretch.
@@ -146,8 +193,10 @@ function TetrisBoard() {
           const radius = Math.max(7, square * 0.09);
           return (
             <div
-              key={`${id}-${r}-${c}`}
+              key={`${id}-${r}-${c}-${tool.name}`}
               className="absolute z-10 flex items-center justify-center"
+              title={tool.name}
+              aria-label={tool.name}
               style={{
                 left: c * step + (slot - square) / 2,
                 top: tileTop,
@@ -156,10 +205,18 @@ function TetrisBoard() {
                 minWidth: square,
                 minHeight: square,
                 borderRadius: radius,
-                background: color,
+                background: "rgba(255,255,255,0.92)",
+                border: `1px solid ${color}55`,
+                boxShadow: `0 6px 16px ${color}33`,
+                padding: tool.name === "Higharc" ? Math.max(2, square * 0.06) : Math.max(4, square * 0.16),
               }}
             >
-              <Icon size={Math.max(13, square * 0.28)} strokeWidth={1.8} color="#fff" />
+              <img
+                src={tool.logo}
+                alt={tool.name}
+                className="h-full w-full object-contain"
+                draggable="false"
+              />
             </div>
           );
         })}

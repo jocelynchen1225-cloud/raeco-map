@@ -4,7 +4,17 @@ Interactive AEC AI discovery prototype for AAL Innovation.
 
 ## Version
 
-Current version: `1.2.0`
+Current version: `3.3`
+
+## Version History
+
+### v3.3
+
+- Replaced the placeholder icons in the homepage "A preview of what's inside" section with real AEC tool logos.
+- Added the `public/tool-logos/` asset folder for local logo delivery.
+- Categorized preview logos by industry/use case across Real Estate, Architecture, Engineering, Construction, and Operation.
+- Removed duplicate tools from the preview board so each displayed logo represents a unique tool.
+- Replaced the unclear Higharc favicon-style asset with the official Higharc SVG logo and adjusted its tile padding for better visibility.
 
 ## What This Version Includes
 
