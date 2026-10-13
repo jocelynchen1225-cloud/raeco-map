@@ -2,7 +2,22 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageSquare, X } from "lucide-react";
 
-export default function ChatBubbleWidget() {
+// Opening copy differs per page; the rest of the flow is shared.
+const COPY = {
+  scenarios: {
+    prompts: ["Can't find your scenario?", "Want to complain other pain points?"],
+    heading: "We're Listening!",
+    fieldLabel: "Your Issue",
+  },
+  tools: {
+    prompts: ["Didn't find the right tool?", "Curious how to combine these tools for the biggest impact?"],
+    heading: "Let's Work It Out Together!",
+    fieldLabel: "Tell us what you're trying to solve",
+  },
+};
+
+export default function ChatBubbleWidget({ variant = "scenarios" }) {
+  const copy = COPY[variant] ?? COPY.scenarios;
   const [stage, setStage] = useState("closed"); // closed | issue | contactAsk | contactForm | declined | thanks
   const [issueText, setIssueText] = useState("");
 
@@ -10,7 +25,13 @@ export default function ChatBubbleWidget() {
     const timer = setTimeout(() => {
       setStage((prev) => (prev === "closed" ? "issue" : prev));
     }, 3000);
-    return () => clearTimeout(timer);
+    // Other components (e.g. the AI tool drawer) can open the chat directly.
+    const openFromEvent = () => setStage("issue");
+    window.addEventListener("raeco:open-chat", openFromEvent);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("raeco:open-chat", openFromEvent);
+    };
   }, []);
 
   const isOpen = stage !== "closed";
@@ -59,15 +80,18 @@ export default function ChatBubbleWidget() {
             {stage === "issue" && (
               <div className="flex flex-col gap-4">
                 <p className="font-body text-lg text-[var(--color-brand)]">
-                  Can&apos;t find your scenario?
-                  <br />
-                  Want to complain other pain points?
+                  {copy.prompts.map((line, i) => (
+                    <span key={line}>
+                      {i > 0 && <br />}
+                      {line}
+                    </span>
+                  ))}
                 </p>
                 <p className="font-body text-2xl font-extrabold text-[var(--color-brand)]">
-                  We&apos;re Listening!
+                  {copy.heading}
                 </p>
                 <div>
-                  <p className="font-body text-sm text-[var(--color-brand)]">Your Issue</p>
+                  <p className="font-body text-sm text-[var(--color-brand)]">{copy.fieldLabel}</p>
                   <textarea
                     value={issueText}
                     onChange={(e) => setIssueText(e.target.value)}

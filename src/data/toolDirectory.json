@@ -1,0 +1,6615 @@
+{
+  "generatedFrom": "data/clean/clean_ai_solutions.csv",
+  "tools": [
+    {
+      "id": "adaptis",
+      "name": "Adaptis",
+      "logo": "/tool-logos/adaptis.png",
+      "primaryIndustry": "real-estate",
+      "industries": [
+        "real-estate",
+        "operation",
+        "construction"
+      ],
+      "useCaseIds": [
+        "uc-3",
+        "uc-6",
+        "uc-7"
+      ],
+      "tasks": [
+        "Energy & Building Performance Monitoring",
+        "High-Level Cost Feasibility",
+        "Go / No-Go Decision"
+      ],
+      "phases": [
+        "operations-maintenance",
+        "pre-design-feasibility"
+      ],
+      "stakeholders": [
+        "owner-developer",
+        "facility-manager",
+        "project-manager",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Data Fragmentation",
+        "ROI and Cost Uncertainty",
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Predictive Analytics",
+        "Rule‑based Engine",
+        "NLP"
+      ],
+      "headline": "Centralised data storage",
+      "website": null
+    },
+    {
+      "id": "alice-technologies",
+      "name": "ALICE Technologies",
+      "logo": "/tool-logos/alice-technologies.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "real-estate",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-4",
+        "uc-9",
+        "uc-10"
+      ],
+      "tasks": [
+        "High-Level Cost Feasibility",
+        "Bid Consolidation & Commercial Evaluation",
+        "Site Execution & Logistics Planning"
+      ],
+      "phases": [
+        "pre-design-feasibility",
+        "bidding-procurement",
+        "construction-administration"
+      ],
+      "stakeholders": [
+        "project-manager",
+        "owner-developer",
+        "quantity-surveyor",
+        "main-contractor",
+        "architect",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "ROI and Cost Uncertainty",
+        "Decision Support Deficit",
+        "Productivity Tracking Gaps"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative AI",
+        "Monte Carlo simulation",
+        "Rule‑based Engine"
+      ],
+      "headline": "Generative Scheduling & Change‑Impact Simulation",
+      "website": null
+    },
+    {
+      "id": "allplan",
+      "name": "Allplan",
+      "logo": "/tool-logos/allplan.png",
+      "primaryIndustry": "engineering",
+      "industries": [
+        "engineering",
+        "architecture",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-129",
+        "uc-130",
+        "uc-131"
+      ],
+      "tasks": [
+        "Structural Member Sizing & Calculations",
+        "Cross-Disciplinary QA/QC Check",
+        "Architectural Aesthetic & Facade Concept"
+      ],
+      "phases": [
+        "design-development",
+        "construction-documentation",
+        "schematic-design"
+      ],
+      "stakeholders": [
+        "structural-engineer",
+        "architect",
+        "mep-engineer",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Knowledge Fragmentation",
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "On-Premises"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "Rule‑based Engine",
+        "Generative Design"
+      ],
+      "headline": "Automated Rebar Placement & Parametric Modeling",
+      "website": null
+    },
+    {
+      "id": "amplify",
+      "name": "AmpliFY",
+      "logo": null,
+      "primaryIndustry": "real-estate",
+      "industries": [
+        "real-estate",
+        "construction"
+      ],
+      "useCaseIds": [
+        "uc-120",
+        "uc-121",
+        "uc-122"
+      ],
+      "tasks": [
+        "Go / No-Go Decision",
+        "Schematic Cost Estimate",
+        "Budget & Financing Establishment"
+      ],
+      "phases": [
+        "pre-design-feasibility",
+        "schematic-design"
+      ],
+      "stakeholders": [
+        "owner-developer",
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Decision Support Deficit",
+        "Manual & Repetitive Work",
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP"
+      ],
+      "headline": "Automated Risk Identification from Documents",
+      "website": null
+    },
+    {
+      "id": "artificial-studio",
+      "name": "Artificial Studio",
+      "logo": "/tool-logos/artificial-studio.ico",
+      "primaryIndustry": "real-estate",
+      "industries": [
+        "real-estate",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-141",
+        "uc-142",
+        "uc-143"
+      ],
+      "tasks": [
+        "Architectural Aesthetic & Facade Concept",
+        "Client Review & Concept Approval",
+        "Project Brief & Visioning"
+      ],
+      "phases": [
+        "schematic-design",
+        "pre-design-feasibility"
+      ],
+      "stakeholders": [
+        "owner-developer",
+        "architect",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Cost & Schedule Uncertainty",
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design"
+      ],
+      "headline": "Sketch-to-Photoreal Render Generation",
+      "website": null
+    },
+    {
+      "id": "augmenta",
+      "name": "Augmenta",
+      "logo": "/tool-logos/augmenta.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "engineering",
+        "real-estate",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-98",
+        "uc-99",
+        "uc-100",
+        "uc-101"
+      ],
+      "tasks": [
+        "MEP System & Space Allocation",
+        "MEP Routing & Sizing",
+        "Detailed Cost Estimate"
+      ],
+      "phases": [
+        "schematic-design",
+        "design-development"
+      ],
+      "stakeholders": [
+        "architect",
+        "mep-engineer",
+        "quantity-surveyor",
+        "project-manager",
+        "main-contractor",
+        "subcontractors",
+        "supplier"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Design Error & Coordination Gaps",
+        "ROI and Cost Uncertainty",
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Spatial 3D Generative AI",
+        "3D Spatial Collision Reasoning",
+        "Monte Carlo simulation",
+        "Parametric Cost Regression",
+        "Format Conversion"
+      ],
+      "headline": "Generative MEP Spatial Routing",
+      "website": null
+    },
+    {
+      "id": "autodesk-forma",
+      "name": "Autodesk Forma",
+      "logo": "/tool-logos/autodesk-forma.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "engineering",
+        "architecture",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-15",
+        "uc-16",
+        "uc-17"
+      ],
+      "tasks": [
+        "Site Context & Environmental Analysis",
+        "Progress Monitoring & Quality Inspections",
+        "Clash Detection & Spatial Coordination"
+      ],
+      "phases": [
+        "pre-design-feasibility",
+        "construction-administration",
+        "design-development"
+      ],
+      "stakeholders": [
+        "mep-engineer",
+        "main-contractor",
+        "architect",
+        "bid-manager",
+        "subcontractors",
+        "project-manager",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "ROI and Cost Uncertainty",
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "3D‑Model Geometric Analysis",
+        "Generative Design",
+        "Machine Learning",
+        "Predictive Analytics"
+      ],
+      "headline": "Generative Site‑Concept Exploration & Automated Model Takeoff",
+      "website": null
+    },
+    {
+      "id": "beam-ai",
+      "name": "Beam AI",
+      "logo": "/tool-logos/beam-ai.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "architecture",
+        "engineering",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-80",
+        "uc-81",
+        "uc-82"
+      ],
+      "tasks": [
+        "Quantity Takeoff & Bid Estimation",
+        "Tender Queries (RFI) Management"
+      ],
+      "phases": [
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "bid-manager",
+        "main-contractor",
+        "subcontractors",
+        "quantity-surveyor",
+        "architect",
+        "structural-engineer",
+        "mep-engineer",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Data Fragmentation",
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "OCR",
+        "LLMs",
+        "RAG",
+        "Change Detection AI",
+        "Rule‑based Engine"
+      ],
+      "headline": "AI Auto-Takeoff",
+      "website": null
+    },
+    {
+      "id": "briq",
+      "name": "Briq",
+      "logo": "/tool-logos/briq.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "real-estate",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-21",
+        "uc-22",
+        "uc-23",
+        "uc-24"
+      ],
+      "tasks": [
+        "Payment Application Validation",
+        "Change Order Management",
+        "Bid Consolidation & Commercial Evaluation"
+      ],
+      "phases": [
+        "construction-administration",
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "quantity-surveyor",
+        "main-contractor",
+        "project-manager",
+        "architect",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Knowledge Fragmentation",
+        "Data Fragmentation",
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Document Intelligence",
+        "Machine Learning",
+        "Predictive Analytics"
+      ],
+      "headline": "Financial Admin Automation",
+      "website": null
+    },
+    {
+      "id": "buildots",
+      "name": "Buildots",
+      "logo": "/tool-logos/buildots.webp",
+      "primaryIndustry": "real-estate",
+      "industries": [
+        "real-estate",
+        "construction",
+        "architecture",
+        "engineering"
+      ],
+      "useCaseIds": [
+        "uc-18",
+        "uc-19",
+        "uc-20"
+      ],
+      "tasks": [
+        "Progress Monitoring & Quality Inspections",
+        "Change Order Management"
+      ],
+      "phases": [
+        "construction-administration"
+      ],
+      "stakeholders": [
+        "project-manager",
+        "architect",
+        "main-contractor",
+        "mep-engineer",
+        "structural-engineer",
+        "quantity-surveyor",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Productivity Tracking Gaps",
+        "Knowledge Fragmentation",
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "3D‑Model Geometric Analysis",
+        "Computer Vision"
+      ],
+      "headline": "Site Progress‑Actual Deviation Detection",
+      "website": null
+    },
+    {
+      "id": "civils-ai",
+      "name": "Civils.ai",
+      "logo": "/tool-logos/civils-ai.ico",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "engineering",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-1",
+        "uc-118",
+        "uc-119"
+      ],
+      "tasks": [
+        "Quantity Takeoff & Bid Estimation",
+        "Tender Queries (RFI) Management",
+        "Subcontractor Quote Sourcing & Leveling"
+      ],
+      "phases": [
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors",
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Document Management",
+        "Procurement Inefficiency"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "LLMs",
+        "NLP"
+      ],
+      "headline": "Automated Drawing Measurement & Takeoff",
+      "website": null
+    },
+    {
+      "id": "clearstory",
+      "name": "Clearstory",
+      "logo": "/tool-logos/clearstory.png",
+      "primaryIndustry": "real-estate",
+      "industries": [
+        "real-estate",
+        "construction"
+      ],
+      "useCaseIds": [
+        "uc-83",
+        "uc-84",
+        "uc-85"
+      ],
+      "tasks": [
+        "Change Order Management"
+      ],
+      "phases": [
+        "construction-administration"
+      ],
+      "stakeholders": [
+        "owner-developer",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Data Fragmentation",
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Custom Agent",
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP",
+        "Data Analytics"
+      ],
+      "headline": "AI COR Generation Agent",
+      "website": null
+    },
+    {
+      "id": "consigli",
+      "name": "Consigli",
+      "logo": null,
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "construction",
+        "engineering"
+      ],
+      "useCaseIds": [
+        "uc-25",
+        "uc-26",
+        "uc-27"
+      ],
+      "tasks": [
+        "MEP System & Space Allocation",
+        "Clash Detection & Spatial Coordination",
+        "Conceptual Space Planning & Layouts"
+      ],
+      "phases": [
+        "schematic-design",
+        "design-development"
+      ],
+      "stakeholders": [
+        "architect",
+        "main-contractor",
+        "mep-engineer",
+        "bid-manager",
+        "subcontractors",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Design Error & Coordination Gaps",
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "Machine Learning",
+        "Mathematical Optimization",
+        "Rule‑based Engine"
+      ],
+      "headline": "Autonomous MEP Design & Tender Output Automation",
+      "website": null
+    },
+    {
+      "id": "constructable",
+      "name": "Constructable",
+      "logo": "/tool-logos/constructable.ico",
+      "primaryIndustry": "engineering",
+      "industries": [
+        "engineering",
+        "architecture",
+        "construction",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-86",
+        "uc-87",
+        "uc-88"
+      ],
+      "tasks": [
+        "Construction RFIs & Issue Resolution",
+        "Submittal & Shop Drawing Review"
+      ],
+      "phases": [
+        "construction-administration"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "structural-engineer",
+        "mep-engineer",
+        "owner-developer",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation",
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "RAG",
+        "NLP",
+        "Agentic AI"
+      ],
+      "headline": "Project Document Q&A Retrieval",
+      "website": null
+    },
+    {
+      "id": "document-crunch",
+      "name": "Document Crunch",
+      "logo": "/tool-logos/document-crunch.png",
+      "primaryIndustry": "real-estate",
+      "industries": [
+        "real-estate",
+        "construction"
+      ],
+      "useCaseIds": [
+        "uc-2",
+        "uc-5",
+        "uc-152",
+        "uc-153",
+        "uc-154"
+      ],
+      "tasks": [
+        "Contract Assembly & Award",
+        "Issuance of Tender Package & RFP",
+        "Change Order Management",
+        "Payment Application Validation",
+        "Bid Consolidation & Commercial Evaluation"
+      ],
+      "phases": [
+        "bidding-procurement",
+        "construction-administration"
+      ],
+      "stakeholders": [
+        "owner-developer",
+        "main-contractor",
+        "project-manager",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Safety & Risk Management",
+        "Document Management",
+        "Knowledge Fragmentation",
+        "Manual & Repetitive Work",
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP",
+        "RAG",
+        "Embedding Model",
+        "Rule‑based Engine"
+      ],
+      "headline": "Contract Risk Clause Auto Extraction & Grounded Flagging",
+      "website": null
+    },
+    {
+      "id": "doxel",
+      "name": "Doxel",
+      "logo": "/tool-logos/doxel.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "architecture",
+        "real-estate",
+        "operation"
+      ],
+      "useCaseIds": [
+        "uc-91",
+        "uc-92",
+        "uc-93",
+        "uc-94"
+      ],
+      "tasks": [
+        "As-Built Documentation (Digital Twin Handover)",
+        "Progress Monitoring & Quality Inspections"
+      ],
+      "phases": [
+        "handover-commissioning",
+        "construction-administration"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "facility-manager",
+        "quantity-surveyor",
+        "project-manager",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Data Fragmentation",
+        "ROI and Cost Uncertainty",
+        "Productivity Tracking Gaps",
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Predictive Analytics",
+        "Deep Learning",
+        "Anomaly Detection"
+      ],
+      "headline": "Integrated Reality Analysis Platform",
+      "website": null
+    },
+    {
+      "id": "drawer-ai",
+      "name": "Drawer AI",
+      "logo": "/tool-logos/drawer-ai.svg",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "engineering",
+        "architecture",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-110",
+        "uc-111",
+        "uc-112",
+        "uc-113"
+      ],
+      "tasks": [
+        "Quantity Takeoff & Bid Estimation",
+        "MEP Routing & Sizing",
+        "Preparation of the Bill of Quantities (BOQ)",
+        "Value Engineering (VE) Review"
+      ],
+      "phases": [
+        "bidding-procurement",
+        "design-development",
+        "construction-documentation"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors",
+        "mep-engineer",
+        "quantity-surveyor",
+        "architect",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Compliance & Regulatory Burden",
+        "Design Error & Coordination Gaps",
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "NLP",
+        "Generative AI",
+        "Rule‑based Engine"
+      ],
+      "headline": "AI Auto-Takeoff",
+      "website": null
+    },
+    {
+      "id": "dusty-robotics",
+      "name": "Dusty Robotics",
+      "logo": "/tool-logos/dusty-robotics.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "architecture",
+        "engineering",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-28",
+        "uc-29",
+        "uc-30",
+        "uc-31"
+      ],
+      "tasks": [
+        "Site Execution & Logistics Planning",
+        "Shop Drawing & Fabrication Model Production",
+        "Submittal & Shop Drawing Review"
+      ],
+      "phases": [
+        "construction-administration"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors",
+        "supplier",
+        "project-manager",
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Design Error & Coordination Gaps",
+        "Workforce & Skills Gap",
+        "Internal Alignment Needed"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Geospatial Model Transformation",
+        "SLAM Autonomous Navigation"
+      ],
+      "headline": "Autonomous Robotic Site Layout Printing",
+      "website": null
+    },
+    {
+      "id": "empoli-ai",
+      "name": "Empoli AI",
+      "logo": "/tool-logos/empoli-ai.png",
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-126",
+        "uc-127",
+        "uc-128"
+      ],
+      "tasks": [
+        "Conceptual Space Planning & Layouts",
+        "Client Review & Concept Approval",
+        "Detailed Architectural Modeling & Coordination"
+      ],
+      "phases": [
+        "schematic-design",
+        "design-development"
+      ],
+      "stakeholders": [
+        "architect",
+        "owner-developer",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation",
+        "Cost & Schedule Uncertainty",
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Engine"
+      ],
+      "headline": "2D Plan to 3D Model Auto-Conversion",
+      "website": null
+    },
+    {
+      "id": "endra",
+      "name": "Endra",
+      "logo": "/tool-logos/endra.png",
+      "primaryIndustry": "engineering",
+      "industries": [
+        "engineering",
+        "architecture",
+        "real-estate",
+        "construction"
+      ],
+      "useCaseIds": [
+        "uc-32",
+        "uc-33",
+        "uc-34",
+        "uc-35"
+      ],
+      "tasks": [
+        "MEP Routing & Sizing",
+        "Clash Detection & Spatial Coordination",
+        "Detailed Cost Estimate",
+        "Building Performance & Energy Modeling"
+      ],
+      "phases": [
+        "design-development"
+      ],
+      "stakeholders": [
+        "mep-engineer",
+        "structural-engineer",
+        "architect",
+        "project-manager",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Design Error & Coordination Gaps",
+        "Knowledge Fragmentation",
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "LLMs",
+        "Mathematical Optimization",
+        "Rule‑based Engine",
+        "Knowledge Capture"
+      ],
+      "headline": "Autonomous MEP Layout & Drawing Automation",
+      "website": null
+    },
+    {
+      "id": "enlaye",
+      "name": "Enlaye",
+      "logo": "/tool-logos/enlaye.png",
+      "primaryIndustry": "real-estate",
+      "industries": [
+        "real-estate",
+        "construction",
+        "architecture",
+        "engineering"
+      ],
+      "useCaseIds": [
+        "uc-36",
+        "uc-37",
+        "uc-38",
+        "uc-39"
+      ],
+      "tasks": [
+        "Go / No-Go Decision",
+        "Progress Monitoring & Quality Inspections",
+        "Bid Consolidation & Commercial Evaluation",
+        "Change Order Management"
+      ],
+      "phases": [
+        "pre-design-feasibility",
+        "construction-administration",
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "owner-developer",
+        "architect",
+        "main-contractor",
+        "project-manager",
+        "quantity-surveyor",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Decision Support Deficit",
+        "Data Fragmentation",
+        "Internal Alignment Needed",
+        "Safety & Risk Management"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Graph‑based Reasoning",
+        "LLMs",
+        "Predictive Analytics",
+        "RAG"
+      ],
+      "headline": "Early‑Stage Quantitative Risk Forecasting",
+      "website": null
+    },
+    {
+      "id": "firmus",
+      "name": "Firmus",
+      "logo": "/tool-logos/firmus.png",
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "construction",
+        "engineering"
+      ],
+      "useCaseIds": [
+        "uc-40",
+        "uc-41",
+        "uc-42",
+        "uc-43"
+      ],
+      "tasks": [
+        "Cross-Disciplinary QA/QC Check",
+        "Quantity Takeoff & Bid Estimation",
+        "Production of Architectural Working Drawings"
+      ],
+      "phases": [
+        "construction-documentation",
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "mep-engineer",
+        "structural-engineer",
+        "architect",
+        "main-contractor",
+        "subcontractors",
+        "bid-manager",
+        "draftsmen"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps",
+        "Cost & Schedule Uncertainty",
+        "Manual & Repetitive Work",
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Drawing Validation"
+      ],
+      "headline": "Automated Drawing Defect & Scope Gap Detection",
+      "website": null
+    },
+    {
+      "id": "floor-plan-ai",
+      "name": "Floor Plan AI",
+      "logo": null,
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "real-estate",
+        "operation"
+      ],
+      "useCaseIds": [
+        "uc-132",
+        "uc-133",
+        "uc-134"
+      ],
+      "tasks": [
+        "Project Programming",
+        "Conceptual Space Planning & Layouts",
+        "Client Review & Concept Approval"
+      ],
+      "phases": [
+        "pre-design-feasibility",
+        "schematic-design"
+      ],
+      "stakeholders": [
+        "architect",
+        "facility-manager",
+        "owner-developer",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Data Fragmentation",
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "LLMs",
+        "Computer Vision"
+      ],
+      "headline": "Text-to-Floor-Plan Generation",
+      "website": null
+    },
+    {
+      "id": "helonic",
+      "name": "Helonic (Articulate)",
+      "logo": "/tool-logos/helonic-articulate.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "architecture",
+        "real-estate",
+        "engineering"
+      ],
+      "useCaseIds": [
+        "uc-8",
+        "uc-11",
+        "uc-12",
+        "uc-13",
+        "uc-14"
+      ],
+      "tasks": [
+        "Quantity Takeoff & Bid Estimation",
+        "Building Permit Submission & Approvals",
+        "Clash Detection & Spatial Coordination",
+        "Tender Queries (RFI) Management",
+        "Bid Consolidation & Commercial Evaluation"
+      ],
+      "phases": [
+        "bidding-procurement",
+        "construction-documentation",
+        "design-development"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors",
+        "bid-manager",
+        "architect",
+        "project-manager",
+        "mep-engineer",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Compliance & Regulatory Burden",
+        "Design Error & Coordination Gaps",
+        "Knowledge Fragmentation",
+        "Productivity Tracking Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "LLMs",
+        "Orchestration"
+      ],
+      "headline": "Drawing Quantity‑Constructability Analysi",
+      "website": null
+    },
+    {
+      "id": "higharc",
+      "name": "Higharc",
+      "logo": "/tool-logos/higharc.svg",
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "construction",
+        "engineering",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-72",
+        "uc-73",
+        "uc-74",
+        "uc-75"
+      ],
+      "tasks": [
+        "Conceptual Space Planning & Layouts",
+        "Detailed Architectural Modeling & Coordination",
+        "Quantity Takeoff & Bid Estimation"
+      ],
+      "phases": [
+        "schematic-design",
+        "design-development",
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "architect",
+        "draftsmen",
+        "structural-engineer",
+        "mep-engineer",
+        "main-contractor",
+        "bid-manager",
+        "subcontractors",
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Data Fragmentation",
+        "Cost & Schedule Uncertainty",
+        "AI Hallucinations"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design",
+        "Parametric modeling",
+        "Rule‑based Engine",
+        "Transformer Model"
+      ],
+      "headline": "Sketch-to-BIM Generative Pipeline",
+      "website": null
+    },
+    {
+      "id": "homestyler",
+      "name": "Homestyler",
+      "logo": "/tool-logos/homestyler.ico",
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-135",
+        "uc-136",
+        "uc-137"
+      ],
+      "tasks": [
+        "Conceptual Space Planning & Layouts",
+        "Material & Finish Selection"
+      ],
+      "phases": [
+        "schematic-design",
+        "design-development"
+      ],
+      "stakeholders": [
+        "architect",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Cost & Schedule Uncertainty",
+        "Data and Integration Challenge"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design",
+        "LLMs"
+      ],
+      "headline": "Conversational Interior Scheme Generation",
+      "website": null
+    },
+    {
+      "id": "karmen",
+      "name": "Karmen",
+      "logo": null,
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "real-estate",
+        "architecture",
+        "engineering"
+      ],
+      "useCaseIds": [
+        "uc-44",
+        "uc-45",
+        "uc-46"
+      ],
+      "tasks": [
+        "Progress Monitoring & Quality Inspections",
+        "Construction RFIs & Issue Resolution",
+        "High-Level Cost Feasibility"
+      ],
+      "phases": [
+        "construction-administration",
+        "pre-design-feasibility"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "project-manager",
+        "owner-developer",
+        "quantity-surveyor",
+        "architect",
+        "mep-engineer",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty",
+        "Document Management",
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Historical Schedule Analytics",
+        "LLMs",
+        "Rule-based Scheduling Engine"
+      ],
+      "headline": "Real-Time Automated Schedule Baseline & Change Update",
+      "website": null
+    },
+    {
+      "id": "kreo",
+      "name": "Kreo",
+      "logo": "/tool-logos/kreo.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "engineering",
+        "architecture",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-70",
+        "uc-71"
+      ],
+      "tasks": [
+        "Quantity Takeoff & Bid Estimation"
+      ],
+      "phases": [
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors",
+        "quantity-surveyor",
+        "bid-manager",
+        "architect",
+        "mep-engineer",
+        "structural-engineer",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "LLMs",
+        "NLP",
+        "Rule‑based Engine"
+      ],
+      "headline": "AI Auto-Takeoff",
+      "website": null
+    },
+    {
+      "id": "kujiale",
+      "name": "Kujiale",
+      "logo": "/tool-logos/kujiale.png",
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-146",
+        "uc-147",
+        "uc-148"
+      ],
+      "tasks": [
+        "Conceptual Space Planning & Layouts",
+        "Production of Architectural Working Drawings",
+        "Detailed Architectural Modeling & Coordination"
+      ],
+      "phases": [
+        "schematic-design",
+        "construction-documentation",
+        "design-development"
+      ],
+      "stakeholders": [
+        "architect",
+        "draftsmen"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Document Management",
+        "Data and Integration Challenge"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design",
+        "LLMs"
+      ],
+      "headline": "Conversational Multi-Room Design Generation",
+      "website": null
+    },
+    {
+      "id": "nplan",
+      "name": "nPlan",
+      "logo": "/tool-logos/nplan.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "real-estate",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-47",
+        "uc-48",
+        "uc-49"
+      ],
+      "tasks": [
+        "High-Level Cost Feasibility",
+        "Progress Monitoring & Quality Inspections",
+        "Change Order Management"
+      ],
+      "phases": [
+        "pre-design-feasibility",
+        "construction-administration"
+      ],
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager",
+        "main-contractor",
+        "subcontractors",
+        "architect",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty",
+        "Decision Support Deficit",
+        "Safety & Risk Management"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Historical Schedule Analytics",
+        "Monte Carlo simulation",
+        "Probabilistic timeline modeling",
+        "Historical delay correlation analysis"
+      ],
+      "headline": "Schedule risk prediction & early delay warning",
+      "website": null
+    },
+    {
+      "id": "one-click-lca",
+      "name": "One Click LCA",
+      "logo": "/tool-logos/one-click-lca.png",
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "engineering",
+        "construction",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-89"
+      ],
+      "tasks": [
+        "Building Performance & Energy Modeling"
+      ],
+      "phases": [
+        "design-development"
+      ],
+      "stakeholders": [
+        "architect",
+        "mep-engineer",
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Database Integration",
+        "Rule-based Financial Model"
+      ],
+      "headline": "Automated BIM-to-LCA Calculation",
+      "website": null
+    },
+    {
+      "id": "openspace",
+      "name": "OpenSpace",
+      "logo": "/tool-logos/openspace.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "architecture",
+        "real-estate",
+        "engineering",
+        "operation"
+      ],
+      "useCaseIds": [
+        "uc-114",
+        "uc-115",
+        "uc-116",
+        "uc-117"
+      ],
+      "tasks": [
+        "Progress Monitoring & Quality Inspections",
+        "Construction RFIs & Issue Resolution",
+        "As-Built Documentation (Digital Twin Handover)",
+        "Snagging and Defect Rectification"
+      ],
+      "phases": [
+        "construction-administration",
+        "handover-commissioning"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "project-manager",
+        "structural-engineer",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation",
+        "Design Error & Coordination Gaps",
+        "Document Management",
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "ML‑Spatial Matching",
+        "Rule‑based Engine"
+      ],
+      "headline": "360° Site Reality Mapping",
+      "website": null
+    },
+    {
+      "id": "parspec",
+      "name": "Parspec",
+      "logo": "/tool-logos/parspec.png",
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "real-estate",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-102",
+        "uc-103",
+        "uc-104",
+        "uc-105"
+      ],
+      "tasks": [
+        "Material & Finish Selection",
+        "Subcontractor Quote Sourcing & Leveling",
+        "Bid Consolidation & Commercial Evaluation"
+      ],
+      "phases": [
+        "design-development",
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "architect",
+        "owner-developer",
+        "main-contractor",
+        "subcontractors",
+        "bid-manager",
+        "project-manager",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Data Fragmentation",
+        "Manual & Repetitive Work",
+        "Procurement Inefficiency"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "Multimodal AI",
+        "Data Analytics"
+      ],
+      "headline": "Building Product Specification Matching",
+      "website": null
+    },
+    {
+      "id": "permitflow",
+      "name": "PermitFlow",
+      "logo": "/tool-logos/permitflow.png",
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "real-estate",
+        "engineering",
+        "operation"
+      ],
+      "useCaseIds": [
+        "uc-106",
+        "uc-107",
+        "uc-108",
+        "uc-109"
+      ],
+      "tasks": [
+        "Building Permit Submission & Approvals",
+        "Go / No-Go Decision",
+        "Cross-Disciplinary QA/QC Check",
+        "Space & Asset Management"
+      ],
+      "phases": [
+        "construction-documentation",
+        "pre-design-feasibility",
+        "operations-maintenance"
+      ],
+      "stakeholders": [
+        "architect",
+        "project-manager",
+        "owner-developer",
+        "structural-engineer",
+        "mep-engineer",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Compliance & Regulatory Burden",
+        "Cost & Schedule Uncertainty",
+        "Document Management",
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "RAG",
+        "Predictive Analytics",
+        "OCR"
+      ],
+      "headline": "Permit Automation",
+      "website": null
+    },
+    {
+      "id": "pixelcut",
+      "name": "Pixelcut",
+      "logo": "/tool-logos/pixelcut.ico",
+      "primaryIndustry": "real-estate",
+      "industries": [
+        "real-estate",
+        "architecture",
+        "construction"
+      ],
+      "useCaseIds": [
+        "uc-144",
+        "uc-145"
+      ],
+      "tasks": [
+        "Client Review & Concept Approval",
+        "Issuance of Tender Package & RFP"
+      ],
+      "phases": [
+        "schematic-design",
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "owner-developer",
+        "architect",
+        "project-manager",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design",
+        "LLMs"
+      ],
+      "headline": "One-Click Image Enhancement & Background Processing",
+      "website": null
+    },
+    {
+      "id": "planner5d",
+      "name": "Planner5D",
+      "logo": "/tool-logos/planner5d.ico",
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "real-estate",
+        "operation"
+      ],
+      "useCaseIds": [
+        "uc-138",
+        "uc-139",
+        "uc-140"
+      ],
+      "tasks": [
+        "Conceptual Space Planning & Layouts",
+        "Client Review & Concept Approval",
+        "Space & Asset Management"
+      ],
+      "phases": [
+        "schematic-design",
+        "operations-maintenance"
+      ],
+      "stakeholders": [
+        "architect",
+        "owner-developer",
+        "project-manager",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Workforce & Skills Gap",
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design"
+      ],
+      "headline": "AI Floor Plan Recognition & 3D Conversion",
+      "website": null
+    },
+    {
+      "id": "swapp-ai",
+      "name": "SWAPP AI",
+      "logo": "/tool-logos/swapp-ai.png",
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "engineering"
+      ],
+      "useCaseIds": [
+        "uc-90",
+        "uc-95",
+        "uc-96",
+        "uc-97"
+      ],
+      "tasks": [
+        "Detailed Architectural Modeling & Coordination",
+        "Cross-Disciplinary QA/QC Check",
+        "Production of Architectural Working Drawings",
+        "Drafting Technical Specifications"
+      ],
+      "phases": [
+        "design-development",
+        "construction-documentation"
+      ],
+      "stakeholders": [
+        "architect",
+        "mep-engineer",
+        "structural-engineer",
+        "draftsmen"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Knowledge Fragmentation",
+        "Design Error & Coordination Gaps",
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "RAG",
+        "Rule-based Financial Model",
+        "Information Extraction"
+      ],
+      "headline": "BIM Documentation",
+      "website": null
+    },
+    {
+      "id": "tekla",
+      "name": "Tekla",
+      "logo": "/tool-logos/tekla.ico",
+      "primaryIndustry": "engineering",
+      "industries": [
+        "engineering",
+        "construction",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-149",
+        "uc-150",
+        "uc-151"
+      ],
+      "tasks": [
+        "Structural Member Sizing & Calculations",
+        "Submittal & Shop Drawing Review",
+        "Production of Engineering Working Drawings"
+      ],
+      "phases": [
+        "design-development",
+        "construction-administration",
+        "construction-documentation"
+      ],
+      "stakeholders": [
+        "structural-engineer",
+        "main-contractor",
+        "architect",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Knowledge Fragmentation",
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "On-Premises"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "Rule‑based Engine",
+        "NLP"
+      ],
+      "headline": "Natural Language Structural Modeling",
+      "website": null
+    },
+    {
+      "id": "testfit",
+      "name": "TestFit",
+      "logo": null,
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "real-estate",
+        "construction",
+        "operation"
+      ],
+      "useCaseIds": [
+        "uc-53",
+        "uc-54",
+        "uc-55",
+        "uc-56"
+      ],
+      "tasks": [
+        "Preliminary Site Massing",
+        "Zoning & Regulatory Analysis",
+        "High-Level Cost Feasibility",
+        "Go / No-Go Decision"
+      ],
+      "phases": [
+        "pre-design-feasibility"
+      ],
+      "stakeholders": [
+        "architect",
+        "owner-developer",
+        "project-manager",
+        "quantity-surveyor",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Compliance & Regulatory Burden",
+        "Cost & Schedule Uncertainty",
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "Parametric modeling",
+        "Geometric Constraint Solver",
+        "Rule‑based Engine",
+        "Parametric Simulation Engine",
+        "Rule-based Financial Model",
+        "Generative AI"
+      ],
+      "headline": "Automated Generative Site Layout Iteration",
+      "website": null
+    },
+    {
+      "id": "togal-ai",
+      "name": "Togal AI",
+      "logo": null,
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "real-estate",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-50",
+        "uc-51",
+        "uc-52"
+      ],
+      "tasks": [
+        "Quantity Takeoff & Bid Estimation",
+        "Value Engineering (VE) Review"
+      ],
+      "phases": [
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors",
+        "quantity-surveyor",
+        "project-manager",
+        "architect",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Decision Support Deficit",
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Drawing Object Recognition",
+        "Real-Time Quantity Recalculation"
+      ],
+      "headline": "Automated Comparison",
+      "website": null
+    },
+    {
+      "id": "trubuild",
+      "name": "TruBuild",
+      "logo": null,
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "real-estate",
+        "engineering",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-57",
+        "uc-58",
+        "uc-59",
+        "uc-60"
+      ],
+      "tasks": [
+        "Bid Consolidation & Commercial Evaluation",
+        "Tender Queries (RFI) Management",
+        "Contract Assembly & Award",
+        "Issuance of Tender Package & RFP"
+      ],
+      "phases": [
+        "bidding-procurement"
+      ],
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager",
+        "subcontractors",
+        "bid-manager",
+        "main-contractor",
+        "architect",
+        "mep-engineer",
+        "structural-engineer",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Procurement Inefficiency",
+        "Document Management",
+        "Decision Support Deficit",
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "NLP",
+        "Rule‑based Engine",
+        "RAG"
+      ],
+      "headline": "AI‑Assisted Standardised Tender Evaluation & Quote Normalisation",
+      "website": null
+    },
+    {
+      "id": "trunk-tools",
+      "name": "Trunk Tools",
+      "logo": null,
+      "primaryIndustry": "engineering",
+      "industries": [
+        "engineering",
+        "construction",
+        "architecture",
+        "real-estate"
+      ],
+      "useCaseIds": [
+        "uc-61",
+        "uc-62",
+        "uc-63",
+        "uc-64",
+        "uc-65"
+      ],
+      "tasks": [
+        "Construction RFIs & Issue Resolution",
+        "Submittal & Shop Drawing Review",
+        "Cross-Disciplinary QA/QC Check",
+        "Progress Monitoring & Quality Inspections",
+        "Site Execution & Logistics Planning"
+      ],
+      "phases": [
+        "construction-administration",
+        "construction-documentation"
+      ],
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "structural-engineer",
+        "mep-engineer",
+        "project-manager",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation",
+        "Manual & Repetitive Work",
+        "Design Error & Coordination Gaps",
+        "Data Fragmentation",
+        "Productivity Tracking Gaps"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "NLP",
+        "RAG",
+        "Rule‑based Engine",
+        "Computer Vision"
+      ],
+      "headline": "Project Document Q&A Retrieval",
+      "website": null
+    },
+    {
+      "id": "veras",
+      "name": "Veras",
+      "logo": "/tool-logos/veras.jpg",
+      "primaryIndustry": "real-estate",
+      "industries": [
+        "real-estate",
+        "architecture"
+      ],
+      "useCaseIds": [
+        "uc-76",
+        "uc-77",
+        "uc-78",
+        "uc-79"
+      ],
+      "tasks": [
+        "Architectural Aesthetic & Facade Concept",
+        "Conceptual Space Planning & Layouts"
+      ],
+      "phases": [
+        "schematic-design"
+      ],
+      "stakeholders": [
+        "architect",
+        "owner-developer",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "AI Hallucinations",
+        "Workforce & Skills Gap",
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Diffusion Model",
+        "Generative AI",
+        "Computer Vision"
+      ],
+      "headline": "AI-Powered Rendering",
+      "website": null
+    },
+    {
+      "id": "viact",
+      "name": "viAct",
+      "logo": null,
+      "primaryIndustry": "construction",
+      "industries": [
+        "construction",
+        "architecture",
+        "real-estate",
+        "engineering"
+      ],
+      "useCaseIds": [
+        "uc-66",
+        "uc-67",
+        "uc-68",
+        "uc-69"
+      ],
+      "tasks": [
+        "Progress Monitoring & Quality Inspections",
+        "Site Execution & Logistics Planning",
+        "Construction RFIs & Issue Resolution"
+      ],
+      "phases": [
+        "construction-administration"
+      ],
+      "stakeholders": [
+        "subcontractors",
+        "main-contractor",
+        "project-manager",
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Productivity Tracking Gaps",
+        "Safety & Risk Management",
+        "Data Fragmentation",
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hybrid (Edge + Cloud)"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Engine",
+        "NLP"
+      ],
+      "headline": "Progress & Equipment Utilization Monitoring",
+      "website": null
+    },
+    {
+      "id": "wisebim",
+      "name": "WiseBIM",
+      "logo": null,
+      "primaryIndustry": "architecture",
+      "industries": [
+        "architecture",
+        "real-estate",
+        "operation",
+        "construction",
+        "engineering"
+      ],
+      "useCaseIds": [
+        "uc-123",
+        "uc-124",
+        "uc-125"
+      ],
+      "tasks": [
+        "Detailed Architectural Modeling & Coordination",
+        "Renovation & Retrofit Planning",
+        "Clash Detection & Spatial Coordination"
+      ],
+      "phases": [
+        "design-development",
+        "operations-maintenance"
+      ],
+      "stakeholders": [
+        "architect",
+        "owner-developer",
+        "facility-manager",
+        "subcontractors",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work",
+        "Data Fragmentation",
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "headline": "Automated 2D Element Recognition & Revit Generation",
+      "website": null
+    }
+  ],
+  "useCases": [
+    {
+      "id": "uc-1",
+      "toolId": "civils-ai",
+      "scenario": "2D Drawing Quantity Takeoff & Bid Preparation",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "LLMs",
+        "NLP"
+      ],
+      "description": "Manual manual measurement of civil site, road and drainage drawings requires hours of manual cross-sheet calculation; cut/fill earthwork volumes are frequently miscalculated, distorting tender cost estimates.",
+      "aiValue": "Automated Drawing Measurement & Takeoff"
+    },
+    {
+      "id": "uc-2",
+      "toolId": "document-crunch",
+      "scenario": "Document Compliance Review",
+      "task": "Contract Assembly & Award",
+      "taskId": "contract-assembly-award",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "owner-developer",
+        "main-contractor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Safety & Risk Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP",
+        "RAG"
+      ],
+      "description": "Manually screening massive construction contracts for high-risk clauses is time-consuming and prone to omissions of critical liability terms",
+      "aiValue": "Contract Risk Clause Auto Extraction & Grounded Flagging"
+    },
+    {
+      "id": "uc-3",
+      "toolId": "adaptis",
+      "scenario": "Energy Consumption Assessment & ESG Reporting",
+      "task": "Energy & Building Performance Monitoring",
+      "taskId": "energy-building-performance-monitoring",
+      "phaseId": "operations-maintenance",
+      "stakeholders": [
+        "owner-developer",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Predictive Analytics",
+        "Rule‑based Engine"
+      ],
+      "description": "Facility managers lack real-time visibility into building energy performance and carbon footprint. Performance data is scattered across disparate systems, making it difficult to track progress toward net-zero targets or identify optimization opportunities.",
+      "aiValue": "Centralised data storage"
+    },
+    {
+      "id": "uc-4",
+      "toolId": "alice-technologies",
+      "scenario": "Construction Schedule Generation & Change‑Order Impact Simulation",
+      "task": "High-Level Cost Feasibility",
+      "taskId": "high-level-cost-feasibility",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "project-manager",
+        "owner-developer",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative AI"
+      ],
+      "description": "Project planners perform construction‑schedule optimization and change‑order impact assessment manually. Only a few scheduling scenarios can be explored, risking missed time‑cost‑efficient sequences. When change orders arise, full downstream impacts on sequencing, resources and total project duration cannot be quickly evaluated.",
+      "aiValue": "Generative Scheduling & Change‑Impact Simulation"
+    },
+    {
+      "id": "uc-5",
+      "toolId": "document-crunch",
+      "scenario": "Tender & Procurement Governance",
+      "task": "Issuance of Tender Package & RFP",
+      "taskId": "issuance-tender-package-rfp",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "project-manager",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Embedding Model",
+        "LLMs",
+        "NLP",
+        "RAG"
+      ],
+      "description": "Long tender and specification documents require manual sorting of obligations and constraints with low efficiency",
+      "aiValue": "Tender & Specification Semantic Summarization"
+    },
+    {
+      "id": "uc-6",
+      "toolId": "adaptis",
+      "scenario": "Energy Consumption Assessment & ESG Reporting",
+      "task": "High-Level Cost Feasibility",
+      "taskId": "high-level-cost-feasibility",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "owner-developer",
+        "project-manager",
+        "quantity-surveyor",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Predictive Analytics",
+        "Rule‑based Engine"
+      ],
+      "description": "Owners and developers struggle with manual, limited feasibility analysis for early‑stage design and retrofit planning. They cannot reliably forecast full‑lifecycle CAPEX & carbon emissions, assess retrofit ROI and carbon impacts, optimize work sequencing, or identify cost‑optimal decarbonization pathways.",
+      "aiValue": "AI‑driven multi‑objective optimization & scenario portfolio generation"
+    },
+    {
+      "id": "uc-7",
+      "toolId": "adaptis",
+      "scenario": "Energy Consumption Assessment & ESG Reporting",
+      "task": "Go / No-Go Decision",
+      "taskId": "go-no-go-decision",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "owner-developer",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "NLP",
+        "Predictive Analytics",
+        "Rule‑based Engine"
+      ],
+      "description": "Decision-makers lack data-driven insights to evaluate whether a project's decarbonization goals are financially viable. Investment decisions are often based on limited analysis and intuition rather than comprehensive scenario modeling.",
+      "aiValue": "AI‑driven Optimization & Scenario Generation"
+    },
+    {
+      "id": "uc-8",
+      "toolId": "helonic",
+      "scenario": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors",
+        "bid-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Preconstruction teams spend excessive time on manual takeoff and plan review. Analyzing drawings for quantities, scope, and constructability is labor-intensive and limits how many projects a team can bid on.",
+      "aiValue": "Drawing Quantity‑Constructability Analysi"
+    },
+    {
+      "id": "uc-9",
+      "toolId": "alice-technologies",
+      "scenario": "Schedule Risk & Bid Trade‑off Analysis",
+      "task": "Bid Consolidation & Commercial Evaluation",
+      "taskId": "bid-consolidation-commercial-evaluation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager",
+        "main-contractor",
+        "architect"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Monte Carlo simulation",
+        "Rule‑based Engine"
+      ],
+      "description": "Contractors cannot properly price schedule‑related risk into bids; delay probability and cost impacts are hard to quantify, causing uncompetitive or under‑risk‑priced tenders. Stakeholders lack transparent trade‑off visibility between scheduling strategies’ cost, speed and risk exposure.",
+      "aiValue": "Schedule‑Risk Quantification & Multi‑Objective Trade‑off Simulation"
+    },
+    {
+      "id": "uc-10",
+      "toolId": "alice-technologies",
+      "scenario": "Construction Schedule Generation & Change‑Order Impact Simulation",
+      "task": "Site Execution & Logistics Planning",
+      "taskId": "site-execution-logistics-planning",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Productivity Tracking Gaps"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Monte Carlo simulation"
+      ],
+      "description": "Resource allocation and sequencing decisions are suboptimal. Determining the optimal crew sizes, equipment usage, and task sequencing for complex projects is beyond human computational capacity.",
+      "aiValue": "Resource‑Sequence Optimization"
+    },
+    {
+      "id": "uc-11",
+      "toolId": "helonic",
+      "scenario": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
+      "task": "Building Permit Submission & Approvals",
+      "taskId": "building-permit-submission-approvals",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Compliance & Regulatory Burden"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Code compliance review of drawings is manual and slow. Checking designs against building codes and zoning regulations requires expert knowledge and significant time, delaying permit submissions and project start dates.",
+      "aiValue": "Drawing Code‑Compliance Validation"
+    },
+    {
+      "id": "uc-12",
+      "toolId": "helonic",
+      "scenario": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
+      "task": "Clash Detection & Spatial Coordination",
+      "taskId": "clash-detection-spatial-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect",
+        "subcontractors",
+        "main-contractor"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Design clashes are detected too late in the process. Early clash detection from 2D drawings is difficult, and many coordination issues are only discovered during construction when they are most expensive to fix.",
+      "aiValue": "AI‑Based 2D Cross‑Discipline Clash Detection"
+    },
+    {
+      "id": "uc-13",
+      "toolId": "helonic",
+      "scenario": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
+      "task": "Tender Queries (RFI) Management",
+      "taskId": "tender-queries-rfi-management",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "architect",
+        "main-contractor",
+        "subcontractors",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs"
+      ],
+      "description": "RFI generation from drawing review is manual. When estimators and project managers identify questions or issues during bid review, documenting and organizing them into formal RFIs takes additional time.",
+      "aiValue": "RFI Drafting"
+    },
+    {
+      "id": "uc-14",
+      "toolId": "helonic",
+      "scenario": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
+      "task": "Bid Consolidation & Commercial Evaluation",
+      "taskId": "bid-consolidation-commercial-evaluation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Productivity Tracking Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Orchestration"
+      ],
+      "description": "Solar and construction contractors need faster preconstruction to win more work. The speed of takeoff and estimating directly impacts bid volume and win rate, creating competitive pressure to accelerate the preconstruction process.",
+      "aiValue": "Workflow Acceleration"
+    },
+    {
+      "id": "uc-15",
+      "toolId": "autodesk-forma",
+      "scenario": "Early‑Stage Site & Concept Design + Model‑Based Takeoff",
+      "task": "Site Context & Environmental Analysis",
+      "taskId": "site-context-environmental-analysis",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "mep-engineer",
+        "main-contractor",
+        "architect",
+        "bid-manager",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "3D‑Model Geometric Analysis",
+        "Generative Design"
+      ],
+      "description": "Automates manual site‑data collection, conceptual layout iteration and BIM quantity take‑off to eliminate repetitive human labour.",
+      "aiValue": "Generative Site‑Concept Exploration & Automated Model Takeoff"
+    },
+    {
+      "id": "uc-16",
+      "toolId": "autodesk-forma",
+      "scenario": "Construction‑Site Performance & Issue Management",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "project-manager",
+        "architect",
+        "main-contractor"
+      ],
+      "painPoints": [
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Machine Learning",
+        "Predictive Analytics"
+      ],
+      "description": "Project risks are identified reactively rather than proactively. Cost, schedule, quality, and safety issues are often only detected after they have already caused delays or rework, rather than being predicted and prevented early.",
+      "aiValue": "Risk Forecasting"
+    },
+    {
+      "id": "uc-17",
+      "toolId": "autodesk-forma",
+      "scenario": "BIM‑Based Design Coordination & Clash Review",
+      "task": "Clash Detection & Spatial Coordination",
+      "taskId": "clash-detection-spatial-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "3D‑Model Geometric Analysis"
+      ],
+      "description": "Design coordination issues are found late in the process. Cross-disciplinary clashes between architectural, structural, and MEP systems are often only discovered during construction, leading to costly rework and schedule delays.",
+      "aiValue": "Early Clash Detection"
+    },
+    {
+      "id": "uc-18",
+      "toolId": "buildots",
+      "scenario": "Construction‑Site Performance & Issue Management",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "project-manager",
+        "architect",
+        "main-contractor",
+        "mep-engineer",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Productivity Tracking Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "3D‑Model Geometric Analysis",
+        "Computer Vision"
+      ],
+      "description": "Manual site‑progress reporting is subjective and delayed. Relying on walkthroughs and subcontractor self‑reports causes inaccurate tracking. Deviations between planned and actual work, subcontractor under‑performance and material gaps are only spotted after downstream project delays occur.",
+      "aiValue": "Site Progress‑Actual Deviation Detection"
+    },
+    {
+      "id": "uc-19",
+      "toolId": "buildots",
+      "scenario": "Construction‑Site Performance & Issue Management",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Subcontractor accountability is hard to enforce. Without objective, visual evidence of work completed, it is difficult to hold trade partners accountable for delays or quality issues, leading to disputes and claims.",
+      "aiValue": "Site Visual Evidence Logging"
+    },
+    {
+      "id": "uc-20",
+      "toolId": "buildots",
+      "scenario": "Construction‑Site Performance & Issue Management",
+      "task": "Change Order Management",
+      "taskId": "change-order-management",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "quantity-surveyor",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "3D‑Model Geometric Analysis",
+        "Computer Vision"
+      ],
+      "description": "As-built documentation is incomplete and outdated. Construction progress imagery is not systematically captured and linked to BIM models, making handover documentation unreliable for future facility management and renovation.",
+      "aiValue": "Change Impact Visual Assessment"
+    },
+    {
+      "id": "uc-21",
+      "toolId": "briq",
+      "scenario": "Construction Financial & Administrative Workflow Orchestration",
+      "task": "Payment Application Validation",
+      "taskId": "payment-application-validation",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "quantity-surveyor",
+        "main-contractor",
+        "project-manager",
+        "architect"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Document Intelligence",
+        "Machine Learning"
+      ],
+      "description": "Manual processing dominates payment validation and periodic financial reporting. Teams manually cross-check pay applications against contracts, valuation schedules and change orders, and extract scattered cross-system data to build performance, cash flow and productivity spreadsheets, creating heavy admin burden, human errors, overpayment risks and compliance gaps.",
+      "aiValue": "Financial Admin Automation"
+    },
+    {
+      "id": "uc-22",
+      "toolId": "briq",
+      "scenario": "Construction Financial & Administrative Workflow Orchestration",
+      "task": "Change Order Management",
+      "taskId": "change-order-management",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "owner-developer",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Document Intelligence",
+        "Machine Learning",
+        "Predictive Analytics"
+      ],
+      "description": "Final account settlement is complex and time-consuming. Reconciling all changes, claims, and payments at project closeout requires gathering data from multiple systems and manual verification, delaying final payments and project closure.",
+      "aiValue": "Closeout Financial Reconciliation"
+    },
+    {
+      "id": "uc-23",
+      "toolId": "briq",
+      "scenario": "Construction Financial & Administrative Workflow Orchestration",
+      "task": "Change Order Management",
+      "taskId": "change-order-management",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "owner-developer",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Document Intelligence",
+        "Machine Learning",
+        "Predictive Analytics"
+      ],
+      "description": "Financial data is siloed across different systems. Project financials, ERP data, HR systems, and operational data are in separate platforms, making it hard to get a unified view of project performance and profitability.",
+      "aiValue": "Cross-System Financial Data Unification"
+    },
+    {
+      "id": "uc-24",
+      "toolId": "briq",
+      "scenario": "Construction Financial & Administrative Workflow Orchestration",
+      "task": "Bid Consolidation & Commercial Evaluation",
+      "taskId": "bid-consolidation-commercial-evaluation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "quantity-surveyor",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Document Intelligence",
+        "Machine Learning",
+        "Predictive Analytics"
+      ],
+      "description": "Financial decision support for project teams is limited. Project managers lack real-time, data-driven insights into project financial health, relying instead on periodic reports that are outdated by the time they arrive.",
+      "aiValue": "Real-Time Financial Performance Forecasting"
+    },
+    {
+      "id": "uc-25",
+      "toolId": "consigli",
+      "scenario": "MEP Design & Engineering Coordination",
+      "task": "MEP System & Space Allocation",
+      "taskId": "mep-system-space-allocation",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect",
+        "main-contractor",
+        "mep-engineer",
+        "bid-manager",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "Machine Learning",
+        "Mathematical Optimization",
+        "Rule‑based Engine"
+      ],
+      "description": "MEP conceptual sizing, detailed routing design and tender documentation creation rely heavily on slow, manual repetitive engineering work. Heavy reliance on senior engineers extends design timelines, creates design bottlenecks, limits design alternative exploration and introduces inconsistent tender data.",
+      "aiValue": "Autonomous MEP Design & Tender Output Automation"
+    },
+    {
+      "id": "uc-26",
+      "toolId": "consigli",
+      "scenario": "MEP Design & Engineering Coordination",
+      "task": "Clash Detection & Spatial Coordination",
+      "taskId": "clash-detection-spatial-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "mep-engineer",
+        "architect",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "Mathematical Optimization",
+        "Rule‑based Engine"
+      ],
+      "description": "Design coordination requires iterative manual clash detection. Engineers spend significant time resolving clashes between disciplines, with each iteration taking days or weeks to complete.",
+      "aiValue": "Multi‑Discipline Clash‑Aware Design Optimization"
+    },
+    {
+      "id": "uc-27",
+      "toolId": "consigli",
+      "scenario": "MEP Design & Engineering Coordination",
+      "task": "Conceptual Space Planning & Layouts",
+      "taskId": "conceptual-space-planning-layouts",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "Mathematical Optimization",
+        "Rule‑based Engine"
+      ],
+      "description": "There is a global shortage of experienced MEP engineers. Engineering firms struggle to find and retain qualified staff, limiting their capacity to take on projects and driving up costs for clients.",
+      "aiValue": "MEP Engineering Capacity Augmentation"
+    },
+    {
+      "id": "uc-28",
+      "toolId": "dusty-robotics",
+      "scenario": "Construction Site Field Layout & Model‑to‑Field Execution",
+      "task": "Site Execution & Logistics Planning",
+      "taskId": "site-execution-logistics-planning",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Geospatial Model Transformation",
+        "SLAM Autonomous Navigation"
+      ],
+      "description": "Manual layout on construction sites is slow and error-prone. Surveyors and layout engineers spend days marking floor plans on concrete slabs using tape measures and chalk lines, with human errors leading to costly rework.",
+      "aiValue": "Autonomous Robotic Site Layout Printing"
+    },
+    {
+      "id": "uc-29",
+      "toolId": "dusty-robotics",
+      "scenario": "Construction Site Field Layout & Model‑to‑Field Execution",
+      "task": "Shop Drawing & Fabrication Model Production",
+      "taskId": "shop-drawing-fabrication-model-production",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors",
+        "supplier",
+        "project-manager",
+        "architect"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Geospatial Model Transformation",
+        "SLAM Autonomous Navigation"
+      ],
+      "description": "Design intent is lost during BIM‑to‑field hand‑off. Manual layout inaccuracies create discrepancies between digital models and physical construction. Layout mistakes propagate across trades and are only detected at late construction stages, triggering costly demolition and rework.",
+      "aiValue": "BIM‑to‑Field Intent Preservation"
+    },
+    {
+      "id": "uc-30",
+      "toolId": "dusty-robotics",
+      "scenario": "Construction Site Field Layout & Model‑to‑Field Execution",
+      "task": "Site Execution & Logistics Planning",
+      "taskId": "site-execution-logistics-planning",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "subcontractors",
+        "main-contractor"
+      ],
+      "painPoints": [
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Geospatial Model Transformation",
+        "SLAM Autonomous Navigation"
+      ],
+      "description": "Skilled layout workers are in short supply. Experienced surveyors and layout engineers are hard to find and retain, creating bottlenecks in the construction schedule and increasing labor costs.",
+      "aiValue": "Site‑Workforce Capacity Augmentation"
+    },
+    {
+      "id": "uc-31",
+      "toolId": "dusty-robotics",
+      "scenario": "Construction Site Field Layout & Model‑to‑Field Execution",
+      "task": "Submittal & Shop Drawing Review",
+      "taskId": "submittal-shop-drawing-review",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Internal Alignment Needed"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Geospatial Model Transformation",
+        "SLAM Autonomous Navigation"
+      ],
+      "description": "Coordination between design and field teams is inefficient. Design changes require manual re-layout, and verifying that field work matches the latest design documents is time-consuming and error-prone.",
+      "aiValue": "Design‑Field Synchronized Execution"
+    },
+    {
+      "id": "uc-32",
+      "toolId": "endra",
+      "scenario": "MEP Design & Engineering Coordination",
+      "task": "MEP Routing & Sizing",
+      "taskId": "mep-routing-sizing",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "mep-engineer",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "LLMs",
+        "Mathematical Optimization",
+        "Rule‑based Engine"
+      ],
+      "description": "Code‑compliant coordinated MEP layout and detailed construction drawing generation involve slow, rule‑heavy manual engineering and drafting work. Heavy reliance on specialist expertise creates design workflow bottlenecks.",
+      "aiValue": "Autonomous MEP Layout & Drawing Automation"
+    },
+    {
+      "id": "uc-33",
+      "toolId": "endra",
+      "scenario": "MEP Design & Engineering Coordination",
+      "task": "Clash Detection & Spatial Coordination",
+      "taskId": "clash-detection-spatial-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "structural-engineer",
+        "mep-engineer",
+        "architect"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "Mathematical Optimization",
+        "Rule‑based Engine"
+      ],
+      "description": "MEP designs often have coordination issues that are found late. Clashes between different MEP disciplines and with structural elements are typically discovered during construction, causing costly rework and delays.",
+      "aiValue": "Constraint‑Aware MEP Co‑Design Optimization"
+    },
+    {
+      "id": "uc-34",
+      "toolId": "endra",
+      "scenario": "MEP Design & Engineering Coordination",
+      "task": "Detailed Cost Estimate",
+      "taskId": "detailed-cost-estimate",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "project-manager",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Knowledge Capture",
+        "LLMs",
+        "Rule‑based Engine"
+      ],
+      "description": "Firms cannot easily encode and reuse institutional engineering knowledge. Each engineer designs differently based on their experience, and there is no systematic way to capture and standardize best practices across the organization.",
+      "aiValue": "Knowledge Encoding & Reuse"
+    },
+    {
+      "id": "uc-35",
+      "toolId": "endra",
+      "scenario": "MEP Design & Engineering Coordination",
+      "task": "Building Performance & Energy Modeling",
+      "taskId": "building-performance-energy-modeling",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Knowledge Capture",
+        "LLMs",
+        "Rule‑based Engine"
+      ],
+      "description": "MEP design optimization for energy efficiency is complex. Balancing system performance, energy consumption, and material cost requires sophisticated analysis that is often skipped due to time and resource constraints.",
+      "aiValue": "Multi‑Objective MEP Performance‑Cost Optimization"
+    },
+    {
+      "id": "uc-36",
+      "toolId": "enlaye",
+      "scenario": "Construction Risk & Lifecycle Governance",
+      "task": "Go / No-Go Decision",
+      "taskId": "go-no-go-decision",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Graph‑based Reasoning",
+        "LLMs",
+        "Predictive Analytics",
+        "RAG"
+      ],
+      "description": "Project teams lack early visibility into potential risks that could derail projects. Risks related to delays, cost overruns, and construction errors are not systematically identified and quantified during the feasibility phase, leading to go/no-go decisions based on incomplete information.",
+      "aiValue": "Early‑Stage Quantitative Risk Forecasting"
+    },
+    {
+      "id": "uc-37",
+      "toolId": "enlaye",
+      "scenario": "Construction Risk & Lifecycle Governance",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "architect",
+        "main-contractor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Graph‑based Reasoning",
+        "LLMs",
+        "RAG"
+      ],
+      "description": "Project data is siloed across SharePoint, construction cloud platforms, and other systems. Risk-relevant information is scattered across documents, schedules, and communications, making it impossible to get a holistic view of project risk in real time.",
+      "aiValue": "Multi‑Source Risk Data Unification"
+    },
+    {
+      "id": "uc-38",
+      "toolId": "enlaye",
+      "scenario": "Construction Risk & Lifecycle Governance",
+      "task": "Bid Consolidation & Commercial Evaluation",
+      "taskId": "bid-consolidation-commercial-evaluation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Internal Alignment Needed"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Graph‑based Reasoning",
+        "LLMs",
+        "RAG"
+      ],
+      "description": "Risk assessment during bidding is subjective and inconsistent. Different team members evaluate risk differently based on experience, and there is no standardized, data-driven approach to quantifying risk exposure across bid options.",
+      "aiValue": "Standardized Bid‑Risk Quantification"
+    },
+    {
+      "id": "uc-39",
+      "toolId": "enlaye",
+      "scenario": "Construction Risk & Lifecycle Governance",
+      "task": "Change Order Management",
+      "taskId": "change-order-management",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "quantity-surveyor",
+        "owner-developer",
+        "main-contractor",
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Safety & Risk Management"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Graph‑based Reasoning",
+        "LLMs",
+        "Predictive Analytics",
+        "RAG"
+      ],
+      "description": "Unplanned field issues lack automated risk-level triage, leading to equal resource investment on minor and high-impact problems. Change orders trigger heavy cost overruns and disputes; teams cannot forecast schedule & budget impacts of variations or benchmark live project risk profiles against historical records.",
+      "aiValue": "Risk-Based Site Issue & Change Order Prioritization"
+    },
+    {
+      "id": "uc-40",
+      "toolId": "firmus",
+      "scenario": "Design Quality & Preconstruction Risk Governance",
+      "task": "Cross-Disciplinary QA/QC Check",
+      "taskId": "cross-disciplinary-qa-qc-check",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "mep-engineer",
+        "structural-engineer",
+        "architect"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Drawing Validation"
+      ],
+      "description": "Manual 2D drawing review is slow and prone to oversights. Undetected inconsistencies and scope gaps in documents trigger RFIs, change orders, rework, cost overruns and delays.",
+      "aiValue": "Automated Drawing Defect & Scope Gap Detection"
+    },
+    {
+      "id": "uc-41",
+      "toolId": "firmus",
+      "scenario": "Design Quality & Preconstruction Risk Governance",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors",
+        "bid-manager"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Drawing Validation"
+      ],
+      "description": "Incomplete or ambiguous drawings lead to inaccurate estimates. When drawings are missing key information, estimators must make assumptions that can result in significant cost overruns or lost bids.",
+      "aiValue": "Pre-Bid Drawing Completeness Validation"
+    },
+    {
+      "id": "uc-42",
+      "toolId": "firmus",
+      "scenario": "Design Quality & Preconstruction Risk Governance",
+      "task": "Production of Architectural Working Drawings",
+      "taskId": "production-of-architectural-working-drawings",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "draftsmen"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Drawing Validation"
+      ],
+      "description": "Design iteration cycles are slowed by manual QA/QC. Each design iteration requires a full review cycle, creating a bottleneck that slows down the entire design process and limits how many iterations can be completed.",
+      "aiValue": "Iterative Real-Time Drawing QA Automation"
+    },
+    {
+      "id": "uc-43",
+      "toolId": "firmus",
+      "scenario": "Design Quality & Preconstruction Risk Governance",
+      "task": "Production of Architectural Working Drawings",
+      "taskId": "production-of-architectural-working-drawings",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "draftsmen"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Drawing Validation"
+      ],
+      "description": "Design risk is not systematically evaluated during VE. Value engineering discussions focus on cost reduction but don't systematically assess how changes affect design quality, constructability, and risk.",
+      "aiValue": "VE Multi-Dimensional Design Risk Assessmen"
+    },
+    {
+      "id": "uc-44",
+      "toolId": "karmen",
+      "scenario": "Construction Schedule & Timeline Governance",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "project-manager",
+        "owner-developer",
+        "quantity-surveyor",
+        "architect"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Historical Schedule Analytics",
+        "LLMs",
+        "Rule-based Scheduling Engine"
+      ],
+      "description": "Construction baseline schedules rely on labor-heavy manual setup. Schedule revisions triggered by delays or change orders are slow, reactive and hard to maintain, rendering master schedules outdated, untrusted and causing cross-trade coordination misalignment.",
+      "aiValue": "Real-Time Automated Schedule Baseline & Change Update"
+    },
+    {
+      "id": "uc-45",
+      "toolId": "karmen",
+      "scenario": "Construction Schedule & Timeline Governance",
+      "task": "Construction RFIs & Issue Resolution",
+      "taskId": "construction-rfis-issue-resolution",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "architect",
+        "main-contractor",
+        "mep-engineer",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "Rule-based Scheduling Engine"
+      ],
+      "description": "Drafting formal time-impact narratives for delays and change orders requires heavy manual analysis & writing, consuming schedulers’ high-value working bandwidth.",
+      "aiValue": "AI-Generated Time-Impact Delay Narratives"
+    },
+    {
+      "id": "uc-46",
+      "toolId": "karmen",
+      "scenario": "Construction Schedule & Timeline Governance",
+      "task": "High-Level Cost Feasibility",
+      "taskId": "high-level-cost-feasibility",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Historical Schedule Analytics",
+        "LLMs"
+      ],
+      "description": "Early-phase schedule estimates lack rigor. During feasibility, rough order-of-magnitude schedules are based on experience rather than systematic analysis of project documents and historical data.",
+      "aiValue": "Data-Driven Early-Phase Feasibility Scheduling"
+    },
+    {
+      "id": "uc-47",
+      "toolId": "nplan",
+      "scenario": "Construction Schedule & Timeline Governance",
+      "task": "High-Level Cost Feasibility",
+      "taskId": "high-level-cost-feasibility",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager",
+        "main-contractor",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Historical Schedule Analytics",
+        "Monte Carlo simulation"
+      ],
+      "description": "Early schedule risk assessment relies on subjective experience without historical data to quantify timeline uncertainty; delays are only identified after hitting the critical path with limited recovery windows.",
+      "aiValue": "Schedule risk prediction & early delay warning"
+    },
+    {
+      "id": "uc-48",
+      "toolId": "nplan",
+      "scenario": "Construction Schedule & Timeline Governance",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "project-manager",
+        "architect",
+        "main-contractor",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Historical Schedule Analytics",
+        "Probabilistic timeline modeling"
+      ],
+      "description": "Inability to quantify risk impairs decision-making. Firms lack the visibility to compare cross-portfolio risk profiles and identify critical projects, while also struggling to evaluate bidder schedules or predict on-time delivery rates during procurement.",
+      "aiValue": "Portfolio & bid schedule risk benchmarking"
+    },
+    {
+      "id": "uc-49",
+      "toolId": "nplan",
+      "scenario": "Construction Schedule & Timeline Governance",
+      "task": "Change Order Management",
+      "taskId": "change-order-management",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "owner-developer",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Safety & Risk Management"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Historical delay correlation analysis",
+        "Monte Carlo simulation"
+      ],
+      "description": "The schedule impact of change orders is hard to predict accurately. Project teams struggle to quantify how changes will affect the overall timeline, leading to disputes over delay claims and extension of time requests.",
+      "aiValue": "Impact calculation"
+    },
+    {
+      "id": "uc-50",
+      "toolId": "togal-ai",
+      "scenario": "Preconstruction Cost Estimation Governance",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors",
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Drawing Object Recognition"
+      ],
+      "description": "Manual 2D drawing takeoff and BOQ drafting is time-consuming, error-prone and inconsistent. Comparing quantities across revised drawings requires full rework, slowing bid preparation.",
+      "aiValue": "Automated Comparison"
+    },
+    {
+      "id": "uc-51",
+      "toolId": "togal-ai",
+      "scenario": "Preconstruction Cost Estimation Governance",
+      "task": "Value Engineering (VE) Review",
+      "taskId": "value-engineering-ve-review",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "architect",
+        "owner-developer",
+        "main-contractor",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Real-Time Quantity Recalculation"
+      ],
+      "description": "Slow manual recalculation prevents instant \"what-if\" cost evaluation for design alternatives during value engineering.",
+      "aiValue": "Real-Time VE Cost What-If Simulation"
+    },
+    {
+      "id": "uc-52",
+      "toolId": "togal-ai",
+      "scenario": "Preconstruction Cost Estimation Governance",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Drawing Object Recognition"
+      ],
+      "description": "Estimating teams have limited capacity to process bids. Manual takeoff work creates a bottleneck that limits how many projects contractors can bid on, forcing them to pass on opportunities and constrain revenue growth.",
+      "aiValue": "Estimating Bid Capacity Bottleneck Removal"
+    },
+    {
+      "id": "uc-53",
+      "toolId": "testfit",
+      "scenario": "Land & Site Feasibility Generative Design",
+      "task": "Preliminary Site Massing",
+      "taskId": "preliminary-site-massing",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "Parametric modeling"
+      ],
+      "description": "Site feasibility studies take weeks of manual work. Architects and developers spend enormous time manually laying out buildings on sites to test different configurations, limiting the number of options that can be evaluated.",
+      "aiValue": "Automated Generative Site Layout Iteration"
+    },
+    {
+      "id": "uc-54",
+      "toolId": "testfit",
+      "scenario": "Land & Site Feasibility Generative Design",
+      "task": "Zoning & Regulatory Analysis",
+      "taskId": "zoning-regulatory-analysis",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "architect",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Compliance & Regulatory Burden"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Geometric Constraint Solver",
+        "Rule‑based Engine"
+      ],
+      "description": "Zoning compliance verification is manual and error-prone. Checking designs against complex zoning regulations (setbacks, height limits, density, parking requirements) takes significant time and expertise.",
+      "aiValue": "Real-time Automated Zoning Rule Compliance Check"
+    },
+    {
+      "id": "uc-55",
+      "toolId": "testfit",
+      "scenario": "Land & Site Feasibility Generative Design",
+      "task": "High-Level Cost Feasibility",
+      "taskId": "high-level-cost-feasibility",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "project-manager",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Parametric Simulation Engine",
+        "Rule-based Financial Model"
+      ],
+      "description": "Zoning compliance verification is manual and error-prone. Checking designs against complex zoning regulations (setbacks, height limits, density, parking requirements) takes significant time and expertise.",
+      "aiValue": "Multi-Discipline Site Plan Financial Calculation"
+    },
+    {
+      "id": "uc-56",
+      "toolId": "testfit",
+      "scenario": "Land & Site Feasibility Generative Design",
+      "task": "Go / No-Go Decision",
+      "taskId": "go-no-go-decision",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "owner-developer",
+        "architect",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative AI",
+        "Parametric Simulation Engine"
+      ],
+      "description": "Teams lack fast optimization tools to balance unit mixes for maximum yield; land acquisition decisions rely only on rough, incomplete feasibility analysis.",
+      "aiValue": "Yield Optimization & Data-Driven Land Feasibility Decision Support"
+    },
+    {
+      "id": "uc-57",
+      "toolId": "trubuild",
+      "scenario": "Tender & Procurement Governance",
+      "task": "Bid Consolidation & Commercial Evaluation",
+      "taskId": "bid-consolidation-commercial-evaluation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager",
+        "subcontractors",
+        "bid-manager",
+        "main-contractor"
+      ],
+      "painPoints": [
+        "Procurement Inefficiency"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "NLP",
+        "Rule‑based Engine"
+      ],
+      "description": "Complex tender evaluation consumes massive person‑hours; disjointed technical‑commercial reviews and inconsistent evaluator scoring hinder consistent vendor comparison. Disparate quote formats and scope assumptions further complicate apples‑to‑apples subcontractor benchmarking.",
+      "aiValue": "AI‑Assisted Standardised Tender Evaluation & Quote Normalisation"
+    },
+    {
+      "id": "uc-58",
+      "toolId": "trubuild",
+      "scenario": "Tender & Procurement Governance",
+      "task": "Tender Queries (RFI) Management",
+      "taskId": "tender-queries-rfi-management",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "mep-engineer",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "NLP",
+        "RAG"
+      ],
+      "description": "Tender queries and answers are scattered across emails and spreadsheets. Tracking which questions have been answered, ensuring consistency in responses, and maintaining an auditable trail of tender communications is cumbersome.",
+      "aiValue": "Centralised Tender Q&A Audit Trail Management"
+    },
+    {
+      "id": "uc-59",
+      "toolId": "trubuild",
+      "scenario": "Tender & Procurement Governance",
+      "task": "Contract Assembly & Award",
+      "taskId": "contract-assembly-award",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "owner-developer",
+        "main-contractor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "RAG",
+        "Rule‑based Engine"
+      ],
+      "description": "Procurement decisions lack traceability to supporting evidence. When award decisions are challenged, teams struggle to reconstruct the reasoning, scoring, and source documents that led to the recommendation, creating legal and compliance risk.",
+      "aiValue": "Evidence‑Linked Auditable Procurement Decision Logging"
+    },
+    {
+      "id": "uc-60",
+      "toolId": "trubuild",
+      "scenario": "Tender & Procurement Governance",
+      "task": "Issuance of Tender Package & RFP",
+      "taskId": "issuance-tender-package-rfp",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "RAG",
+        "Rule‑based Engine"
+      ],
+      "description": "Organizations lack institutional memory from past tenders. Cost patterns, vendor performance data, and lessons learned from previous procurement cycles are not systematically captured and reused, leading to repeated mistakes and missed optimization opportunities.",
+      "aiValue": "Knowledge Encoding & Reuse"
+    },
+    {
+      "id": "uc-61",
+      "toolId": "trunk-tools",
+      "scenario": "Field & Project Document Governance",
+      "task": "Construction RFIs & Issue Resolution",
+      "taskId": "construction-rfis-issue-resolution",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "NLP",
+        "RAG"
+      ],
+      "description": "Field workers waste hours searching through project documents for answers. When questions arise on site, workers must call the office or dig through hundreds of pages of specs, drawings, and RFIs, slowing down problem resolution.",
+      "aiValue": "Project Document Q&A Retrieval"
+    },
+    {
+      "id": "uc-62",
+      "toolId": "trunk-tools",
+      "scenario": "Field & Project Document Governance",
+      "task": "Submittal & Shop Drawing Review",
+      "taskId": "submittal-shop-drawing-review",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "NLP",
+        "Rule‑based Engine"
+      ],
+      "description": "Submittal review is repetitive and time-consuming. Engineers and architects must manually check submittals against specifications for compliance, a process that is both tedious and prone to human error when dealing with high volumes.",
+      "aiValue": "Submittal‑to‑Spec Compliance Review"
+    },
+    {
+      "id": "uc-63",
+      "toolId": "trunk-tools",
+      "scenario": "Field & Project Document Governance",
+      "task": "Cross-Disciplinary QA/QC Check",
+      "taskId": "cross-disciplinary-qa-qc-check",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "mep-engineer",
+        "structural-engineer",
+        "architect"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Engine"
+      ],
+      "description": "Drawing revision analysis is manual and error-prone. When new drawing sets are issued, teams must manually compare versions to identify changes, risking missed updates that lead to construction errors and rework.",
+      "aiValue": "Automated Drawing Revision Change Detectio"
+    },
+    {
+      "id": "uc-64",
+      "toolId": "trunk-tools",
+      "scenario": "Field & Project Document Governance",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "NLP",
+        "RAG"
+      ],
+      "description": "Unstructured project data (specs, RFIs, drawings, schedules, contracts) is hard to synthesize. Project teams cannot quickly get answers to complex questions that require pulling information from multiple document types and sources.",
+      "aiValue": "Cross‑Document Multi‑Source Project Data Synthesis"
+    },
+    {
+      "id": "uc-65",
+      "toolId": "trunk-tools",
+      "scenario": "Field & Project Document Governance",
+      "task": "Site Execution & Logistics Planning",
+      "taskId": "site-execution-logistics-planning",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Productivity Tracking Gaps"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "NLP",
+        "RAG"
+      ],
+      "description": "Administrative tasks drain field productivity. Superintendents and foremen spend significant time on paperwork, documentation, and information lookup instead of overseeing actual construction work.",
+      "aiValue": "Field Administrative Workload Reduction"
+    },
+    {
+      "id": "uc-66",
+      "toolId": "viact",
+      "scenario": "Multi-Site Asset & Facility Mapping",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "subcontractors",
+        "main-contractor",
+        "project-manager",
+        "architect"
+      ],
+      "painPoints": [
+        "Productivity Tracking Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hybrid (Edge + Cloud)"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Engine"
+      ],
+      "description": "Manual site progress tracking is labour‑intensive, subjective and delayed. Limited oversight causes inaccurate progress reporting and missed quality issues. Meanwhile, real‑time visibility over fleet‑equipment location, idle status and usage is missing, driving poor resource allocation and avoidable costs.",
+      "aiValue": "Progress & Equipment Utilization Monitoring"
+    },
+    {
+      "id": "uc-67",
+      "toolId": "viact",
+      "scenario": "Multi-Site Asset & Facility Mapping",
+      "task": "Site Execution & Logistics Planning",
+      "taskId": "site-execution-logistics-planning",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Safety & Risk Management"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hybrid (Edge + Cloud)"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Engine"
+      ],
+      "description": "Construction sites have high safety risks with limited real-time monitoring. PPE violations, danger zone intrusions, and unsafe work-at-height behaviors often go undetected until incidents occur, leading to injuries, fines, and project delays.",
+      "aiValue": "Real‑time Visual Site Safety Hazard Detection"
+    },
+    {
+      "id": "uc-68",
+      "toolId": "viact",
+      "scenario": "Multi-Site Asset & Facility Mapping",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "project-manager",
+        "main-contractor",
+        "architect"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hybrid (Edge + Cloud)"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Engine"
+      ],
+      "description": "Site documentation is fragmented across photos, videos, and reports stored in different systems. There is no centralized, automatically organized record of project progress by location, floor, and time, making it hard to verify work or resolve disputes.",
+      "aiValue": "Location‑Time Indexed Centralised Site Evidence Repository"
+    },
+    {
+      "id": "uc-69",
+      "toolId": "viact",
+      "scenario": "Multi-Site Asset & Facility Mapping",
+      "task": "Construction RFIs & Issue Resolution",
+      "taskId": "construction-rfis-issue-resolution",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "architect",
+        "main-contractor",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hybrid (Edge + Cloud)"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "NLP"
+      ],
+      "description": "Site documentation is fragmented across photos, videos, and reports stored in different systems. There is no centralized, automatically organized record of project progress by location, floor, and time, making it hard to verify work or resolve disputes.",
+      "aiValue": "Auto‑Generated Safety Incident Evidence Reporting"
+    },
+    {
+      "id": "uc-70",
+      "toolId": "kreo",
+      "scenario": "2D Drawing Quantity Takeoff & Bid Preparation",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors",
+        "quantity-surveyor",
+        "bid-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "LLMs"
+      ],
+      "description": "Manual drawing measurement, routine takeoff and BOQ report generation are labour‑intensive and error‑prone.",
+      "aiValue": "AI Auto-Takeoff"
+    },
+    {
+      "id": "uc-71",
+      "toolId": "kreo",
+      "scenario": "Quantity‑Spec Data Alignment & Central Access",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "bid-manager",
+        "main-contractor",
+        "subcontractors",
+        "architect",
+        "mep-engineer",
+        "quantity-surveyor",
+        "structural-engineer",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "NLP",
+        "Rule‑based Engine"
+      ],
+      "description": "Spec data is scattered and decoupled from measured drawing elements; manual data entry when converting quantities to cost estimates introduces calculation errors.",
+      "aiValue": "AI Auto-Takeoff"
+    },
+    {
+      "id": "uc-72",
+      "toolId": "higharc",
+      "scenario": "Generative Design & Single‑Source Documentation Governance",
+      "task": "Conceptual Space Planning & Layouts",
+      "taskId": "conceptual-space-planning-layouts",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect",
+        "draftsmen"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design"
+      ],
+      "description": "Manual residential floor‑plan drafting and iterative design consumes extensive manpower; repeated redrawing for multiple home variants creates heavy repetitive workload.",
+      "aiValue": "Sketch-to-BIM Generative Pipeline"
+    },
+    {
+      "id": "uc-73",
+      "toolId": "higharc",
+      "scenario": "Generative Design & Single‑Source Documentation Governance",
+      "task": "Detailed Architectural Modeling & Coordination",
+      "taskId": "detailed-architectural-modeling-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Parametric modeling",
+        "Rule‑based Engine"
+      ],
+      "description": "Design drawings, material takeoffs and cost estimates live in disconnected systems. Design modification cannot automatically propagate across documents, triggering inconsistency and rework.",
+      "aiValue": "Auto-Sync Documentation"
+    },
+    {
+      "id": "uc-74",
+      "toolId": "higharc",
+      "scenario": "Generative Design & Single‑Source Documentation Governance",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors",
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Parametric modeling"
+      ],
+      "description": "Evaluating yield and cost impact for multiple residential design variants requires manual re‑calculation, blocking fast what‑if analysis for product‑development decisions.",
+      "aiValue": "AI-Powered Estimating"
+    },
+    {
+      "id": "uc-75",
+      "toolId": "higharc",
+      "scenario": "Generative Design & Single‑Source Documentation Governance",
+      "task": "Detailed Architectural Modeling & Coordination",
+      "taskId": "detailed-architectural-modeling-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "AI Hallucinations"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "Transformer Model"
+      ],
+      "description": "Generic generative‑AI design outputs ignore physical, code and construction constraints, generating visually plausible yet non‑buildable layouts which trigger downstream rework and cost risk.",
+      "aiValue": "Buildings-as-Data Generative System"
+    },
+    {
+      "id": "uc-76",
+      "toolId": "veras",
+      "scenario": "Architectural Concept Visualization & Render Iteration",
+      "task": "Architectural Aesthetic & Facade Concept",
+      "taskId": "architectural-aesthetic-facade-concept",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Diffusion Model",
+        "Generative AI"
+      ],
+      "description": "Traditional photorealistic rendering is time‑consuming; architects spend hours tuning materials, lighting to generate presentation visuals for design iterations.",
+      "aiValue": "AI-Powered Rendering"
+    },
+    {
+      "id": "uc-77",
+      "toolId": "veras",
+      "scenario": "Architectural Concept Visualization & Render Iteration",
+      "task": "Architectural Aesthetic & Facade Concept",
+      "taskId": "architectural-aesthetic-facade-concept",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "owner-developer",
+        "architect",
+        "project-manager"
+      ],
+      "painPoints": [
+        "AI Hallucinations"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative AI"
+      ],
+      "description": "Generic text‑to‑image AI tools alter building geometry, distort spatial layout; outputs diverge from actual BIM/CAD design intent.",
+      "aiValue": "Geometry-Grounded AI Rendering"
+    },
+    {
+      "id": "uc-78",
+      "toolId": "veras",
+      "scenario": "Architectural Concept Visualization & Render Iteration",
+      "task": "Architectural Aesthetic & Facade Concept",
+      "taskId": "architectural-aesthetic-facade-concept",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect",
+        "project-manager",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Diffusion Model",
+        "Generative AI"
+      ],
+      "description": "Producing professional renderings requires dedicated visualization specialists and expensive rendering setups.",
+      "aiValue": "Democratized AI Visualization"
+    },
+    {
+      "id": "uc-79",
+      "toolId": "veras",
+      "scenario": "In‑Tool Generative Design Ideation",
+      "task": "Conceptual Space Planning & Layouts",
+      "taskId": "conceptual-space-planning-layouts",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative AI"
+      ],
+      "description": "Switching between standalone AI image generators and authoring tools breaks design workflow context, causing copy‑paste overhead and context loss.",
+      "aiValue": "Native Plugin‑based AI Visualization"
+    },
+    {
+      "id": "uc-80",
+      "toolId": "beam-ai",
+      "scenario": "Multi‑Trade Drawing Quantity Takeoff & BOQ Preparation",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "bid-manager",
+        "main-contractor",
+        "subcontractors",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "OCR"
+      ],
+      "description": "Manual multi‑trade quantity takeoff from PDF construction drawings consumes extensive estimator labour‑hours, slowing bid preparation workflows.",
+      "aiValue": "AI Auto-Takeoff"
+    },
+    {
+      "id": "uc-81",
+      "toolId": "beam-ai",
+      "scenario": "Multi‑Trade Drawing Quantity Takeoff & BOQ Preparation",
+      "task": "Tender Queries (RFI) Management",
+      "taskId": "tender-queries-rfi-management",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "architect",
+        "structural-engineer",
+        "main-contractor",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "RAG"
+      ],
+      "description": "Quantitative information is scattered across drawing sheets, legends and notes; consolidating cross‑trade material data for consistent BOQ output is cumbersome.",
+      "aiValue": "Project Document Q&A Retrieval"
+    },
+    {
+      "id": "uc-82",
+      "toolId": "beam-ai",
+      "scenario": "Multi‑Trade Drawing Quantity Takeoff & BOQ Preparation",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors",
+        "architect",
+        "quantity-surveyor",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Change Detection AI",
+        "Computer Vision",
+        "Rule‑based Engine"
+      ],
+      "description": "Inaccurate takeoffs lead to cost estimation errors and bid margin uncertainty.",
+      "aiValue": "Accuracy-Guaranteed Estimating"
+    },
+    {
+      "id": "uc-83",
+      "toolId": "clearstory",
+      "scenario": "Change‑Order & T&M Ticket Governance",
+      "task": "Change Order Management",
+      "taskId": "change-order-management",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "owner-developer",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs"
+      ],
+      "description": "Manual drafting, pricing and formatting of change‑order requests and field T&M tickets consumes extensive labour‑hours; manual transcription from field voice‑notes and photos creates heavy administrative burden.",
+      "aiValue": "AI COR Generation Agent"
+    },
+    {
+      "id": "uc-84",
+      "toolId": "clearstory",
+      "scenario": "Change‑Order & T&M Ticket Governance",
+      "task": "Change Order Management",
+      "taskId": "change-order-management",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "owner-developer",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP"
+      ],
+      "description": "Project rate libraries, contract clauses and prior change‑order records are siloed; cross‑reference for apples‑to‑apples pricing during COR preparation is slow and error‑prone.",
+      "aiValue": "AI Reason Classification"
+    },
+    {
+      "id": "uc-85",
+      "toolId": "clearstory",
+      "scenario": "Change‑Order & T&M Ticket Governance",
+      "task": "Change Order Management",
+      "taskId": "change-order-management",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "owner-developer",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Data Analytics",
+        "LLMs"
+      ],
+      "description": "Understanding what drives cost and schedule changes across projects requires manual data aggregation and analysis.",
+      "aiValue": "Knowledge Encoding & Reuse"
+    },
+    {
+      "id": "uc-86",
+      "toolId": "constructable",
+      "scenario": "Field & Project Document Governance",
+      "task": "Construction RFIs & Issue Resolution",
+      "taskId": "construction-rfis-issue-resolution",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "RAG"
+      ],
+      "description": "Drawings, RFIs, photos, daily logs and submittals reside in disjointed siloed systems; there is no unified context linking documentation to drawing locations and revisions.",
+      "aiValue": "Project Document Q&A Retrieval"
+    },
+    {
+      "id": "uc-87",
+      "toolId": "constructable",
+      "scenario": "Field & Project Document Governance",
+      "task": "Construction RFIs & Issue Resolution",
+      "taskId": "construction-rfis-issue-resolution",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "structural-engineer",
+        "mep-engineer",
+        "owner-developer",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP"
+      ],
+      "description": "Site and office personnel waste significant time hunting for answers across drawings, specs, RFIs, submittals and scattered logs; manual document lookup slows on‑site issue resolution.",
+      "aiValue": "Contract & Spec Intelligence Extraction"
+    },
+    {
+      "id": "uc-88",
+      "toolId": "constructable",
+      "scenario": "Field & Project Document Governance",
+      "task": "Submittal & Shop Drawing Review",
+      "taskId": "submittal-shop-drawing-review",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Agentic AI",
+        "LLMs"
+      ],
+      "description": "Project managers spend hours manually searching documents, compiling reports, and answering routine questions.",
+      "aiValue": "Automated Project Intelligence"
+    },
+    {
+      "id": "uc-89",
+      "toolId": "one-click-lca",
+      "scenario": "BIM‑BOQ Material‑To‑LCA Dataset Mapping",
+      "task": "Building Performance & Energy Modeling",
+      "taskId": "building-performance-energy-modeling",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect",
+        "mep-engineer",
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Calculator"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Database Integration",
+        "Rule-based Financial Model"
+      ],
+      "description": "Calculating embodied carbon and life cycle impacts manually from BIM models is extremely time-consuming.",
+      "aiValue": "Automated BIM-to-LCA Calculation"
+    },
+    {
+      "id": "uc-90",
+      "toolId": "swapp-ai",
+      "scenario": "Generative Design & Single‑Source Documentation Governance",
+      "task": "Detailed Architectural Modeling & Coordination",
+      "taskId": "detailed-architectural-modeling-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "RAG",
+        "Rule-based Financial Model"
+      ],
+      "description": "Manual construction drawing production is time-consuming with inconsistent standards across teams.",
+      "aiValue": "BIM Documentation"
+    },
+    {
+      "id": "uc-91",
+      "toolId": "doxel",
+      "scenario": "Construction‑Site Performance & Issue Management",
+      "task": "As-Built Documentation (Digital Twin Handover)",
+      "taskId": "as-built-documentation-digital-twin-handover",
+      "phaseId": "handover-commissioning",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Site video, BIM models, and schedule data exist in separate systems with no unified analysis.",
+      "aiValue": "Integrated Reality Analysis Platform"
+    },
+    {
+      "id": "uc-92",
+      "toolId": "doxel",
+      "scenario": "Construction‑Site Performance & Issue Management",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "architect",
+        "quantity-surveyor",
+        "main-contractor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Predictive Analytics"
+      ],
+      "description": "Earned value and cost forecasting rely on inaccurate manual progress reports.",
+      "aiValue": "AI Value Management"
+    },
+    {
+      "id": "uc-93",
+      "toolId": "doxel",
+      "scenario": "Construction‑Site Performance & Issue Management",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "project-manager",
+        "main-contractor",
+        "architect",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Productivity Tracking Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Deep Learning"
+      ],
+      "description": "Manual progress tracking is slow, subjective, and fails to surface hidden issues early enough.",
+      "aiValue": "AI Automated Progress Tracking"
+    },
+    {
+      "id": "uc-94",
+      "toolId": "doxel",
+      "scenario": "Construction‑Site Performance & Issue Management",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "architect",
+        "main-contractor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Anomaly Detection",
+        "Computer Vision"
+      ],
+      "description": "Quality issues and installation errors are often missed during manual inspections and discovered too late.",
+      "aiValue": "Quality Detection"
+    },
+    {
+      "id": "uc-95",
+      "toolId": "swapp-ai",
+      "scenario": "Legacy Document & BIM Data Centralization",
+      "task": "Cross-Disciplinary QA/QC Check",
+      "taskId": "cross-disciplinary-qa-qc-check",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "mep-engineer",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Information Extraction",
+        "LLMs"
+      ],
+      "description": "Senior designer expertise is lost with staff turnover; no standardized institutional knowledge base.",
+      "aiValue": "Institutional Knowledge Retention"
+    },
+    {
+      "id": "uc-96",
+      "toolId": "swapp-ai",
+      "scenario": "Document Compliance Review",
+      "task": "Production of Architectural Working Drawings",
+      "taskId": "production-of-architectural-working-drawings",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "draftsmen"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "RAG"
+      ],
+      "description": "Manual code compliance reviews miss violations, causing costly rework and resubmissions.",
+      "aiValue": "Compliance Checking"
+    },
+    {
+      "id": "uc-97",
+      "toolId": "swapp-ai",
+      "scenario": "Drawing Comparison & Revision Tracking",
+      "task": "Drafting Technical Specifications",
+      "taskId": "drafting-technical-specifications",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "mep-engineer",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "RAG"
+      ],
+      "description": "Manual comparison of drawing revisions leads to missed changes and coordination errors.",
+      "aiValue": "Multi-Version Drawing Diff"
+    },
+    {
+      "id": "uc-98",
+      "toolId": "augmenta",
+      "scenario": "MEP Design & Engineering Coordination",
+      "task": "MEP System & Space Allocation",
+      "taskId": "mep-system-space-allocation",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Spatial 3D Generative AI"
+      ],
+      "description": "Manual MEP conduit routing takes weeks with iterative adjustments to avoid conflicts.",
+      "aiValue": "Generative MEP Spatial Routing"
+    },
+    {
+      "id": "uc-99",
+      "toolId": "augmenta",
+      "scenario": "BIM‑Based Design Coordination & Clash Review",
+      "task": "MEP Routing & Sizing",
+      "taskId": "mep-routing-sizing",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "3D Spatial Collision Reasoning"
+      ],
+      "description": "Multi-trade clashes discovered late in design cause significant rework and delays.",
+      "aiValue": "Real-Time Clash Resolution"
+    },
+    {
+      "id": "uc-100",
+      "toolId": "augmenta",
+      "scenario": "Preconstruction Cost Estimation Governance",
+      "task": "Detailed Cost Estimate",
+      "taskId": "detailed-cost-estimate",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "ROI and Cost Uncertainty"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Monte Carlo simulation",
+        "Parametric Cost Regression"
+      ],
+      "description": "Manual cost takeoff for multiple MEP design options is slow, limiting value engineering.",
+      "aiValue": "Multi-Option Cost Simulation"
+    },
+    {
+      "id": "uc-101",
+      "toolId": "augmenta",
+      "scenario": "2D-to-3D Model Revision Synchronization",
+      "task": "Detailed Cost Estimate",
+      "taskId": "detailed-cost-estimate",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "project-manager",
+        "quantity-surveyor",
+        "main-contractor",
+        "subcontractors",
+        "supplier"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Format Conversion"
+      ],
+      "description": "Design models require manual rework to produce fabrication-ready shop drawings.",
+      "aiValue": "Fabrication-Ready BIM Export"
+    },
+    {
+      "id": "uc-102",
+      "toolId": "parspec",
+      "scenario": "Quantity‑Spec Data Alignment & Central Access",
+      "task": "Material & Finish Selection",
+      "taskId": "material-finish-selection",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "Multimodal AI"
+      ],
+      "description": "Manufacturer catalogs are scattered PDFs; manual product research and compliance checks are inefficient.",
+      "aiValue": "Building Product Specification Matching"
+    },
+    {
+      "id": "uc-103",
+      "toolId": "parspec",
+      "scenario": "Tender & Procurement Governance",
+      "task": "Subcontractor Quote Sourcing & Leveling",
+      "taskId": "subcontractor-quote-sourcing-leveling",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "subcontractors",
+        "bid-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs"
+      ],
+      "description": "Manual compilation of product data sheets and submittal packages consumes hours per project.",
+      "aiValue": "Automated Submittal Generation"
+    },
+    {
+      "id": "uc-104",
+      "toolId": "parspec",
+      "scenario": "Schedule Risk & Bid Trade‑off Analysis",
+      "task": "Bid Consolidation & Commercial Evaluation",
+      "taskId": "bid-consolidation-commercial-evaluation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "project-manager",
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Procurement Inefficiency"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Data Analytics"
+      ],
+      "description": "Vendor quotations come from vendors as disjointed PDF templates with inconsistent formatting; manual normalization for apples‑to‑apples bid leveling comparison is time-consuming and prone to data entry & scope errors.",
+      "aiValue": "Bid Normalization & Comparison"
+    },
+    {
+      "id": "uc-105",
+      "toolId": "parspec",
+      "scenario": "Schedule Risk & Bid Trade‑off Analysis",
+      "task": "Bid Consolidation & Commercial Evaluation",
+      "taskId": "bid-consolidation-commercial-evaluation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Procurement Inefficiency"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Data Analytics"
+      ],
+      "description": "Vendor quotations come from vendors as disjointed PDF templates with inconsistent formatting; manual normalization for apples‑to‑apples bid leveling comparison is time-consuming and prone to data entry & scope errors.",
+      "aiValue": "Bid Normalization & Comparison"
+    },
+    {
+      "id": "uc-106",
+      "toolId": "permitflow",
+      "scenario": "Statutory AI Compliance",
+      "task": "Building Permit Submission & Approvals",
+      "taskId": "building-permit-submission-approvals",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Compliance & Regulatory Burden"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "RAG"
+      ],
+      "description": "Jurisdiction-specific codes are fragmented; manual applications face repeated rejections delaying projects.",
+      "aiValue": "Permit Automation"
+    },
+    {
+      "id": "uc-107",
+      "toolId": "permitflow",
+      "scenario": "Construction Risk & Lifecycle Governance",
+      "task": "Go / No-Go Decision",
+      "taskId": "go-no-go-decision",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Predictive Analytics"
+      ],
+      "description": "Permit approval timelines are unpredictable, creating scheduling risk in early project planning.",
+      "aiValue": "Permit Timeline Prediction"
+    },
+    {
+      "id": "uc-108",
+      "toolId": "permitflow",
+      "scenario": "Document Compliance Review",
+      "task": "Cross-Disciplinary QA/QC Check",
+      "taskId": "cross-disciplinary-qa-qc-check",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs"
+      ],
+      "description": "Manual interpretation of plan check comments leads to slow cross-discipline coordination on revisions.",
+      "aiValue": "Comment Resolution Intelligence"
+    },
+    {
+      "id": "uc-109",
+      "toolId": "permitflow",
+      "scenario": "Field & Project Document Governance",
+      "task": "Space & Asset Management",
+      "taskId": "space-asset-management",
+      "phaseId": "operations-maintenance",
+      "stakeholders": [
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "OCR"
+      ],
+      "description": "Permits and certificates are filed across systems, making retrieval for operations and audits difficult.",
+      "aiValue": "Centralized Permit Repository"
+    },
+    {
+      "id": "uc-110",
+      "toolId": "drawer-ai",
+      "scenario": "2D Drawing Quantity Takeoff & Bid Preparation",
+      "task": "Quantity Takeoff & Bid Estimation",
+      "taskId": "quantity-takeoff-bid-estimation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "NLP"
+      ],
+      "description": "Manual counting of electrical devices and fixtures across drawings is slow and error-prone.",
+      "aiValue": "AI Auto-Takeoff"
+    },
+    {
+      "id": "uc-111",
+      "toolId": "drawer-ai",
+      "scenario": "ELV Specification Matching & Cable Routing Optimization",
+      "task": "MEP Routing & Sizing",
+      "taskId": "mep-routing-sizing",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Compliance & Regulatory Burden"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative AI",
+        "NLP",
+        "Rule‑based Engine"
+      ],
+      "description": "Manual circuit routing and voltage drop calculations risk NEC violations and rework.",
+      "aiValue": "NEC-Compliant Auto-Routing"
+    },
+    {
+      "id": "uc-112",
+      "toolId": "drawer-ai",
+      "scenario": "Multi‑Trade Drawing Quantity Takeoff & BOQ Preparation",
+      "task": "Preparation of the Bill of Quantities (BOQ)",
+      "taskId": "preparation-bill-of-quantities-boq",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "quantity-surveyor"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "NLP",
+        "Rule‑based Engine"
+      ],
+      "description": "Manual takeoff across split drawing sheets causes double-counting in overlap zones.",
+      "aiValue": "Multi-Sheet Drawing Stitching"
+    },
+    {
+      "id": "uc-113",
+      "toolId": "drawer-ai",
+      "scenario": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
+      "task": "Value Engineering (VE) Review",
+      "taskId": "value-engineering-ve-review",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "architect",
+        "main-contractor",
+        "quantity-surveyor",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "NLP",
+        "Rule‑based Engine"
+      ],
+      "description": "Revised drawings require full manual re-takeoff, slowing down value engineering comparisons.",
+      "aiValue": "Multi-Sheet Drawing Stitching"
+    },
+    {
+      "id": "uc-114",
+      "toolId": "openspace",
+      "scenario": "GPS-Denied Spatial Photo Alignment",
+      "task": "Progress Monitoring & Quality Inspections",
+      "taskId": "progress-monitoring-quality-inspections",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "ML‑Spatial Matching",
+        "Rule‑based Engine"
+      ],
+      "description": "Manual site photo documentation is scattered, untagged, and hard to trace over time.",
+      "aiValue": "360° Site Reality Mapping"
+    },
+    {
+      "id": "uc-115",
+      "toolId": "openspace",
+      "scenario": "Construction‑Site Performance & Issue Management",
+      "task": "Construction RFIs & Issue Resolution",
+      "taskId": "construction-rfis-issue-resolution",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "ML‑Spatial Matching",
+        "Rule‑based Engine"
+      ],
+      "description": "Manual comparison of planned vs. actual construction catches deviations too late.",
+      "aiValue": "AI Automated Progress Tracking"
+    },
+    {
+      "id": "uc-116",
+      "toolId": "openspace",
+      "scenario": "Scan-to-BIM Modeling",
+      "task": "As-Built Documentation (Digital Twin Handover)",
+      "taskId": "as-built-documentation-digital-twin-handover",
+      "phaseId": "handover-commissioning",
+      "stakeholders": [
+        "main-contractor",
+        "architect",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "ML‑Spatial Matching",
+        "Rule‑based Engine"
+      ],
+      "description": "As-built documentation relies on 2D drawings without visual record of actual site conditions.",
+      "aiValue": "As-Built Digital Twin Delivery"
+    },
+    {
+      "id": "uc-117",
+      "toolId": "openspace",
+      "scenario": "Construction Site Field Layout & Model‑to‑Field Execution",
+      "task": "Snagging and Defect Rectification",
+      "taskId": "snagging-defect-rectification",
+      "phaseId": "handover-commissioning",
+      "stakeholders": [
+        "architect",
+        "project-manager",
+        "main-contractor"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "Hardware + SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "ML‑Spatial Matching",
+        "Rule‑based Engine"
+      ],
+      "description": "Manual defect logging requires repeat site visits and handwritten notes that are hard to track.",
+      "aiValue": "Visual Punch List Tracking"
+    },
+    {
+      "id": "uc-118",
+      "toolId": "civils-ai",
+      "scenario": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
+      "task": "Tender Queries (RFI) Management",
+      "taskId": "tender-queries-rfi-management",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "architect",
+        "structural-engineer",
+        "mep-engineer",
+        "main-contractor"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP"
+      ],
+      "description": "Specs and contracts are dense documents; manually identifying risks, exclusions, and discrepancies across bid packages is slow.",
+      "aiValue": "Specification & Contract Risk Extraction"
+    },
+    {
+      "id": "uc-119",
+      "toolId": "civils-ai",
+      "scenario": "Multi‑Trade Drawing Quantity Takeoff & BOQ Preparation",
+      "task": "Subcontractor Quote Sourcing & Leveling",
+      "taskId": "subcontractor-quote-sourcing-leveling",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "main-contractor",
+        "bid-manager",
+        "subcontractors"
+      ],
+      "painPoints": [
+        "Procurement Inefficiency"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "NLP"
+      ],
+      "description": "Multi-trade takeoffs across masonry, fencing, flooring, and landscaping require separate manual workflows per trade.",
+      "aiValue": "Multi-Trade Quantity Extraction"
+    },
+    {
+      "id": "uc-120",
+      "toolId": "amplify",
+      "scenario": "Design Quality & Preconstruction Risk Governance",
+      "task": "Go / No-Go Decision",
+      "taskId": "go-no-go-decision",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP"
+      ],
+      "description": "Preconstruction teams manually sift through transcripts, notes, and emails to identify risks before go/no-go decisions.",
+      "aiValue": "Automated Risk Identification from Documents"
+    },
+    {
+      "id": "uc-121",
+      "toolId": "amplify",
+      "scenario": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
+      "task": "Schematic Cost Estimate",
+      "taskId": "schematic-cost-estimate",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs"
+      ],
+      "description": "Setting up new project budgets and reports from scratch is repetitive; historical project data is underutilized.",
+      "aiValue": "Historical Project Benchmarking & Budget Auto-Population"
+    },
+    {
+      "id": "uc-122",
+      "toolId": "amplify",
+      "scenario": "Construction Financial & Administrative Workflow Orchestration",
+      "task": "Budget & Financing Establishment",
+      "taskId": "budget-financing-establishment",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "owner-developer",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP"
+      ],
+      "description": "Estimating, planning, and procurement data lives in disconnected spreadsheets, causing misalignment across teams.",
+      "aiValue": "Cross-Source Data Aggregation & Visualization"
+    },
+    {
+      "id": "uc-123",
+      "toolId": "wisebim",
+      "scenario": "Scan-to-BIM Modeling",
+      "task": "Detailed Architectural Modeling & Coordination",
+      "taskId": "detailed-architectural-modeling-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Converting legacy 2D drawings (DWG, PDF, images) into Revit models requires manual tracing of walls, doors, windows, and slabs.",
+      "aiValue": "Automated 2D Element Recognition & Revit Generation"
+    },
+    {
+      "id": "uc-124",
+      "toolId": "wisebim",
+      "scenario": "Legacy Document & BIM Data Centralization",
+      "task": "Renovation & Retrofit Planning",
+      "taskId": "renovation-retrofit-planning",
+      "phaseId": "operations-maintenance",
+      "stakeholders": [
+        "owner-developer",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Renovation projects lack editable BIM models; existing buildings only have paper or PDF drawings.",
+      "aiValue": "Legacy Drawing Digitization to BIM"
+    },
+    {
+      "id": "uc-125",
+      "toolId": "wisebim",
+      "scenario": "BIM‑Based Design Coordination & Clash Review",
+      "task": "Clash Detection & Spatial Coordination",
+      "taskId": "clash-detection-spatial-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect",
+        "subcontractors",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Without a 3D model from 2D drawings, clash detection cannot begin until late in design.",
+      "aiValue": "Automated 2D Element Recognition & Revit Generation"
+    },
+    {
+      "id": "uc-126",
+      "toolId": "empoli-ai",
+      "scenario": "Early‑Stage Site & Concept Design + Model‑Based Takeoff",
+      "task": "Conceptual Space Planning & Layouts",
+      "taskId": "conceptual-space-planning-layouts",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Creating 3D models from 2D floor plans for client walkthroughs takes days of manual modeling.",
+      "aiValue": "2D Plan to 3D Model Auto-Conversion"
+    },
+    {
+      "id": "uc-127",
+      "toolId": "empoli-ai",
+      "scenario": "Architectural Concept Visualization & Render Iteration",
+      "task": "Client Review & Concept Approval",
+      "taskId": "client-review-concept-approval",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "owner-developer",
+        "project-manager",
+        "architect"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Clients wait days or weeks for updated 3D views after design changes.",
+      "aiValue": "Real-Time 3D Walkthrough Generation"
+    },
+    {
+      "id": "uc-128",
+      "toolId": "empoli-ai",
+      "scenario": "2D-to-3D Model Revision Synchronization",
+      "task": "Detailed Architectural Modeling & Coordination",
+      "taskId": "detailed-architectural-modeling-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Design Error & Coordination Gaps"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Rule‑based Engine"
+      ],
+      "description": "Clashes are discovered late because 2D-to-3D conversion is a bottleneck in early design.",
+      "aiValue": "Early BIM Validation from Converted Models"
+    },
+    {
+      "id": "uc-129",
+      "toolId": "allplan",
+      "scenario": "In‑Tool Generative Design Ideation",
+      "task": "Structural Member Sizing & Calculations",
+      "taskId": "structural-member-sizing-calculations",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "On-Premises"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "Rule‑based Engine"
+      ],
+      "description": "Engineers spend significant time on repetitive rebar placement and parametric modeling tasks.",
+      "aiValue": "Automated Rebar Placement & Parametric Modeling"
+    },
+    {
+      "id": "uc-130",
+      "toolId": "allplan",
+      "scenario": "Generative Design & Single‑Source Documentation Governance",
+      "task": "Cross-Disciplinary QA/QC Check",
+      "taskId": "cross-disciplinary-qa-qc-check",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "mep-engineer",
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "On-Premises"
+      ],
+      "aiTechniques": [
+        "LLMs"
+      ],
+      "description": "Users need instant guidance on AEC standards, workflows, and best practices without leaving the software.",
+      "aiValue": "In-Software AEC Standards Guidance"
+    },
+    {
+      "id": "uc-131",
+      "toolId": "allplan",
+      "scenario": "Architectural Concept Visualization & Render Iteration",
+      "task": "Architectural Aesthetic & Facade Concept",
+      "taskId": "architectural-aesthetic-facade-concept",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "On-Premises"
+      ],
+      "aiTechniques": [
+        "Generative Design"
+      ],
+      "description": "Creating high-quality visualizations requires expensive hardware and long render times.",
+      "aiValue": "Cloud-Based Instant Visualization"
+    },
+    {
+      "id": "uc-132",
+      "toolId": "floor-plan-ai",
+      "scenario": "Early‑Stage Site & Concept Design + Model‑Based Takeoff",
+      "task": "Project Programming",
+      "taskId": "project-programming",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "architect",
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "LLMs"
+      ],
+      "description": "Early-stage space planning requires manual drafting of multiple layout options from text briefs.",
+      "aiValue": "Text-to-Floor-Plan Generation"
+    },
+    {
+      "id": "uc-133",
+      "toolId": "floor-plan-ai",
+      "scenario": "In‑Tool Generative Design Ideation",
+      "task": "Conceptual Space Planning & Layouts",
+      "taskId": "conceptual-space-planning-layouts",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design"
+      ],
+      "description": "Hand-drawn sketches or old drawings need to be redrawn digitally for further development.",
+      "aiValue": "Sketch/Photo to Editable Plan Conversion"
+    },
+    {
+      "id": "uc-134",
+      "toolId": "floor-plan-ai",
+      "scenario": "Architectural Concept Visualization & Render Iteration",
+      "task": "Client Review & Concept Approval",
+      "taskId": "client-review-concept-approval",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "owner-developer",
+        "project-manager",
+        "architect"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design"
+      ],
+      "description": "Clients struggle to understand 2D plans; 3D visualization is time-consuming to produce.",
+      "aiValue": "Multi-Style 2D/3D Plan Visualization"
+    },
+    {
+      "id": "uc-135",
+      "toolId": "homestyler",
+      "scenario": "In‑Tool Generative Design Ideation",
+      "task": "Conceptual Space Planning & Layouts",
+      "taskId": "conceptual-space-planning-layouts",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design",
+        "LLMs"
+      ],
+      "description": "Interior design iteration is slow; designers manually create layouts and source furniture for each concept.",
+      "aiValue": "Conversational Interior Scheme Generation"
+    },
+    {
+      "id": "uc-136",
+      "toolId": "homestyler",
+      "scenario": "Architectural Concept Visualization & Render Iteration",
+      "task": "Material & Finish Selection",
+      "taskId": "material-finish-selection",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "owner-developer",
+        "architect"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design"
+      ],
+      "description": "Interior design iteration is slow; designers manually create layouts and source furniture for each concept.",
+      "aiValue": "Instant Cloud Photorealistic Rendering"
+    },
+    {
+      "id": "uc-137",
+      "toolId": "homestyler",
+      "scenario": "Quantity‑Spec Data Alignment & Central Access",
+      "task": "Material & Finish Selection",
+      "taskId": "material-finish-selection",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "owner-developer",
+        "architect"
+      ],
+      "painPoints": [
+        "Data and Integration Challenge"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Designers cannot quickly convert real-world furniture inspiration into specifiable 3D models.",
+      "aiValue": "Photo-to-3D Furniture Model Creation"
+    },
+    {
+      "id": "uc-138",
+      "toolId": "planner5d",
+      "scenario": "Early‑Stage Site & Concept Design + Model‑Based Takeoff",
+      "task": "Conceptual Space Planning & Layouts",
+      "taskId": "conceptual-space-planning-layouts",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design"
+      ],
+      "description": "Building 3D models room by room from existing floor plans is tedious and time-consuming.",
+      "aiValue": "AI Floor Plan Recognition & 3D Conversion"
+    },
+    {
+      "id": "uc-139",
+      "toolId": "planner5d",
+      "scenario": "Architectural Concept Visualization & Render Iteration",
+      "task": "Client Review & Concept Approval",
+      "taskId": "client-review-concept-approval",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "owner-developer",
+        "project-manager",
+        "architect"
+      ],
+      "painPoints": [
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design"
+      ],
+      "description": "Homeowners and non-professionals cannot visualize design concepts without specialized CAD skills.",
+      "aiValue": "Guided Design Generation for Non-Experts"
+    },
+    {
+      "id": "uc-140",
+      "toolId": "planner5d",
+      "scenario": "Multi-Site Asset & Facility Mapping",
+      "task": "Space & Asset Management",
+      "taskId": "space-asset-management",
+      "phaseId": "operations-maintenance",
+      "stakeholders": [
+        "facility-manager"
+      ],
+      "painPoints": [
+        "Data Fragmentation"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Facility managers lack easy tools to map and visualize existing spaces for planning.",
+      "aiValue": "Cross-Platform Space Mapping & Visualization"
+    },
+    {
+      "id": "uc-141",
+      "toolId": "artificial-studio",
+      "scenario": "Architectural Concept Visualization & Render Iteration",
+      "task": "Architectural Aesthetic & Facade Concept",
+      "taskId": "architectural-aesthetic-facade-concept",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "owner-developer",
+        "architect"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design"
+      ],
+      "description": "Converting hand sketches to photorealistic renders requires hours of 3D modeling, texturing, and rendering.",
+      "aiValue": "Sketch-to-Photoreal Render Generation"
+    },
+    {
+      "id": "uc-142",
+      "toolId": "artificial-studio",
+      "scenario": "External Production of Construction Visuals & Presentation Media",
+      "task": "Client Review & Concept Approval",
+      "taskId": "client-review-concept-approval",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "owner-developer",
+        "project-manager",
+        "architect"
+      ],
+      "painPoints": [
+        "Cost & Schedule Uncertainty"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design"
+      ],
+      "description": "Clients cannot visualize concepts from sketches; producing presentation visuals is expensive and slow.",
+      "aiValue": "Instant Client Presentation Visual Production"
+    },
+    {
+      "id": "uc-143",
+      "toolId": "artificial-studio",
+      "scenario": "In‑Tool Generative Design Ideation",
+      "task": "Project Brief & Visioning",
+      "taskId": "project-brief-visioning",
+      "phaseId": "pre-design-feasibility",
+      "stakeholders": [
+        "owner-developer",
+        "architect"
+      ],
+      "painPoints": [
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design"
+      ],
+      "description": "Early design ideation is limited by the speed of producing visual representations.",
+      "aiValue": "No-Code Concept Visualization"
+    },
+    {
+      "id": "uc-144",
+      "toolId": "pixelcut",
+      "scenario": "External Production of Construction Visuals & Presentation Media",
+      "task": "Client Review & Concept Approval",
+      "taskId": "client-review-concept-approval",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "owner-developer",
+        "architect",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design"
+      ],
+      "description": "Preparing presentation and marketing visuals requires manual background removal, retouching, and upscaling.",
+      "aiValue": "One-Click Image Enhancement & Background Processing"
+    },
+    {
+      "id": "uc-145",
+      "toolId": "pixelcut",
+      "scenario": "Tender & Procurement Governance",
+      "task": "Issuance of Tender Package & RFP",
+      "taskId": "issuance-tender-package-rfp",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Workforce & Skills Gap"
+      ],
+      "solutionTypes": [
+        "Automation"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design",
+        "LLMs"
+      ],
+      "description": "Creating bid and proposal visuals (product shots, mood boards) requires design skills and software.",
+      "aiValue": "Prompt-Based Visual Content Generation"
+    },
+    {
+      "id": "uc-146",
+      "toolId": "kujiale",
+      "scenario": "In‑Tool Generative Design Ideation",
+      "task": "Conceptual Space Planning & Layouts",
+      "taskId": "conceptual-space-planning-layouts",
+      "phaseId": "schematic-design",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision",
+        "Generative Design",
+        "LLMs"
+      ],
+      "description": "Creating full interior design schemes from client briefs takes days of manual layout and furnishing work.",
+      "aiValue": "Conversational Multi-Room Design Generation"
+    },
+    {
+      "id": "uc-147",
+      "toolId": "kujiale",
+      "scenario": "Generative Design & Single‑Source Documentation Governance",
+      "task": "Production of Architectural Working Drawings",
+      "taskId": "production-of-architectural-working-drawings",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "architect",
+        "draftsmen"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Generative Design"
+      ],
+      "description": "Design-to-production handoff is fragmented; 3D designs must be manually converted to construction drawings and BOQ.",
+      "aiValue": "Design-to-Construction Document Automation"
+    },
+    {
+      "id": "uc-148",
+      "toolId": "kujiale",
+      "scenario": "Scan-to-BIM Modeling",
+      "task": "Detailed Architectural Modeling & Coordination",
+      "taskId": "detailed-architectural-modeling-coordination",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "architect"
+      ],
+      "painPoints": [
+        "Data and Integration Challenge"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "Computer Vision"
+      ],
+      "description": "Converting floor plan images or CAD files into editable 3D models requires manual reconstruction.",
+      "aiValue": "Floor Plan Image Recognition & 3D Reconstruction"
+    },
+    {
+      "id": "uc-149",
+      "toolId": "tekla",
+      "scenario": "BIM‑Based Design Coordination & Clash Review",
+      "task": "Structural Member Sizing & Calculations",
+      "taskId": "structural-member-sizing-calculations",
+      "phaseId": "design-development",
+      "stakeholders": [
+        "structural-engineer"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "On-Premises"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "Rule‑based Engine"
+      ],
+      "description": "Structural steel and rebar modeling involves repetitive creation of grids, members, and connections.",
+      "aiValue": "Natural Language Structural Modeling"
+    },
+    {
+      "id": "uc-150",
+      "toolId": "tekla",
+      "scenario": "Field & Project Document Governance",
+      "task": "Submittal & Shop Drawing Review",
+      "taskId": "submittal-shop-drawing-review",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "structural-engineer",
+        "main-contractor",
+        "architect"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "On-Premises"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP"
+      ],
+      "description": "Detailers and fabricators spend hours searching for structural specifications and product documentation.",
+      "aiValue": "In-Context Structural Specification Q&A"
+    },
+    {
+      "id": "uc-151",
+      "toolId": "tekla",
+      "scenario": "Generative Design & Single‑Source Documentation Governance",
+      "task": "Production of Engineering Working Drawings",
+      "taskId": "production-of-engineering-working-drawings",
+      "phaseId": "construction-documentation",
+      "stakeholders": [
+        "structural-engineer",
+        "mep-engineer"
+      ],
+      "painPoints": [
+        "Document Management"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "On-Premises"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "Rule‑based Engine"
+      ],
+      "description": "Creating fabrication drawings from scratch is repetitive; detailers manually clone and annotate similar sheets.",
+      "aiValue": "AI-Powered Fabrication Drawing Generation"
+    },
+    {
+      "id": "uc-152",
+      "toolId": "document-crunch",
+      "scenario": "Change‑Order & T&M Ticket Governance",
+      "task": "Change Order Management",
+      "taskId": "change-order-management",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "quantity-surveyor",
+        "owner-developer"
+      ],
+      "painPoints": [
+        "Knowledge Fragmentation"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP",
+        "RAG"
+      ],
+      "description": "Long tender and specification documents require manual sorting of obligations and constraints with low efficiency",
+      "aiValue": "Change Order Contract Clause Instant Lookup"
+    },
+    {
+      "id": "uc-153",
+      "toolId": "document-crunch",
+      "scenario": "Construction Financial & Administrative Workflow Orchestration",
+      "task": "Payment Application Validation",
+      "taskId": "payment-application-validation",
+      "phaseId": "construction-administration",
+      "stakeholders": [
+        "quantity-surveyor",
+        "main-contractor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Manual & Repetitive Work"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "NLP",
+        "Rule‑based Engine"
+      ],
+      "description": "Manual cross-check of payment applications against contract terms creates repetitive, tedious administrative work",
+      "aiValue": "Payment Application Contract Cross-Check Automation"
+    },
+    {
+      "id": "uc-154",
+      "toolId": "document-crunch",
+      "scenario": "Design Quality & Preconstruction Risk Governance",
+      "task": "Bid Consolidation & Commercial Evaluation",
+      "taskId": "bid-consolidation-commercial-evaluation",
+      "phaseId": "bidding-procurement",
+      "stakeholders": [
+        "quantity-surveyor",
+        "project-manager"
+      ],
+      "painPoints": [
+        "Decision Support Deficit"
+      ],
+      "solutionTypes": [
+        "Custom Agent"
+      ],
+      "deploymentModels": [
+        "SaaS"
+      ],
+      "aiTechniques": [
+        "LLMs",
+        "RAG",
+        "Rule‑based Engine"
+      ],
+      "description": "Different evaluators adopt inconsistent subjective standards when assessing tender risk without unified measurement metrics",
+      "aiValue": "Standardized Bid Risk Scoring Engine"
+    }
+  ]
+}

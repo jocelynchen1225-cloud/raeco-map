@@ -1994,9 +1994,9 @@
             "label": "MEP Design & Engineering Coordination",
             "name": "MEP Design & Engineering Coordination",
             "description": "Firms cannot easily encode and reuse institutional engineering knowledge. Each engineer designs differently based on their experience, and there is no systematic way to capture and standardize best practices across th...",
-            "painPoint": "Knowledege Fragmentation",
+            "painPoint": "Knowledge Fragmentation",
             "painPoints": [
-              "Knowledege Fragmentation"
+              "Knowledge Fragmentation"
             ],
             "stakeholders": [
               "project-manager",
@@ -2603,7 +2603,7 @@
             "painPoint": "Design Error & Coordination Gaps",
             "painPoints": [
               "Design Error & Coordination Gaps",
-              "Knowledege Fragmentation"
+              "Knowledge Fragmentation"
             ],
             "stakeholders": [
               "mep-engineer",
@@ -2646,7 +2646,7 @@
             "painPoint": "Data Fragmentation",
             "painPoints": [
               "Data Fragmentation",
-              "Knowledege Fragmentation"
+              "Knowledge Fragmentation"
             ],
             "stakeholders": [
               "architect",
@@ -2687,9 +2687,9 @@
             "label": "Legacy Document & BIM Data Centralization",
             "name": "Legacy Document & BIM Data Centralization",
             "description": "Senior designer expertise is lost with staff turnover; no standardized institutional knowledge base.",
-            "painPoint": "Knowledege Fragmentation",
+            "painPoint": "Knowledge Fragmentation",
             "painPoints": [
-              "Knowledege Fragmentation"
+              "Knowledge Fragmentation"
             ],
             "stakeholders": [
               "architect",
@@ -2969,7 +2969,7 @@
             "painPoint": "Document Management",
             "painPoints": [
               "Document Management",
-              "Knowledege Fragmentation",
+              "Knowledge Fragmentation",
               "Workforce & Skills Gap"
             ],
             "stakeholders": [
@@ -3565,9 +3565,9 @@
             "label": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
             "name": "Pre‑Construction AI Drawing Review & Bid‑Workflow Acceleration",
             "description": "RFI generation from drawing review is manual. When estimators and project managers identify questions or issues during bid review, documenting and organizing them into formal RFIs takes additional time.",
-            "painPoint": "Knowledege Fragmentation",
+            "painPoint": "Knowledge Fragmentation",
             "painPoints": [
-              "Knowledege Fragmentation",
+              "Knowledge Fragmentation",
               "Document Management"
             ],
             "stakeholders": [
@@ -4167,9 +4167,9 @@
             "label": "Field & Project Document Governance",
             "name": "Field & Project Document Governance",
             "description": "Site and office personnel waste significant time hunting for answers across drawings, specs, RFIs, submittals and scattered logs; manual document lookup slows on‑site issue resolution.",
-            "painPoint": "Knowledege Fragmentation",
+            "painPoint": "Knowledge Fragmentation",
             "painPoints": [
-              "Knowledege Fragmentation"
+              "Knowledge Fragmentation"
             ],
             "stakeholders": [
               "main-contractor",
@@ -4410,7 +4410,7 @@
             "painPoint": "Manual & Repetitive Work",
             "painPoints": [
               "Manual & Repetitive Work",
-              "Knowledege Fragmentation"
+              "Knowledge Fragmentation"
             ],
             "stakeholders": [
               "architect",
@@ -4843,9 +4843,9 @@
             "label": "Field & Project Document Governance",
             "name": "Field & Project Document Governance",
             "description": "Field workers waste hours searching through project documents for answers. When questions arise on site, workers must call the office or dig through hundreds of pages of specs, drawings, and RFIs, slowing down problem...",
-            "painPoint": "Knowledege Fragmentation",
+            "painPoint": "Knowledge Fragmentation",
             "painPoints": [
-              "Knowledege Fragmentation",
+              "Knowledge Fragmentation",
               "Data Fragmentation"
             ],
             "stakeholders": [
@@ -5117,7 +5117,7 @@
             "painPoints": [
               "ROI and Cost Uncertainty",
               "Productivity Tracking Gaps",
-              "Knowledege Fragmentation",
+              "Knowledge Fragmentation",
               "Design Error & Coordination Gaps"
             ],
             "stakeholders": [
@@ -5442,7 +5442,7 @@
               "Manual & Repetitive Work",
               "Data Fragmentation",
               "ROI and Cost Uncertainty",
-              "Knowledege Fragmentation"
+              "Knowledge Fragmentation"
             ],
             "stakeholders": [
               "owner-developer",
@@ -5481,9 +5481,9 @@
             "label": "Construction Financial & Administrative Workflow Orchestration",
             "name": "Construction Financial & Administrative Workflow Orchestration",
             "description": "Final account settlement is complex and time-consuming. Reconciling all changes, claims, and payments at project closeout requires gathering data from multiple systems and manual verification, delaying final payments...",
-            "painPoint": "Knowledege Fragmentation",
+            "painPoint": "Knowledge Fragmentation",
             "painPoints": [
-              "Knowledege Fragmentation",
+              "Knowledge Fragmentation",
               "Data Fragmentation"
             ],
             "stakeholders": [

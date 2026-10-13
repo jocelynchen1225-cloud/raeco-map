@@ -7,12 +7,13 @@ import MetroMapState from "./components/MetroMapState";
 import TaskDetailOverlay from "./components/TaskDetailOverlay";
 import SolutionDetailStatic from "./components/SolutionDetailStatic";
 import ChatBubbleWidget from "./components/ChatBubbleWidget";
+import AIToolsPage from "./components/tools/AIToolsPage";
 import { findTask } from "./lib/taskVisuals";
 
 // Chat bubble is intentionally withheld until the user has picked a task and
 // landed on the scenario-card screen — it shouldn't compete for attention on
 // the hero/stakeholder/map screens.
-const STATES_WITH_CHAT = [APP_STATES.TASK_DETAIL_STATIC, APP_STATES.SOLUTION_DETAIL_STATIC];
+const STATES_WITH_CHAT = [APP_STATES.TASK_DETAIL_STATIC, APP_STATES.SOLUTION_DETAIL_STATIC, APP_STATES.AI_TOOLS];
 const SAVED_SCENARIOS_KEY = "raeco.savedScenarioIds";
 
 function loadSavedScenarioIds() {
@@ -86,7 +87,16 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[var(--color-paper)]">
-      <NavBar />
+      <NavBar
+        activeLink={ctx.state === APP_STATES.AI_TOOLS ? "AI Tools" : null}
+        onHome={backToHero}
+        onNavigate={(link) => {
+          if (link === "AI Tools") {
+            setFocusPhase(null);
+            goTo(APP_STATES.AI_TOOLS);
+          }
+        }}
+      />
 
       <AnimatePresence mode="wait">
         {ctx.state === APP_STATES.HERO && (
@@ -132,9 +142,10 @@ export default function App() {
             onBack={() => goTo(APP_STATES.TASK_DETAIL_STATIC)}
           />
         )}
+        {ctx.state === APP_STATES.AI_TOOLS && <AIToolsPage key="ai-tools" />}
       </AnimatePresence>
 
-      {STATES_WITH_CHAT.includes(ctx.state) && <ChatBubbleWidget />}
+      {STATES_WITH_CHAT.includes(ctx.state) && <ChatBubbleWidget key={ctx.state} variant={ctx.state === APP_STATES.AI_TOOLS ? "tools" : "scenarios"} />}
       {favoriteToast && (
         <div className="fixed bottom-8 left-1/2 z-[120] -translate-x-1/2 rounded-full border border-white/85 bg-white/90 px-5 py-3 font-body text-sm font-bold text-[var(--color-brand)] shadow-[0_18px_46px_rgba(25,52,160,0.18)] backdrop-blur-xl">
           {favoriteToast}

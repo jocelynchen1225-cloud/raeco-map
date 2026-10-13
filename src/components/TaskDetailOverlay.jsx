@@ -46,7 +46,7 @@ const painStyles = {
     text: "#496b53",
     accent: "#72ad80",
   },
-  "Knowledege Fragmentation": {
+  "Knowledge Fragmentation": {
     bg: "#f5f8e8",
     border: "#d7e4b8",
     text: "#667646",

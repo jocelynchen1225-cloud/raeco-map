@@ -10,6 +10,7 @@ export const APP_STATES = {
   SOLUTION_DETAIL_STATIC: "solution_detail_static", // State 5b — pain point / AI solution / tool detail
   PHASE_ZOOM: "phase_zoom",         // State 3 — zoomed into one phase's tasks
   TASK_DETAIL: "task_detail",       // State 4 — scenario / AI tool detail popup
+  AI_TOOLS: "ai_tools",             // Nav page — off-the-shelf AI tool directory
 };
 
 // Shared selection context that persists as the user moves through states.

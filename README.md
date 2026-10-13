@@ -4,9 +4,19 @@ Interactive AEC AI discovery prototype for AAL Innovation.
 
 ## Version
 
-Current version: `3.3`
+Current version: `5.0`
 
 ## Version History
+
+### v5.0
+
+- New **AI Tools** page, opened from the navigation bar (`src/components/tools/`).
+  - Four donut charts mirroring the Notion views: tools by pain point, pain points by role, pain points by task, tasks by role. Hovering a segment shows a tooltip with a logo preview; clicking a segment (or its legend row) filters the tool list.
+  - Tool list in five RAECO columns. A tool appears under every industry whose roles use it, ranked by number of use cases. Secondary filters: search, phase, solution type.
+  - Tool detail drawer built from existing data (headline, solution type, deployment, phases, pain points, every use case, AI techniques). Website link shows only when `website` is filled.
+  - Chat bubble appears on this page as on the scenario screens; the drawer's CTA opens it.
+- New data step: `node scripts/build-tool-directory.mjs` turns `data/clean/clean_ai_solutions.csv` into `src/data/toolDirectory.json` (154 use cases, 45 tools) and reports tools without a logo.
+- Fixed the "Knowledege Fragmentation" typo in the CSV, `phases.json` and `TaskDetailOverlay.jsx`. The Notion source still needs the same fix.
 
 ### v3.3
 
