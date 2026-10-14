@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { User } from "lucide-react";
 import stakeholders from "../data/stakeholders.json";
 import { STAKEHOLDER_ICONS, getIndustryColor, INDUSTRY_LABELS } from "../lib/taskVisuals";
+import BackButton from "./BackButton";
 
 // Matches the Figma reference: fixed 26px corner radius, same icon/name/dot
 // set, tinted per RAECO industry with a flat fill (no gradient) to match the
@@ -56,13 +57,7 @@ export default function StakeholderPopup({ onSelectStakeholder, onBack }) {
       </motion.div>
 
       <div className="flex items-center gap-5">
-        <button
-          type="button"
-          onClick={onBack}
-          className="font-body text-sm text-[var(--color-brand)] underline underline-offset-4"
-        >
-          ← back
-        </button>
+        <BackButton onClick={onBack} />
 
         <button
           type="button"

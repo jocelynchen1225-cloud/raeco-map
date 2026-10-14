@@ -190,11 +190,10 @@ function TetrisBoard() {
           const tileTop = isTopRow
             ? r * step + FRAME_PAD + LABEL_H
             : r * step + (slot - square) / 2;
-          const radius = Math.max(7, square * 0.09);
           return (
             <div
               key={`${id}-${r}-${c}-${tool.name}`}
-              className="absolute z-10 flex items-center justify-center"
+              className="absolute z-10 flex flex-col items-center justify-center"
               title={tool.name}
               aria-label={tool.name}
               style={{
@@ -204,19 +203,39 @@ function TetrisBoard() {
                 height: square,
                 minWidth: square,
                 minHeight: square,
-                borderRadius: radius,
-                background: "rgba(255,255,255,0.92)",
-                border: `1px solid ${color}55`,
-                boxShadow: `0 6px 16px ${color}33`,
-                padding: tool.name === "Higharc" ? Math.max(2, square * 0.06) : Math.max(4, square * 0.16),
+                padding: Math.max(2, square * 0.05),
               }}
             >
-              <img
-                src={tool.logo}
-                alt={tool.name}
-                className="h-full w-full object-contain"
-                draggable="false"
-              />
+              <div
+                className="flex shrink-0 items-center justify-center"
+                style={{
+                  height: square * 0.56,
+                  width: square,
+                }}
+              >
+                <img
+                  src={tool.logo}
+                  alt={tool.name}
+                  className="object-contain"
+                  draggable="false"
+                  style={{
+                    maxHeight: square * 0.56,
+                    maxWidth: square * 0.9,
+                  }}
+                />
+              </div>
+              <span
+                className="mt-1.5 block w-full overflow-hidden text-center font-body font-semibold leading-tight text-[var(--color-ink)]/75"
+                style={{
+                  display: "-webkit-box",
+                  fontSize: Math.max(6.25, square * 0.125),
+                  minHeight: Math.max(14, square * 0.34),
+                  WebkitBoxOrient: "vertical",
+                  WebkitLineClamp: 2,
+                }}
+              >
+                {tool.name}
+              </span>
             </div>
           );
         })}

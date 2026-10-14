@@ -4,9 +4,23 @@ Interactive AEC AI discovery prototype for AAL Innovation.
 
 ## Version
 
-Current version: `5.0`
+Current version: `5.1`
 
 ## Version History
+
+### v5.1
+
+- Renamed scenario-level cards and labels to **Use Case** across task pages, saved items, and report-related UI.
+- Added stakeholder-aware use case filtering so each task page only shows use cases relevant to the selected stakeholder.
+- Improved task navigation: Previous/Next skips tasks with no visible use case content for the current stakeholder.
+- Added Previous/Next controls on both task pages and Explore Tools use case detail pages.
+- Updated use case cards to show **Suggested Tools** with real tool logos, simplified card metadata, and changed the CTA to **Explore the Tools**.
+- Enhanced Explore Tools detail pages with phase context, AI technique tags under **How AI solves this**, real tool logos, and **Suggested Tools** naming.
+- Unified stakeholder display as color-coded rounded underlines instead of colored pills.
+- Unified global Back buttons as rounded glass buttons.
+- Made task pills on the metro map directly clickable, opening the matching task page from the map overview.
+- Standardized lead-capture forms across the chat flow and saved-report export flow.
+- Reduced chat popup sensitivity: delayed opening, with bottom-of-page timing for longer task pages.
 
 ### v5.0
 

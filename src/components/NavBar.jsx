@@ -1,6 +1,5 @@
-const NAV_LINKS = ["Scenarios", "Stakeholders", "AI Tools", "Customise Solution"];
-// Only "AI Tools" is wired to a page so far; the other links are placeholders.
-const LIVE_LINKS = new Set(["AI Tools"]);
+const NAV_LINKS = ["Scenarios", "Stakeholders", "AI Tools", "Insight & Stories"];
+const LIVE_LINKS = new Set(["Scenarios", "AI Tools"]);
 
 export default function NavBar({ activeLink = null, onNavigate, onHome }) {
   return (

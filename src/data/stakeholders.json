@@ -1,33 +1,13 @@
 [
   {
-    "id": "architect",
-    "label": "Architect",
-    "category": "architect",
-    "icon": "ruler",
-    "color": "#E9A7FA",
-    "tasks": 26,
-    "painPoints": 16,
-    "industry": "architecture"
-  },
-  {
-    "id": "bid-manager",
-    "label": "Bid Manager",
-    "category": "bid-manager",
-    "icon": "file",
-    "color": "#99E4B3",
-    "tasks": 2,
-    "painPoints": 7,
-    "industry": "construction"
-  },
-  {
-    "id": "draftsmen",
-    "label": "Draftsmen",
-    "category": "draftsmen",
-    "icon": "pencil",
-    "color": "#E9A7FA",
-    "tasks": 1,
-    "painPoints": 5,
-    "industry": "architecture"
+    "id": "owner-developer",
+    "label": "Owner / Developer",
+    "category": "owner-developer",
+    "icon": "user",
+    "color": "#EB8588",
+    "tasks": 14,
+    "painPoints": 11,
+    "industry": "real-estate"
   },
   {
     "id": "facility-manager",
@@ -40,36 +20,6 @@
     "industry": "operation"
   },
   {
-    "id": "mep-engineer",
-    "label": "MEP Engineer",
-    "category": "mep-engineer",
-    "icon": "gear",
-    "color": "#ACE0FD",
-    "tasks": 12,
-    "painPoints": 12,
-    "industry": "engineering"
-  },
-  {
-    "id": "main-contractor",
-    "label": "Main Contractor",
-    "category": "main-contractor",
-    "icon": "hardhat",
-    "color": "#99E4B3",
-    "tasks": 15,
-    "painPoints": 12,
-    "industry": "construction"
-  },
-  {
-    "id": "owner-developer",
-    "label": "Owner / Developer",
-    "category": "owner-developer",
-    "icon": "user",
-    "color": "#EB8588",
-    "tasks": 14,
-    "painPoints": 11,
-    "industry": "real-estate"
-  },
-  {
     "id": "project-manager",
     "label": "Project Manager",
     "category": "project-manager",
@@ -78,6 +28,16 @@
     "tasks": 12,
     "painPoints": 15,
     "industry": "real-estate"
+  },
+  {
+    "id": "architect",
+    "label": "Architect",
+    "category": "architect",
+    "icon": "ruler",
+    "color": "#E9A7FA",
+    "tasks": 26,
+    "painPoints": 16,
+    "industry": "architecture"
   },
   {
     "id": "structural-engineer",
@@ -90,6 +50,36 @@
     "industry": "engineering"
   },
   {
+    "id": "mep-engineer",
+    "label": "MEP Engineer",
+    "category": "mep-engineer",
+    "icon": "gear",
+    "color": "#ACE0FD",
+    "tasks": 12,
+    "painPoints": 12,
+    "industry": "engineering"
+  },
+  {
+    "id": "quantity-surveyor",
+    "label": "Quantity Surveyor",
+    "category": "quantity-surveyor",
+    "icon": "calculator",
+    "color": "#99E4B3",
+    "tasks": 10,
+    "painPoints": 13,
+    "industry": "construction"
+  },
+  {
+    "id": "main-contractor",
+    "label": "Main Contractor",
+    "category": "main-contractor",
+    "icon": "hardhat",
+    "color": "#99E4B3",
+    "tasks": 15,
+    "painPoints": 12,
+    "industry": "construction"
+  },
+  {
     "id": "subcontractors",
     "label": "Subcontractors",
     "category": "subcontractors",
@@ -97,6 +87,16 @@
     "color": "#99E4B3",
     "tasks": 4,
     "painPoints": 12,
+    "industry": "construction"
+  },
+  {
+    "id": "bid-manager",
+    "label": "Bid Manager",
+    "category": "bid-manager",
+    "icon": "file",
+    "color": "#99E4B3",
+    "tasks": 2,
+    "painPoints": 7,
     "industry": "construction"
   },
   {
@@ -110,13 +110,13 @@
     "industry": "construction"
   },
   {
-    "id": "quantity-surveyor",
-    "label": "Quantity Surveyor",
-    "category": "quantity-surveyor",
-    "icon": "calculator",
-    "color": "#99E4B3",
-    "tasks": 10,
-    "painPoints": 13,
-    "industry": "construction"
+    "id": "draftsmen",
+    "label": "Draftsmen",
+    "category": "draftsmen",
+    "icon": "pencil",
+    "color": "#E9A7FA",
+    "tasks": 1,
+    "painPoints": 5,
+    "industry": "architecture"
   }
 ]

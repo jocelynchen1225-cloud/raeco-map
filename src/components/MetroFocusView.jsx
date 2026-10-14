@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
-import { X } from "lucide-react";
 import { sortedPhases, getTaskVisual, filterPhasesForStakeholder } from "../lib/taskVisuals";
 import NavBar from "./NavBar";
 import StakeholderLegend from "./StakeholderLegend";
+import BackButton from "./BackButton";
 
 const glassPanel = (extra = {}) => ({
   background: "rgba(255,255,255,0.62)",
@@ -195,13 +195,7 @@ export default function MetroFocusView({ phase, selectedStakeholderId, onChangeI
           <NavBar />
         </div>
 
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute left-8 top-[132px] z-[7] flex items-center gap-2 rounded-full border border-white/85 bg-white/82 px-5 py-3 font-body text-sm font-extrabold text-[var(--color-ink)] shadow-[0_18px_46px_rgba(25,52,160,0.12)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:text-[var(--color-brand)]"
-        >
-          <X size={16} /> Back
-        </button>
+        <BackButton onClick={onClose} className="absolute left-8 top-[132px] z-[7]" />
 
         <StakeholderLegend className="absolute right-6 top-[132px] z-[6]" />
 

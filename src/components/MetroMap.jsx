@@ -198,15 +198,15 @@ function buildLayout(CW, phases, collapsed) {
  *
  * Props:
  *  - onSelectPhase(phase): clicking a phase circle opens the focused view for
- *    it. Task pills here are preview-only (hover to enlarge, not clickable) —
- *    drilling into a specific task happens one level down, inside the
- *    focused per-phase view.
+ *    it.
+ *  - onSelectTask(task, phase): clicking a task pill opens that task's use-case
+ *    page directly.
  *  - selectedStakeholderId: null/undefined = show nothing yet (caller keeps
  *    this locked behind the stakeholder picker); "all" = every task, every
  *    color; a specific stakeholder id = only tasks that involve them.
  *  - collapsed: true hides all tasks/lines, leaving just the 8 phase circles.
  */
-export default function MetroMap({ onSelectPhase, selectedStakeholderId, collapsed }) {
+export default function MetroMap({ onSelectPhase, onSelectTask, selectedStakeholderId, collapsed }) {
   const wrapRef = useRef(null);
   const [width, setWidth] = useState(900);
 
@@ -290,14 +290,16 @@ export default function MetroMap({ onSelectPhase, selectedStakeholderId, collaps
             if (node.type === "task") {
               const { visual, task } = node;
               return (
-                <motion.div
+                <motion.button
                   key={node.id}
                   layout
+                  type="button"
+                  onClick={() => onSelectTask?.(task, node.phase)}
                   initial={{ opacity: 0, scale: 0.85 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.85 }}
                   transition={{ layout: { duration: 0.5, ease: [0.4, 0, 0.2, 1] }, opacity: { duration: 0.25 } }}
-                  className="group absolute z-[3] flex w-[184px] -translate-x-1/2 -translate-y-1/2 cursor-default items-center gap-2.5 rounded-full border px-3 py-2 text-left transition-transform hover:scale-[1.04]"
+                  className="group absolute z-[3] flex w-[184px] -translate-x-1/2 -translate-y-1/2 items-center gap-2.5 rounded-full border px-3 py-2 text-left transition-transform hover:scale-[1.04] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand)]/25"
                   style={{
                     left: cx + node.x,
                     top: node.y,
@@ -318,7 +320,7 @@ export default function MetroMap({ onSelectPhase, selectedStakeholderId, collaps
                     {task.label}
                     {task.isDummy && <span className="block text-[10px] text-[var(--color-ink)]/40">(placeholder)</span>}
                   </span>
-                </motion.div>
+                </motion.button>
               );
             }
             if (node.type === "phase") {

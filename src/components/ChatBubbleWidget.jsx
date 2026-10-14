@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageSquare, X } from "lucide-react";
+import LeadCaptureForm from "./LeadCaptureForm";
 
 // Opening copy differs per page; the rest of the flow is shared.
 const COPY = {
   scenarios: {
-    prompts: ["Can't find your scenario?", "Want to complain other pain points?"],
+    prompts: ["Can't find your use case?", "Want to share other pain points?"],
     heading: "We're Listening!",
     fieldLabel: "Your Issue",
   },
@@ -16,23 +17,44 @@ const COPY = {
   },
 };
 
-export default function ChatBubbleWidget({ variant = "scenarios" }) {
+export default function ChatBubbleWidget({ variant = "scenarios", autoOpenDelayMs = 10000, openAfterScrollBottom = false }) {
   const copy = COPY[variant] ?? COPY.scenarios;
   const [stage, setStage] = useState("closed"); // closed | issue | contactAsk | contactForm | declined | thanks
   const [issueText, setIssueText] = useState("");
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setStage((prev) => (prev === "closed" ? "issue" : prev));
-    }, 3000);
+    let timer;
+    const openIfClosed = () => setStage((prev) => (prev === "closed" ? "issue" : prev));
+    const isAtPageBottom = () => window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+
+    const scheduleOpen = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(openIfClosed, autoOpenDelayMs);
+    };
+
+    const handleScroll = () => {
+      if (isAtPageBottom()) {
+        window.removeEventListener("scroll", handleScroll);
+        scheduleOpen();
+      }
+    };
+
+    if (openAfterScrollBottom) {
+      handleScroll();
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    } else {
+      scheduleOpen();
+    }
+
     // Other components (e.g. the AI tool drawer) can open the chat directly.
     const openFromEvent = () => setStage("issue");
     window.addEventListener("raeco:open-chat", openFromEvent);
     return () => {
-      clearTimeout(timer);
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("raeco:open-chat", openFromEvent);
     };
-  }, []);
+  }, [autoOpenDelayMs, openAfterScrollBottom]);
 
   const isOpen = stage !== "closed";
 
@@ -135,27 +157,13 @@ export default function ChatBubbleWidget({ variant = "scenarios" }) {
             )}
 
             {stage === "contactForm" && (
-              <form
-                className="flex flex-col gap-3"
-                onSubmit={(e) => {
-                  e.preventDefault();
+              <LeadCaptureForm
+                title="Leave your details"
+                submitLabel="Submit"
+                onSubmit={() => {
                   setStage("thanks");
                 }}
-              >
-                <div className="grid grid-cols-2 gap-3">
-                  <Field label="First Name" />
-                  <Field label="Surname" />
-                  <Field label="Email" className="col-span-2" />
-                  <Field label="Company" />
-                  <Field label="Position" />
-                </div>
-                <button
-                  type="submit"
-                  className="mt-1 self-center rounded-lg bg-[var(--color-brand)] px-8 py-2 font-body text-sm font-semibold text-white"
-                >
-                  Submit
-                </button>
-              </form>
+              />
             )}
 
             {stage === "declined" && (
@@ -174,17 +182,5 @@ export default function ChatBubbleWidget({ variant = "scenarios" }) {
         )}
       </AnimatePresence>
     </>
-  );
-}
-
-function Field({ label, className = "" }) {
-  return (
-    <label className={`flex flex-col gap-1 font-body text-xs text-[var(--color-ink)] ${className}`}>
-      {label}
-      <input
-        type="text"
-        className="rounded-lg border border-[var(--color-hairline)] p-2 text-sm outline-none focus:border-[var(--color-brand)]"
-      />
-    </label>
   );
 }

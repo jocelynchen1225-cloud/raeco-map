@@ -3,7 +3,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Star } from "lucide-react";
 import aalScenarioInsights from "../data/aalScenarioInsights.json";
 import aiTools from "../data/aiTools.json";
+import toolDirectory from "../data/toolDirectory.json";
 import StaticHotspotImage from "./StaticHotspotImage";
+import BackButton from "./BackButton";
+
+const toolDirectoryById = Object.fromEntries((toolDirectory.tools ?? []).map((tool) => [tool.id, tool]));
+const toolDirectoryByName = Object.fromEntries((toolDirectory.tools ?? []).map((tool) => [tool.name.toLowerCase(), tool]));
+
+function getSuggestedTool(toolIdOrName) {
+  const key = String(toolIdOrName ?? "");
+  const legacyTool = aiTools.find((tool) => tool.id === key || tool.name?.toLowerCase() === key.toLowerCase());
+  return toolDirectoryById[key] ?? toolDirectoryByName[key.toLowerCase()] ?? legacyTool ?? { id: key, name: key };
+}
 
 function initials(name = "AI") {
   const words = name.replace(/[^a-zA-Z0-9 ]/g, " ").trim().split(/\s+/).filter(Boolean);
@@ -17,7 +28,7 @@ function FavoriteButton({ active, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      aria-label={active ? "Remove saved scenario" : "Save scenario"}
+      aria-label={active ? "Remove saved use case" : "Save use case"}
       aria-pressed={active}
       className={`flex items-center gap-2 rounded-full border px-4 py-2 font-body text-sm font-extrabold transition hover:-translate-y-0.5 ${
         active
@@ -26,14 +37,26 @@ function FavoriteButton({ active, onClick }) {
       }`}
     >
       <Star size={17} strokeWidth={2} fill={active ? "currentColor" : "none"} />
-      {active ? "Saved" : "Save Scenario"}
+      {active ? "Saved" : "Save Use Case"}
     </button>
   );
 }
 
-export default function SolutionDetailStatic({ task, scenario, backdropConfig, savedScenarioIds, onToggleSavedScenario, onBack }) {
+export default function SolutionDetailStatic({
+  phase,
+  task,
+  scenario,
+  backdropConfig,
+  savedScenarioIds,
+  onToggleSavedScenario,
+  onBack,
+  onPreviousUseCase,
+  onNextUseCase,
+  hasPreviousUseCase = false,
+  hasNextUseCase = false,
+}) {
   const toolIds = scenario?.aiTools?.length ? scenario.aiTools : scenario?.solutions ?? [];
-  const matchedTools = toolIds.map((id) => aiTools.find((t) => t.id === id) ?? { id, name: id });
+  const matchedTools = toolIds.map(getSuggestedTool);
   const tool = matchedTools[0];
   const [hoveredToolId, setHoveredToolId] = useState(null);
   const isSaved = Boolean(scenario?.id && savedScenarioIds?.has(scenario.id));
@@ -49,18 +72,14 @@ export default function SolutionDetailStatic({ task, scenario, backdropConfig, s
         transition={{ duration: 0.35 }}
         className="relative z-10 mx-auto flex max-w-5xl flex-col gap-6 px-6 py-10 md:px-0"
       >
-      <button
-        type="button"
-        onClick={onBack}
-        className="w-fit font-body text-sm text-[var(--color-brand)] underline underline-offset-4"
-      >
-        ← back
-      </button>
+      <BackButton onClick={onBack} />
 
       <div className="flex items-start justify-between gap-5">
         <div>
-          <p className="font-body text-sm text-[var(--color-brand)]">Task Preview</p>
-          <p className="font-body text-xl font-semibold text-[var(--color-ink)]">{task?.label}</p>
+          <p className="inline-flex rounded-full border border-blue-100 bg-blue-50/70 px-3 py-1 font-body text-[11px] font-extrabold uppercase tracking-[0.16em] text-[var(--color-brand)]">
+            {phase ? `Phase ${phase.order} · ${phase.label}` : "Task Preview"}
+          </p>
+          <p className="mt-2 font-body text-2xl font-extrabold leading-tight text-[var(--color-ink)]">{task?.label}</p>
         </div>
         {scenario && (
           <FavoriteButton
@@ -91,9 +110,21 @@ export default function SolutionDetailStatic({ task, scenario, backdropConfig, s
           <p className="font-body text-sm font-semibold text-[var(--color-ink)]">
             How AI solves this:
           </p>
-          <p className="mt-2 font-body text-sm text-[var(--color-ink)]/80">
+          <p className="mt-2 font-body text-sm font-medium leading-6 text-[var(--color-ink)]/80">
             {scenario?.howAiSolves ?? tool?.description}
           </p>
+          {scenario?.aiTechniques?.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {scenario.aiTechniques.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1 font-body text-xs font-extrabold text-[var(--color-brand)]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
@@ -186,7 +217,7 @@ export default function SolutionDetailStatic({ task, scenario, backdropConfig, s
 
       {matchedTools.length > 0 && (
         <div className="rounded-2xl border border-[var(--color-hairline)] bg-white p-6">
-          <p className="font-body text-sm font-semibold text-[var(--color-ink)]">AI Solutions:</p>
+          <p className="font-body text-sm font-semibold text-[var(--color-ink)]">Suggested Tools:</p>
           <div className="mt-4 flex flex-col gap-2">
             {matchedTools.map((t) => (
               <div
@@ -195,9 +226,15 @@ export default function SolutionDetailStatic({ task, scenario, backdropConfig, s
                 onMouseEnter={() => setHoveredToolId(t.id)}
                 onMouseLeave={() => setHoveredToolId(null)}
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--color-brand)]/10 font-body text-xs font-extrabold text-[var(--color-brand)]">
-                  {initials(t.name)}
-                </span>
+                {t.logo ? (
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-slate-200/80">
+                    <img src={t.logo} alt={t.name} className="max-h-7 max-w-7 object-contain" draggable="false" />
+                  </span>
+                ) : (
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--color-brand)]/10 font-body text-xs font-extrabold text-[var(--color-brand)]">
+                    {initials(t.name)}
+                  </span>
+                )}
                 <p className="font-body text-sm font-semibold text-[var(--color-ink)]">{t.name}</p>
                 {t.keyCapability && (
                   <p className="ml-auto font-body text-xs text-[var(--color-ink)]/50">{t.keyCapability}</p>
@@ -256,6 +293,26 @@ export default function SolutionDetailStatic({ task, scenario, backdropConfig, s
             Book a Consultancy Call to learn more →
           </button>
         </div>
+      </div>
+      <div className="flex justify-end gap-3">
+        <button
+          type="button"
+          onClick={onPreviousUseCase}
+          disabled={!hasPreviousUseCase}
+          className="inline-flex items-center gap-2 rounded-full border border-white/85 bg-white/78 px-5 py-3 font-body text-sm font-extrabold text-[var(--color-brand)] shadow-[0_18px_50px_rgba(48,58,86,.13)] backdrop-blur-2xl transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0"
+        >
+          <span className="text-lg leading-none">←</span>
+          Previous Use Case
+        </button>
+        <button
+          type="button"
+          onClick={onNextUseCase}
+          disabled={!hasNextUseCase}
+          className="inline-flex items-center gap-2 rounded-full border border-white/85 bg-white/78 px-5 py-3 font-body text-sm font-extrabold text-[var(--color-brand)] shadow-[0_18px_50px_rgba(48,58,86,.13)] backdrop-blur-2xl transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0"
+        >
+          Next Use Case
+          <span className="text-lg leading-none">→</span>
+        </button>
       </div>
       </motion.div>
     </div>

@@ -8,7 +8,7 @@ import TaskDetailOverlay from "./components/TaskDetailOverlay";
 import SolutionDetailStatic from "./components/SolutionDetailStatic";
 import ChatBubbleWidget from "./components/ChatBubbleWidget";
 import AIToolsPage from "./components/tools/AIToolsPage";
-import { findTask } from "./lib/taskVisuals";
+import { findPhase, findTask, filterPhasesForStakeholder, filterTaskForStakeholder, sortedPhases } from "./lib/taskVisuals";
 
 // Chat bubble is intentionally withheld until the user has picked a task and
 // landed on the scenario-card screen — it shouldn't compete for attention on
@@ -63,6 +63,47 @@ export default function App() {
 
   const activeTask =
     ctx.selectedPhaseId && ctx.selectedTaskId ? findTask(ctx.selectedPhaseId, ctx.selectedTaskId) : null;
+  const activePhase = ctx.selectedPhaseId ? findPhase(ctx.selectedPhaseId) : null;
+  const activeVisibleTask = filterTaskForStakeholder(activeTask, ctx.selectedStakeholderId);
+  const taskUseCaseCount = activeVisibleTask?.scenarios?.length ?? 0;
+  const taskHasVisibleUseCases = (task) =>
+    (filterTaskForStakeholder(task, ctx.selectedStakeholderId)?.scenarios?.length ?? 0) > 0;
+  const visibleTaskSequence = filterPhasesForStakeholder(sortedPhases, ctx.selectedStakeholderId).flatMap((phase) =>
+    (phase.tasks ?? []).map((task) => ({ phase, task }))
+  );
+  const activeTaskIndex = visibleTaskSequence.findIndex(
+    ({ phase, task }) => phase.id === ctx.selectedPhaseId && task.id === ctx.selectedTaskId
+  );
+  const previousTaskEntry =
+    activeTaskIndex >= 0
+      ? visibleTaskSequence
+          .slice(0, activeTaskIndex)
+          .reverse()
+          .find(({ task }) => taskHasVisibleUseCases(task))
+      : null;
+  const nextTaskEntry =
+    activeTaskIndex >= 0
+      ? visibleTaskSequence.slice(activeTaskIndex + 1).find(({ task }) => taskHasVisibleUseCases(task))
+      : null;
+  const activeScenarioIndex =
+    activeVisibleTask?.scenarios?.findIndex((scenario) => scenario.id === ctx.selectedScenarioId) ?? -1;
+  const previousScenario = activeScenarioIndex > 0 ? activeVisibleTask.scenarios[activeScenarioIndex - 1] : null;
+  const nextScenario =
+    activeScenarioIndex >= 0 && activeScenarioIndex < (activeVisibleTask?.scenarios?.length ?? 0) - 1
+      ? activeVisibleTask.scenarios[activeScenarioIndex + 1]
+      : null;
+
+  const goToTaskEntry = (entry) => {
+    if (!entry) return;
+    setCtx((prev) => ({
+      ...prev,
+      state: APP_STATES.TASK_DETAIL_STATIC,
+      selectedPhaseId: entry.phase.id,
+      selectedTaskId: entry.task.id,
+      selectedScenarioId: null,
+    }));
+    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+  };
 
   useEffect(() => {
     window.localStorage.setItem(SAVED_SCENARIOS_KEY, JSON.stringify([...savedScenarioIds]));
@@ -74,10 +115,10 @@ export default function App() {
       const willSave = !next.has(scenarioId);
       if (willSave) {
         next.add(scenarioId);
-        setFavoriteToast("Saved. You can export your saved pain point scenario report later.");
+        setFavoriteToast("Saved. You can export your saved pain point use case report later.");
       } else {
         next.delete(scenarioId);
-        setFavoriteToast("Removed from saved scenarios.");
+        setFavoriteToast("Removed from saved use cases.");
       }
       window.clearTimeout(toggleSavedScenario.toastTimer);
       toggleSavedScenario.toastTimer = window.setTimeout(() => setFavoriteToast(null), 2400);
@@ -88,9 +129,19 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[var(--color-paper)]">
       <NavBar
-        activeLink={ctx.state === APP_STATES.AI_TOOLS ? "AI Tools" : null}
+        activeLink={
+          ctx.state === APP_STATES.AI_TOOLS
+            ? "AI Tools"
+            : ctx.state === APP_STATES.METRO_MAP
+              ? "Scenarios"
+              : null
+        }
         onHome={backToHero}
         onNavigate={(link) => {
+          if (link === "Scenarios") {
+            setFocusPhase(null);
+            goTo(APP_STATES.METRO_MAP);
+          }
           if (link === "AI Tools") {
             setFocusPhase(null);
             goTo(APP_STATES.AI_TOOLS);
@@ -121,11 +172,16 @@ export default function App() {
         {ctx.state === APP_STATES.TASK_DETAIL_STATIC && (
           <TaskDetailOverlay
             key="task-detail-static"
+            phase={activePhase}
             task={activeTask}
             selectedStakeholderId={ctx.selectedStakeholderId}
             savedScenarioIds={savedScenarioIds}
             onToggleSavedScenario={toggleSavedScenario}
             onBack={() => goTo(APP_STATES.METRO_MAP)}
+            onPreviousTask={() => goToTaskEntry(previousTaskEntry)}
+            onNextTask={() => goToTaskEntry(nextTaskEntry)}
+            hasPreviousTask={Boolean(previousTaskEntry)}
+            hasNextTask={Boolean(nextTaskEntry)}
             onExploreScenario={(scenario) =>
               goTo(APP_STATES.SOLUTION_DETAIL_STATIC, { selectedScenarioId: scenario.id })
             }
@@ -135,17 +191,37 @@ export default function App() {
         {ctx.state === APP_STATES.SOLUTION_DETAIL_STATIC && (
           <SolutionDetailStatic
             key="solution-detail-static"
-            task={activeTask}
-            scenario={activeTask?.scenarios?.find((s) => s.id === ctx.selectedScenarioId)}
+            phase={activePhase}
+            task={activeVisibleTask}
+            scenario={activeVisibleTask?.scenarios?.find((s) => s.id === ctx.selectedScenarioId)}
             savedScenarioIds={savedScenarioIds}
             onToggleSavedScenario={toggleSavedScenario}
             onBack={() => goTo(APP_STATES.TASK_DETAIL_STATIC)}
+            onPreviousUseCase={() => {
+              if (!previousScenario) return;
+              goTo(APP_STATES.SOLUTION_DETAIL_STATIC, { selectedScenarioId: previousScenario.id });
+              requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+            }}
+            onNextUseCase={() => {
+              if (!nextScenario) return;
+              goTo(APP_STATES.SOLUTION_DETAIL_STATIC, { selectedScenarioId: nextScenario.id });
+              requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+            }}
+            hasPreviousUseCase={Boolean(previousScenario)}
+            hasNextUseCase={Boolean(nextScenario)}
           />
         )}
         {ctx.state === APP_STATES.AI_TOOLS && <AIToolsPage key="ai-tools" />}
       </AnimatePresence>
 
-      {STATES_WITH_CHAT.includes(ctx.state) && <ChatBubbleWidget key={ctx.state} variant={ctx.state === APP_STATES.AI_TOOLS ? "tools" : "scenarios"} />}
+      {STATES_WITH_CHAT.includes(ctx.state) && (
+        <ChatBubbleWidget
+          key={ctx.state}
+          variant={ctx.state === APP_STATES.AI_TOOLS ? "tools" : "scenarios"}
+          autoOpenDelayMs={ctx.state === APP_STATES.TASK_DETAIL_STATIC && taskUseCaseCount > 3 ? 5000 : 10000}
+          openAfterScrollBottom={ctx.state === APP_STATES.TASK_DETAIL_STATIC && taskUseCaseCount > 3}
+        />
+      )}
       {favoriteToast && (
         <div className="fixed bottom-8 left-1/2 z-[120] -translate-x-1/2 rounded-full border border-white/85 bg-white/90 px-5 py-3 font-body text-sm font-bold text-[var(--color-brand)] shadow-[0_18px_46px_rgba(25,52,160,0.18)] backdrop-blur-xl">
           {favoriteToast}

@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, Star, X } from "lucide-react";
+import { Star, X } from "lucide-react";
 import stakeholders from "../data/stakeholders.json";
 import aalScenarioInsights from "../data/aalScenarioInsights.json";
+import toolDirectory from "../data/toolDirectory.json";
 import aalLogoDataUrl from "../../public/logo.png?inline";
-import { sortedPhases, filterTaskForStakeholder } from "../lib/taskVisuals";
+import { sortedPhases, filterTaskForStakeholder, getIndustryColor } from "../lib/taskVisuals";
+import BackButton from "./BackButton";
+import LeadCaptureForm from "./LeadCaptureForm";
 
 const stakeholderById = Object.fromEntries(stakeholders.map((s) => [s.id, s]));
+const toolDirectoryById = Object.fromEntries((toolDirectory.tools ?? []).map((tool) => [tool.id, tool]));
+const toolDirectoryByName = Object.fromEntries((toolDirectory.tools ?? []).map((tool) => [tool.name.toLowerCase(), tool]));
+
+function getSuggestedTool(toolIdOrName) {
+  const key = String(toolIdOrName ?? "");
+  return toolDirectoryById[key] ?? toolDirectoryByName[key.toLowerCase()] ?? { id: key, name: key };
+}
 
 const defaultPainStyle = {
   bg: "rgba(241,245,249,.78)",
@@ -185,7 +195,7 @@ function exportSavedReport(records, contact = {}) {
       const aalInsight = getAalInsight(scenario);
       return `
         <article class="scenario">
-          <div class="scenario-index">Scenario ${index + 1}</div>
+          <div class="scenario-index">Use Case ${index + 1}</div>
           <h2>${escapeHtml(scenario.label || scenario.name)}</h2>
           <div class="meta">${escapeHtml(phase.fullLabel ?? `${phase.order}. ${phase.label}`)} · ${escapeHtml(task.label)}</div>
           <div class="tags">${painPoints.map((point) => reportPainTag(point)).join("")}</div>
@@ -241,7 +251,7 @@ function exportSavedReport(records, contact = {}) {
     <html>
       <head>
         <meta charset="utf-8" />
-        <title>AAL Saved Pain Point Scenario Report</title>
+        <title>AAL Saved Pain Point Use Case Report</title>
         <style>
           @page { size: A4; margin: 16mm; }
           body { margin: 0; font-family: Inter, Arial, sans-serif; color: #101828; background: #eef3f8; font-size: 13px; }
@@ -283,18 +293,18 @@ function exportSavedReport(records, contact = {}) {
         <main class="page">
           <header class="header">
             <div>
-              <h1>Saved Pain Point Scenario Report</h1>
-              <div class="subtitle">AAL Innovation · RAECO AI Map<br />Generated from saved scenarios in the prototype.</div>
+              <h1>Saved Pain Point Use Case Report</h1>
+              <div class="subtitle">AAL Innovation · RAECO AI Map<br />Generated from saved use cases in the prototype.</div>
               <div class="prepared-for">${preparedLines.map((line) => `<div>${line}</div>`).join("")}</div>
             </div>
             <img class="logo" src="${aalLogoDataUrl}" alt="AAL Innovation" />
           </header>
           <section class="summary">
-            <div>${records.length} saved scenarios</div>
+            <div>${records.length} saved use cases</div>
             <div>${new Set(records.map((record) => record.task.id)).size} tasks</div>
             <div>${new Set(records.flatMap((record) => record.scenario.painPoints ?? [])).size} pain point types</div>
           </section>
-          ${rows || "<p>No saved scenarios yet.</p>"}
+          ${rows || "<p>No saved use cases yet.</p>"}
           <div class="actions"><button type="button" onclick="printReport()">Print / Save PDF</button></div>
         </main>
       </body>
@@ -315,7 +325,7 @@ function exportSavedReport(records, contact = {}) {
   }
 }
 
-function FavoriteButton({ active, onClick, label = "Save scenario" }) {
+function FavoriteButton({ active, onClick, label = "Save use case" }) {
   return (
     <button
       type="button"
@@ -336,11 +346,14 @@ function FavoriteButton({ active, onClick, label = "Save scenario" }) {
 function ScenarioCard({ scenario, index, onExploreScenario, isSaved, onToggleSavedScenario }) {
   const painPoints = scenario.painPoints?.length ? scenario.painPoints : scenario.painPoint ? [scenario.painPoint] : [];
   const primary = painStyle(painPoints[0] || scenario.label);
-  const tools = scenario.aiTools?.length ? scenario.aiTools : scenario.solutions ?? [];
+  const tools = (scenario.aiTools?.length ? scenario.aiTools : scenario.solutions ?? []).map(getSuggestedTool);
   const stakeholderLabels = scenario.stakeholders?.length
-    ? scenario.stakeholders.map((id, i) => getStakeholderLabel(id, scenario.stakeholderLabels?.[i]))
+    ? scenario.stakeholders.map((id, i) => ({
+        id,
+        label: getStakeholderLabel(id, scenario.stakeholderLabels?.[i]),
+        industry: stakeholderById[id]?.industry,
+      }))
     : scenario.stakeholderLabels ?? [];
-  const aalInsight = getAalInsight(scenario);
 
   return (
     <motion.article
@@ -360,7 +373,7 @@ function ScenarioCard({ scenario, index, onExploreScenario, isSaved, onToggleSav
       <div className="mb-3 flex items-center gap-2">
         <span className="h-[3px] w-7 rounded-full" style={{ background: primary.accent }} />
         <p className="font-body text-[12px] font-extrabold uppercase tracking-[0.24em] text-slate-500">
-          Scenario {index + 1}
+          Use Case {index + 1}
         </p>
       </div>
 
@@ -394,88 +407,54 @@ function ScenarioCard({ scenario, index, onExploreScenario, isSaved, onToggleSav
       {stakeholderLabels.length > 0 && (
         <section className="mt-6">
           <p className="font-body text-[12px] font-extrabold uppercase tracking-[0.28em] text-slate-950">Stakeholders</p>
-          <p className="mt-2 font-body text-[14px] font-bold leading-6 text-slate-700">
-            {stakeholderLabels.join(" | ")}
-          </p>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+            {stakeholderLabels.map((stakeholder) => {
+              const label = typeof stakeholder === "string" ? stakeholder : stakeholder.label;
+              const color = getIndustryColor(typeof stakeholder === "string" ? null : stakeholder.industry);
+              return (
+                <span
+                  key={label}
+                  className="inline-flex flex-col gap-1 font-body text-[13px] font-extrabold leading-tight text-slate-700"
+                >
+                  {label}
+                  <span
+                    className="block h-[4px] w-full rounded-full"
+                    style={{ background: color }}
+                    aria-hidden="true"
+                  />
+                </span>
+              );
+            })}
+          </div>
         </section>
       )}
 
       {tools.length > 0 && (
         <section className="mt-6">
-          <p className="font-body text-[12px] font-extrabold uppercase tracking-[0.28em] text-slate-950">AI Solutions</p>
+          <p className="font-body text-[12px] font-extrabold uppercase tracking-[0.28em] text-slate-950">Suggested Tools</p>
           <div className="mt-3 space-y-2">
             {tools.map((tool) => (
               <div
-                key={tool}
+                key={tool.id ?? tool.name}
                 className="flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-slate-50/55 px-3 py-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,.9)]"
               >
-                <span
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-body text-[12px] font-extrabold text-white"
-                  style={{ background: primary.accent }}
-                >
-                  {initials(tool)}
-                </span>
-                <span className="font-body text-[14px] font-extrabold text-slate-900">{tool}</span>
+                {tool.logo ? (
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-slate-200/80">
+                    <img src={tool.logo} alt={tool.name} className="max-h-7 max-w-7 object-contain" draggable="false" />
+                  </span>
+                ) : (
+                  <span
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-body text-[12px] font-extrabold text-white"
+                    style={{ background: primary.accent }}
+                  >
+                    {initials(tool.name)}
+                  </span>
+                )}
+                <span className="font-body text-[14px] font-extrabold text-slate-900">{tool.name}</span>
               </div>
             ))}
           </div>
         </section>
-      )}
-
-      {scenario.aiTechniques?.length > 0 && (
-        <p className="mt-4 font-body text-[12px] font-extrabold leading-5 text-slate-500">
-          {scenario.aiTechniques.join(" · ")}
-        </p>
-      )}
-
-      {scenario.aiValue && (
-        <p className="mt-4 border-l-2 pl-4 font-body text-[14px] leading-6 text-slate-700" style={{ borderColor: primary.accent }}>
-          {scenario.aiValue}
-        </p>
-      )}
-
-      {aalInsight && (
-        <section className="mt-5 rounded-2xl border border-blue-100 bg-blue-50/55 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,.72)]">
-          <div className="flex flex-wrap items-center gap-2">
-            <p className="font-body text-[12px] font-extrabold uppercase tracking-[0.22em] text-[var(--color-brand)]">
-              AAL Evaluation
-            </p>
-            {aalInsight.recommendedPath && (
-              <span className="rounded-full border border-blue-200 bg-white/70 px-2.5 py-1 font-body text-[11px] font-extrabold text-blue-700">
-                {aalInsight.recommendedPath}
-              </span>
-            )}
-          </div>
-          <p className="mt-2 font-body text-[13px] font-semibold leading-6 text-slate-700">
-            {aalInsight.evaluation}
-          </p>
-          {aalInsight.solution && (
-            <div className="mt-4 rounded-xl border border-white/80 bg-white/70 p-3">
-              <p className="font-body text-[12px] font-extrabold uppercase tracking-[0.18em] text-slate-500">
-                AAL Consultancy Solution
-              </p>
-              <p className="mt-1 font-body text-[14px] font-extrabold text-slate-900">
-                {aalInsight.solution.name}
-              </p>
-              <p className="mt-1 font-body text-[13px] font-medium leading-5 text-slate-600">
-                {aalInsight.solution.summary}
-              </p>
-              <span className="mt-3 inline-flex rounded-full border border-blue-200 bg-blue-50 px-3 py-1 font-body text-[11px] font-extrabold text-blue-700">
-                {aalInsight.solution.status}
-              </span>
-            </div>
-          )}
-        </section>
-      )}
-
-      {(scenario.solutionTypes?.length > 0 || scenario.deploymentModels?.length > 0) && (
-        <div className="mt-5 flex flex-wrap gap-2">
-          {[...(scenario.solutionTypes ?? []), ...(scenario.deploymentModels ?? [])].map((tag) => (
-            <span key={tag} className="rounded-full border border-slate-300/80 bg-white/70 px-3 py-1 font-body text-[12px] font-extrabold text-slate-600">
-              {tag}
-            </span>
-          ))}
-        </div>
       )}
 
       <div className="mt-7 flex justify-end">
@@ -484,7 +463,7 @@ function ScenarioCard({ scenario, index, onExploreScenario, isSaved, onToggleSav
           onClick={() => onExploreScenario?.(scenario)}
           className="group inline-flex items-center gap-2 rounded-full border border-white/80 bg-[var(--color-brand)] px-5 py-2.5 font-body text-[12px] font-extrabold uppercase tracking-[0.18em] text-white shadow-[0_14px_32px_rgba(25,52,160,0.24)] transition hover:-translate-y-0.5 hover:bg-slate-950 hover:shadow-[0_18px_38px_rgba(15,23,42,0.22)]"
         >
-          Explore
+          Explore the Tools
           <span className="text-base leading-none transition-transform group-hover:translate-x-0.5">→</span>
         </button>
       </div>
@@ -492,25 +471,10 @@ function ScenarioCard({ scenario, index, onExploreScenario, isSaved, onToggleSav
   );
 }
 
-function ContactField({ label, value, onChange, type = "text", className = "" }) {
-  return (
-    <label className={`flex flex-col gap-1 font-body text-xs text-slate-600 ${className}`}>
-      {label}
-      <input
-        type={type}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="rounded-lg border border-slate-200 p-2 text-sm text-slate-900 outline-none focus:border-[var(--color-brand)]"
-      />
-    </label>
-  );
-}
-
 // Gate in front of the existing export flow — collects lead info, then calls
 // the SAME exportSavedReport(records) as before. Doesn't touch the report's
 // HTML/PDF output at all.
 function ContactGateModal({ onSubmit, onClose }) {
-  const [contact, setContact] = useState({ firstName: "", surname: "", email: "", company: "", position: "" });
   return (
     <div
       className="fixed inset-0 z-[130] flex items-center justify-center bg-[rgba(20,24,38,0.45)] p-6 backdrop-blur-sm"
@@ -532,50 +496,110 @@ function ContactGateModal({ onSubmit, onClose }) {
         >
           <X size={18} />
         </button>
-        <p className="font-body text-sm font-extrabold text-slate-900">A couple of details before your report</p>
-        <form
-          className="mt-4 flex flex-col gap-4"
-          onSubmit={(e) => {
-            e.preventDefault();
-            onSubmit(contact);
-          }}
-        >
-          <div className="grid grid-cols-2 gap-3">
-            <ContactField label="First Name" value={contact.firstName} onChange={(v) => setContact((c) => ({ ...c, firstName: v }))} />
-            <ContactField label="Surname" value={contact.surname} onChange={(v) => setContact((c) => ({ ...c, surname: v }))} />
-            <ContactField
-              label="Email"
-              type="email"
-              className="col-span-2"
-              value={contact.email}
-              onChange={(v) => setContact((c) => ({ ...c, email: v }))}
-            />
-            <ContactField label="Company" value={contact.company} onChange={(v) => setContact((c) => ({ ...c, company: v }))} />
-            <ContactField label="Position" value={contact.position} onChange={(v) => setContact((c) => ({ ...c, position: v }))} />
-          </div>
-          <button
-            type="submit"
-            className="mt-1 self-end rounded-lg bg-[var(--color-brand)] px-8 py-2.5 font-body text-sm font-semibold text-white"
-          >
-            Export your report
-          </button>
-        </form>
+        <LeadCaptureForm
+          title="A couple of details before your report"
+          submitLabel="Export your report"
+          onSubmit={onSubmit}
+        />
       </motion.div>
     </div>
   );
 }
 
+function useResponsiveColumnCount() {
+  const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth >= 1280) setCount(3);
+      else if (window.innerWidth >= 1024) setCount(2);
+      else setCount(1);
+    };
+
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return count;
+}
+
+function MasonryUseCases({ scenarios, savedScenarioIds, onToggleSavedScenario, onExploreScenario }) {
+  const columnCount = useResponsiveColumnCount();
+  const measureRefs = useRef([]);
+  const [columns, setColumns] = useState(() => [scenarios.map((scenario, index) => ({ scenario, index }))]);
+
+  useLayoutEffect(() => {
+    const heights = measureRefs.current.map((node) => node?.getBoundingClientRect().height ?? 0);
+    const nextColumns = Array.from({ length: columnCount }, () => []);
+    const columnHeights = Array.from({ length: columnCount }, () => 0);
+
+    scenarios.forEach((scenario, index) => {
+      const target = columnHeights.indexOf(Math.min(...columnHeights));
+      nextColumns[target].push({ scenario, index });
+      columnHeights[target] += (heights[index] || 360) + 32;
+    });
+
+    setColumns(nextColumns);
+  }, [scenarios, columnCount]);
+
+  return (
+    <>
+      <div className="pointer-events-none fixed -left-[9999px] top-0 w-[31vw] opacity-0" aria-hidden="true">
+        {scenarios.map((scenario, index) => (
+          <div
+            key={scenario.id}
+            ref={(node) => {
+              measureRefs.current[index] = node;
+            }}
+            className="mb-8"
+          >
+            <ScenarioCard
+              scenario={scenario}
+              index={index}
+              isSaved={savedScenarioIds?.has(scenario.id)}
+              onToggleSavedScenario={onToggleSavedScenario}
+              onExploreScenario={onExploreScenario}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-10 grid items-start gap-8 lg:grid-cols-2 xl:grid-cols-3">
+        {columns.map((column, columnIndex) => (
+          <div key={columnIndex} className="flex min-w-0 flex-col gap-8">
+            {column.map(({ scenario, index }) => (
+              <ScenarioCard
+                key={scenario.id}
+                scenario={scenario}
+                index={index}
+                isSaved={savedScenarioIds?.has(scenario.id)}
+                onToggleSavedScenario={onToggleSavedScenario}
+                onExploreScenario={onExploreScenario}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
 export default function TaskDetailOverlay({
+  phase,
   task,
   selectedStakeholderId,
   savedScenarioIds,
   onToggleSavedScenario,
   onBack,
+  onPreviousTask,
+  onNextTask,
+  hasPreviousTask = false,
+  hasNextTask = false,
   onExploreScenario,
 }) {
   const visibleTask = filterTaskForStakeholder(task, selectedStakeholderId);
   const scenarios = visibleTask?.scenarios ?? [];
-  const columns = distributeScenarios(scenarios, 3);
   const [showSavedPanel, setShowSavedPanel] = useState(false);
   const [showContactGate, setShowContactGate] = useState(false);
   const savedRecords = savedScenarioRecords(savedScenarioIds);
@@ -590,16 +614,12 @@ export default function TaskDetailOverlay({
     >
       <div className="relative z-10 px-6 pb-16 pt-9 md:px-10">
         <div className="flex items-start gap-5">
-          <button
-            type="button"
-            onClick={onBack}
-            className="flex shrink-0 items-center gap-3 rounded-2xl border border-white/85 bg-white/78 px-5 py-4 font-body text-[16px] font-extrabold text-slate-950 shadow-[0_18px_50px_rgba(48,58,86,.13)] backdrop-blur-2xl transition hover:-translate-y-0.5"
-          >
-            <ArrowLeft size={20} /> back
-          </button>
+          <BackButton onClick={onBack} label="Back" />
 
           <div className="min-w-0 max-w-[980px] flex-[1_1_auto] rounded-[26px] border border-white/85 bg-white/72 px-7 py-5 shadow-[0_18px_60px_rgba(48,58,86,.13)] backdrop-blur-2xl">
-            <p className="font-body text-[14px] font-extrabold text-[var(--color-brand)]">Task Preview</p>
+            <p className="font-body text-[14px] font-extrabold text-[var(--color-brand)]">
+              {phase ? `Phase ${phase.order} · ${phase.label}` : "Phase"}
+            </p>
             <h1 className="mt-1 font-body text-[28px] font-extrabold leading-tight text-slate-950">
               {visibleTask?.label ?? "Task Preview"}
             </h1>
@@ -612,7 +632,7 @@ export default function TaskDetailOverlay({
               className="flex h-16 items-center gap-2 rounded-2xl border border-white/85 bg-white/76 px-5 font-body text-[14px] font-extrabold text-[var(--color-brand)] shadow-[0_18px_50px_rgba(48,58,86,.13)] backdrop-blur-2xl transition hover:-translate-y-0.5"
             >
               <Star size={17} strokeWidth={2.1} fill={savedScenarioIds?.size ? "currentColor" : "none"} />
-              Saved Scenarios
+              Saved Use Cases
               <span className="rounded-full bg-[var(--color-brand)] px-2 py-0.5 text-[11px] text-white">
                 {savedScenarioIds?.size ?? 0}
               </span>
@@ -624,19 +644,19 @@ export default function TaskDetailOverlay({
                     everything else, so it never intercepts the panel's own clicks. */}
                 <button
                   type="button"
-                  aria-label="Dismiss saved scenarios"
+                  aria-label="Dismiss saved use cases"
                   onClick={() => setShowSavedPanel(false)}
                   className="fixed inset-0 z-20 cursor-default"
                 />
                 <div className="absolute right-0 top-[calc(100%+12px)] z-30 w-[340px] rounded-3xl border border-white/85 bg-white/88 p-5 shadow-[0_26px_70px_rgba(48,58,86,0.18)] backdrop-blur-2xl">
                   <div className="flex items-center justify-between">
                     <p className="font-body text-[13px] font-extrabold uppercase tracking-[0.18em] text-slate-500">
-                      Saved Scenarios
+                      Saved Use Cases
                     </p>
                     <button
                       type="button"
                       onClick={() => setShowSavedPanel(false)}
-                      aria-label="Close saved scenarios panel"
+                      aria-label="Close saved use cases panel"
                       className="text-slate-400 hover:text-slate-700"
                     >
                       <X size={16} />
@@ -644,7 +664,7 @@ export default function TaskDetailOverlay({
                   </div>
                 {savedRecords.length === 0 ? (
                   <p className="mt-3 font-body text-sm font-semibold leading-6 text-slate-500">
-                    No saved scenarios yet. Use the star on a scenario card to save it.
+                    No saved use cases yet. Use the star on a use case card to save it.
                   </p>
                 ) : (
                   <div className="mt-4 max-h-[360px] space-y-3 overflow-y-auto pr-1">
@@ -676,7 +696,7 @@ export default function TaskDetailOverlay({
                   Export Saved Report
                 </button>
                 <p className="mt-3 font-body text-xs font-semibold leading-5 text-slate-500">
-                  Future report export can include the AAL logo, task context, pain points, scenarios, and AI solutions.
+                  Future report export can include the AAL logo, task context, pain points, use cases, and AI solutions.
                 </p>
                 </div>
               </>
@@ -686,29 +706,40 @@ export default function TaskDetailOverlay({
 
         {scenarios.length === 0 ? (
           <div className="mt-10 rounded-[28px] border border-dashed border-slate-300 bg-white/68 p-10 text-center shadow-[0_22px_60px_rgba(48,58,86,.12)] backdrop-blur-2xl">
-            <p className="font-body text-lg font-extrabold text-slate-800">No scenario content yet for this task</p>
+            <p className="font-body text-lg font-extrabold text-slate-800">No use case content yet for this task</p>
             <p className="mt-2 font-body text-sm font-medium text-slate-500">
-              This task exists in the real phase/task dataset, but the current AI solution dataset has no matched scenario rows for it yet.
+              This task exists in the real phase/task dataset, but the current AI solution dataset has no matched use case rows for it yet.
             </p>
           </div>
         ) : (
-          <div className="mt-10 grid items-start gap-8 xl:grid-cols-3 lg:grid-cols-2">
-            {columns.map((column, columnIndex) => (
-              <div key={columnIndex} className="flex min-w-0 flex-col gap-8">
-                {column.map(({ scenario, index }) => (
-                  <ScenarioCard
-                    key={scenario.id}
-                    scenario={scenario}
-                    index={index}
-                    isSaved={savedScenarioIds?.has(scenario.id)}
-                    onToggleSavedScenario={onToggleSavedScenario}
-                    onExploreScenario={onExploreScenario}
-                  />
-                ))}
-              </div>
-            ))}
-          </div>
+          <MasonryUseCases
+            scenarios={scenarios}
+            savedScenarioIds={savedScenarioIds}
+            onToggleSavedScenario={onToggleSavedScenario}
+            onExploreScenario={onExploreScenario}
+          />
         )}
+
+        <div className="mt-10 flex justify-end gap-3">
+          <button
+            type="button"
+            onClick={onPreviousTask}
+            disabled={!hasPreviousTask}
+            className="inline-flex items-center gap-2 rounded-full border border-white/85 bg-white/78 px-5 py-3 font-body text-sm font-extrabold text-[var(--color-brand)] shadow-[0_18px_50px_rgba(48,58,86,.13)] backdrop-blur-2xl transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0"
+          >
+            <span className="text-lg leading-none">←</span>
+            Previous Task
+          </button>
+          <button
+            type="button"
+            onClick={onNextTask}
+            disabled={!hasNextTask}
+            className="inline-flex items-center gap-2 rounded-full border border-white/85 bg-white/78 px-5 py-3 font-body text-sm font-extrabold text-[var(--color-brand)] shadow-[0_18px_50px_rgba(48,58,86,.13)] backdrop-blur-2xl transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0"
+          >
+            Next Task
+            <span className="text-lg leading-none">→</span>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

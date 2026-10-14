@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import MetroMap from "./MetroMap";
 import MetroFocusView from "./MetroFocusView";
 import StakeholderPopup from "./StakeholderPopup";
 import StakeholderLegend from "./StakeholderLegend";
 import stakeholders from "../data/stakeholders.json";
+import BackButton from "./BackButton";
 
 export default function MetroMapState({
   selectedStakeholderId,
@@ -30,13 +31,7 @@ export default function MetroMapState({
       <div className="relative">
         {!locked && !focusPhase && (
           <>
-            <button
-              type="button"
-              onClick={onBackToStakeholderSelection}
-              className="fixed left-6 top-28 z-20 flex items-center gap-2 rounded-full border border-white/85 bg-white/75 px-5 py-3 font-body text-sm font-semibold text-[var(--color-ink)] shadow-[0_14px_40px_rgba(25,52,160,0.13)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:text-[var(--color-brand)]"
-            >
-              <ArrowLeft size={16} /> Back
-            </button>
+            <BackButton onClick={onBackToStakeholderSelection} className="fixed left-6 top-28 z-20" />
 
             <div className="fixed left-1/2 top-28 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/85 bg-white/75 px-5 py-3 font-body text-sm font-extrabold text-[var(--color-ink)] shadow-[0_14px_40px_rgba(25,52,160,0.13)] backdrop-blur-xl">
               <span className="text-[var(--color-brand)]">Viewing as</span>
@@ -69,6 +64,7 @@ export default function MetroMapState({
           <div className="mx-auto w-full max-w-5xl px-4 pb-16 pt-10">
             <MetroMap
               onSelectPhase={onFocusPhase}
+              onSelectTask={onSelectTask}
               selectedStakeholderId={selectedStakeholderId}
               collapsed={collapsed}
             />

@@ -84,7 +84,10 @@ export function taskInvolvesStakeholder(task, stakeholderId) {
 
 export function filterTaskForStakeholder(task, stakeholderId) {
   if (!task || !stakeholderId || stakeholderId === "all") return task;
-  return task;
+  return {
+    ...task,
+    scenarios: (task.scenarios ?? []).filter((scenario) => scenarioInvolvesStakeholder(scenario, stakeholderId)),
+  };
 }
 
 export function filterPhaseForStakeholder(phase, stakeholderId) {
