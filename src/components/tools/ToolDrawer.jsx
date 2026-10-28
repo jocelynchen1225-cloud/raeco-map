@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { X, ExternalLink, MessageSquare } from "lucide-react";
+import { X, ExternalLink, MessageSquare, Star } from "lucide-react";
 import ToolLogo from "./ToolLogo";
 import stakeholders from "../../data/stakeholders.json";
 import phases from "../../data/phases.json";
@@ -26,7 +26,7 @@ function Chip({ children }) {
   );
 }
 
-export default function ToolDrawer({ tool, useCases, onClose }) {
+export default function ToolDrawer({ tool, useCases, onClose, isSaved = false, onToggleSaved }) {
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
@@ -71,6 +71,20 @@ export default function ToolDrawer({ tool, useCases, onClose }) {
               ))}
             </div>
           </div>
+          <button
+            type="button"
+            onClick={() => onToggleSaved?.(tool.id)}
+            aria-pressed={isSaved}
+            aria-label={isSaved ? "Remove from report" : "Add to report"}
+            title={isSaved ? "Remove from report" : "Add to report"}
+            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition hover:-translate-y-0.5 ${
+              isSaved
+                ? "border-amber-200 bg-amber-50 text-amber-500"
+                : "border-[var(--color-hairline)] bg-white text-[var(--color-ink)]/40 hover:text-[var(--color-brand)]"
+            }`}
+          >
+            <Star size={17} strokeWidth={2.1} fill={isSaved ? "currentColor" : "none"} />
+          </button>
           <button
             type="button"
             onClick={onClose}

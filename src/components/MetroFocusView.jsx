@@ -121,7 +121,15 @@ function TaskCard({ x, y, task, visual, onSelect }) {
  * fleshed-out phase shows six). Prev/next glass circles navigate with a
  * continuous scroll-style slide.
  */
-export default function MetroFocusView({ phase, selectedStakeholderId, onChangeIndex, onClose, onSelectTask }) {
+export default function MetroFocusView({
+  phase,
+  selectedStakeholderId,
+  onChangeIndex,
+  onClose,
+  onSelectTask,
+  onHome,
+  onSelectStakeholder,
+}) {
   const stageRef = useRef(null);
   const [size, setSize] = useState({ w: 1100, h: 760 });
   const controls = useAnimation();
@@ -192,12 +200,16 @@ export default function MetroFocusView({ phase, selectedStakeholderId, onChangeI
         transition={{ duration: 0.25 }}
       >
         <div className="absolute left-0 right-0 top-0 z-[8] bg-white">
-          <NavBar />
+          <NavBar onHome={onHome} />
         </div>
 
         <BackButton onClick={onClose} className="absolute left-8 top-[132px] z-[7]" />
 
-        <StakeholderLegend className="absolute right-6 top-[132px] z-[6]" />
+        <StakeholderLegend
+          className="absolute right-6 top-[132px] z-[6]"
+          selectedStakeholderId={selectedStakeholderId}
+          onSelectStakeholder={onSelectStakeholder}
+        />
 
         <div ref={stageRef} className="absolute inset-x-0 bottom-0 top-[100px] mx-auto w-full max-w-[1220px] overflow-hidden">
           <motion.div className="relative h-full w-full" initial={{ scale: 0.94, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.28 }}>

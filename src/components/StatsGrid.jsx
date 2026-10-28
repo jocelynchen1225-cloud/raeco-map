@@ -1,6 +1,6 @@
 const STATS = [
   { value: "200+", label: "AI Solutions", blurb: "Curated from across the AEC industry, from BIM automation to site safety monitoring." },
-  { value: "80+", label: "Scenarios", blurb: "Real day-to-day tasks, mapped from Pre-Design through Operations." },
+  { value: "80+", label: "Use Cases", blurb: "Real day-to-day tasks, mapped from Pre-Design through Operations." },
   { value: "10+", label: "Countries reached", blurb: "Insights and case studies drawn from projects across the globe." },
   { value: "400+", label: "Clients", blurb: "AEC firms already using this to plan their AI adoption." },
 ];

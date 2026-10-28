@@ -1,16 +1,20 @@
-const NAV_LINKS = ["Scenarios", "Stakeholders", "AI Tools", "Insight & Stories"];
-const LIVE_LINKS = new Set(["Scenarios", "AI Tools"]);
+const NAV_LINKS = ["Use Cases", "Stakeholders", "AI Tools", "Insight & Stories"];
+const LIVE_LINKS = new Set(["AI Tools"]);
 
 export default function NavBar({ activeLink = null, onNavigate, onHome }) {
   return (
     <header className="relative z-20 flex items-center justify-between px-10 py-6 md:px-16">
-      <button type="button" onClick={onHome} className="flex items-center gap-4 text-left">
+      <button
+        type="button"
+        onClick={onHome}
+        className="group flex items-center gap-4 text-left"
+      >
         <img
           src="/logo.png"
           alt="AAL Innovation"
           className="h-14 w-14 shrink-0 rounded-lg object-cover"
         />
-        <span className="font-body text-[17px] font-normal tracking-wide text-[var(--color-ink)]">
+        <span className="font-body text-[17px] font-normal tracking-wide text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-brand)]">
           AAL INNOVATION
         </span>
       </button>

@@ -15,10 +15,11 @@ import { findPhase, findTask, filterPhasesForStakeholder, filterTaskForStakehold
 // the hero/stakeholder/map screens.
 const STATES_WITH_CHAT = [APP_STATES.TASK_DETAIL_STATIC, APP_STATES.SOLUTION_DETAIL_STATIC, APP_STATES.AI_TOOLS];
 const SAVED_SCENARIOS_KEY = "raeco.savedScenarioIds";
+const SAVED_TOOLS_KEY = "raeco.savedToolIds";
 
-function loadSavedScenarioIds() {
+function loadSavedIds(key) {
   try {
-    return new Set(JSON.parse(window.localStorage.getItem(SAVED_SCENARIOS_KEY) ?? "[]"));
+    return new Set(JSON.parse(window.localStorage.getItem(key) ?? "[]"));
   } catch {
     return new Set();
   }
@@ -27,7 +28,8 @@ function loadSavedScenarioIds() {
 export default function App() {
   const [ctx, setCtx] = useState(initialAppContext);
   const [focusPhase, setFocusPhase] = useState(null); // phase currently zoomed into on the metro map
-  const [savedScenarioIds, setSavedScenarioIds] = useState(loadSavedScenarioIds);
+  const [savedScenarioIds, setSavedScenarioIds] = useState(() => loadSavedIds(SAVED_SCENARIOS_KEY));
+  const [savedToolIds, setSavedToolIds] = useState(() => loadSavedIds(SAVED_TOOLS_KEY));
   const [favoriteToast, setFavoriteToast] = useState(null);
 
   // Every screen transition starts scrolled to the top, regardless of where
@@ -109,6 +111,10 @@ export default function App() {
     window.localStorage.setItem(SAVED_SCENARIOS_KEY, JSON.stringify([...savedScenarioIds]));
   }, [savedScenarioIds]);
 
+  useEffect(() => {
+    window.localStorage.setItem(SAVED_TOOLS_KEY, JSON.stringify([...savedToolIds]));
+  }, [savedToolIds]);
+
   const toggleSavedScenario = (scenarioId) => {
     setSavedScenarioIds((prev) => {
       const next = new Set(prev);
@@ -126,6 +132,23 @@ export default function App() {
     });
   };
 
+  const toggleSavedTool = (toolId) => {
+    setSavedToolIds((prev) => {
+      const next = new Set(prev);
+      const willSave = !next.has(toolId);
+      if (willSave) {
+        next.add(toolId);
+        setFavoriteToast("Added to report. You can export your saved tools report later.");
+      } else {
+        next.delete(toolId);
+        setFavoriteToast("Removed from report.");
+      }
+      window.clearTimeout(toggleSavedTool.toastTimer);
+      toggleSavedTool.toastTimer = window.setTimeout(() => setFavoriteToast(null), 2400);
+      return next;
+    });
+  };
+
   return (
     <div className="min-h-screen bg-[var(--color-paper)]">
       <NavBar
@@ -133,15 +156,11 @@ export default function App() {
           ctx.state === APP_STATES.AI_TOOLS
             ? "AI Tools"
             : ctx.state === APP_STATES.METRO_MAP
-              ? "Scenarios"
+              ? "Use Cases"
               : null
         }
         onHome={backToHero}
         onNavigate={(link) => {
-          if (link === "Scenarios") {
-            setFocusPhase(null);
-            goTo(APP_STATES.METRO_MAP);
-          }
           if (link === "AI Tools") {
             setFocusPhase(null);
             goTo(APP_STATES.AI_TOOLS);
@@ -211,7 +230,9 @@ export default function App() {
             hasNextUseCase={Boolean(nextScenario)}
           />
         )}
-        {ctx.state === APP_STATES.AI_TOOLS && <AIToolsPage key="ai-tools" />}
+        {ctx.state === APP_STATES.AI_TOOLS && (
+          <AIToolsPage key="ai-tools" savedToolIds={savedToolIds} onToggleSavedTool={toggleSavedTool} />
+        )}
       </AnimatePresence>
 
       {STATES_WITH_CHAT.includes(ctx.state) && (

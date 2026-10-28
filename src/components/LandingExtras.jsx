@@ -74,16 +74,17 @@ const CELLS = {
 
 const COLS = 8;
 const ROWS = 5;
-const REGION_GAP = 5;
-const FRAME_PAD = 10;
+const REGION_GAP = 3;
+const FRAME_PAD = 6;
 const LABEL_H = 18;
-const TILE_GAP = 9;
-const BOARD_SCALE = 0.75; // image1 is 25% smaller than the previous version
+const TILE_GAP = 5;
+const BOARD_SCALE = 0.97; // nearly fill the host width (matches the stats row above)
+const CORNER_RADIUS = 10; // matches the rounded-lg (8px) corners used on the stat cards
 
-// Build one outline for a polyomino from its occupied grid cells.  This is the
-// important bit: bent red/green/blue groups are no longer separate rectangles,
-// so their frame cannot visually break at the bend.
-function regionPath(cells, slot) {
+// Walk the occupied grid cells of a polyomino into an ordered list of outline
+// vertices. Bent red/green/blue groups are no longer separate rectangles, so
+// their frame cannot visually break at the bend.
+function regionOutlinePoints(cells, slot) {
   const occupied = new Set(cells.map(([r, c]) => `${r},${c}`));
   const x0 = (c) => c * slot;
   const y0 = (r) => r * slot;
@@ -109,7 +110,44 @@ function regionPath(cells, slot) {
     points.push(n);
     cur = n;
   }
-  return `M ${points.map(([x,y]) => `${x},${y}`).join(" L ")} Z`;
+  return points;
+}
+
+// Rounds every corner of a straight-edge polygon outline — convex AND
+// concave (reflex) corners alike — by clipping `radius` units off each edge
+// on either side of the vertex and bridging the gap with a quadratic curve
+// through the original corner point. Works for any axis-aligned polygon, so
+// it naturally also softens the inner notches where an industry's shape bends.
+function roundedPolygonPath(points, radius) {
+  const n = points.length;
+  const dist = (a, b) => Math.hypot(b[0] - a[0], b[1] - a[1]);
+  const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+
+  const entries = [];
+  const exits = [];
+  for (let i = 0; i < n; i += 1) {
+    const prev = points[(i - 1 + n) % n];
+    const cur = points[i];
+    const nxt = points[(i + 1) % n];
+    const rIn = Math.min(radius, dist(prev, cur) / 2);
+    const rOut = Math.min(radius, dist(cur, nxt) / 2);
+    entries.push(lerp(cur, prev, rIn / Math.max(dist(prev, cur), 1e-6)));
+    exits.push(lerp(cur, nxt, rOut / Math.max(dist(cur, nxt), 1e-6)));
+  }
+
+  let d = `M ${entries[0][0]},${entries[0][1]} `;
+  for (let i = 0; i < n; i += 1) {
+    d += `Q ${points[i][0]},${points[i][1]} ${exits[i][0]},${exits[i][1]} `;
+    d += `L ${entries[(i + 1) % n][0]},${entries[(i + 1) % n][1]} `;
+  }
+  d += "Z";
+  return d;
+}
+
+function regionPath(cells, slot, radius = 0) {
+  const points = regionOutlinePoints(cells, slot);
+  if (!radius) return `M ${points.map(([x, y]) => `${x},${y}`).join(" L ")} Z`;
+  return roundedPolygonPath(points, radius);
 }
 
 function TetrisBoard() {
@@ -145,7 +183,7 @@ function TetrisBoard() {
               <g key={`${id}-frame`}>
                 {/* White under-stroke creates a small, consistent gap between puzzle pieces. */}
                 <path
-                  d={regionPath(CELLS[id], slot)}
+                  d={regionPath(CELLS[id], slot, CORNER_RADIUS)}
                   fill={`${color}30`}
                   stroke="#fff"
                   strokeWidth={REGION_GAP * 2}
@@ -153,7 +191,7 @@ function TetrisBoard() {
                   strokeLinecap="round"
                 />
                 <path
-                  d={regionPath(CELLS[id], slot)}
+                  d={regionPath(CELLS[id], slot, CORNER_RADIUS)}
                   fill={`${color}30`}
                   stroke={`${color}80`}
                   strokeWidth="1.5"
@@ -228,8 +266,8 @@ function TetrisBoard() {
                 className="mt-1.5 block w-full overflow-hidden text-center font-body font-semibold leading-tight text-[var(--color-ink)]/75"
                 style={{
                   display: "-webkit-box",
-                  fontSize: Math.max(6.25, square * 0.125),
-                  minHeight: Math.max(14, square * 0.34),
+                  fontSize: Math.max(7.5, square * 0.145),
+                  minHeight: Math.max(14, square * 0.32),
                   WebkitBoxOrient: "vertical",
                   WebkitLineClamp: 2,
                 }}
@@ -264,7 +302,7 @@ const CASE_STUDIES = [
 
 export default function LandingExtras() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-20 px-6 pb-24 pt-16 md:px-0">
+    <div className="mx-auto flex max-w-4xl flex-col gap-20 px-6 pb-24 pt-16 md:px-0">
       <section className="flex flex-col gap-6">
         <div className="text-center">
           <h2 className="font-body text-2xl font-bold text-[var(--color-brand)]">A preview of what's inside</h2>

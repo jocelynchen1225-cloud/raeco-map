@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
 import { User } from "lucide-react";
 import stakeholders from "../data/stakeholders.json";
-import { STAKEHOLDER_ICONS, getIndustryColor, INDUSTRY_LABELS } from "../lib/taskVisuals";
+import { STAKEHOLDER_ICONS, getIndustryColor, INDUSTRY_LABELS, INDUSTRY_ORDER } from "../lib/taskVisuals";
 import BackButton from "./BackButton";
+
+// Group same-industry (same-color) stakeholders together, in canonical RAECO
+// order, rather than whatever order they happen to sit in the data file.
+const sortedStakeholders = [...stakeholders].sort(
+  (a, b) => INDUSTRY_ORDER.indexOf(a.industry) - INDUSTRY_ORDER.indexOf(b.industry)
+);
 
 // Matches the Figma reference: fixed 26px corner radius, same icon/name/dot
 // set, tinted per RAECO industry with a flat fill (no gradient) to match the
@@ -16,7 +22,7 @@ export default function StakeholderPopup({ onSelectStakeholder, onBack }) {
         transition={{ duration: 0.4, ease: "easeOut" }}
         className="grid w-full max-w-6xl grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 md:grid-cols-4"
       >
-        {stakeholders.map((s) => {
+        {sortedStakeholders.map((s) => {
           const Icon = STAKEHOLDER_ICONS[s.icon] ?? User;
           const industryColor = getIndustryColor(s.industry);
           return (

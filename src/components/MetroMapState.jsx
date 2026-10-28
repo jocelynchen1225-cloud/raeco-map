@@ -74,6 +74,8 @@ export default function MetroMapState({
         <StakeholderLegend
           className="fixed right-6 top-28 z-10 hidden lg:block"
           style={{ filter: locked ? "blur(16px)" : "none", transition: "filter 0.7s ease" }}
+          selectedStakeholderId={selectedStakeholderId}
+          onSelectStakeholder={locked ? undefined : onSelectStakeholder}
         />
 
         <AnimatePresence>
@@ -97,6 +99,8 @@ export default function MetroMapState({
           onChangeIndex={onFocusPhase}
           onClose={() => onFocusPhase(null)}
           onSelectTask={onSelectTask}
+          onHome={onBack}
+          onSelectStakeholder={onSelectStakeholder}
         />
       )}
     </motion.section>
